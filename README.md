@@ -1,1 +1,1 @@
-# 3311M-Group-Project
+# EECS 3311M-Group-Project
