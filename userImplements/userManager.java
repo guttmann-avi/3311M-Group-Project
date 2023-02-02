@@ -1,4 +1,4 @@
-package groupProject3451;
+package userImplements;
 
 public interface userManager {
 public void addUser(User user);

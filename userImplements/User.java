@@ -1,18 +1,17 @@
-package groupProject3451;
+package userImplements;
 
-public class User implements userManager {
+public class User{
 
 	
 
-		private int nextTransID = 1;
+		private static int nextTransID = 0;
 		private String name;
 		private double salary;
 		private int transID;
 		public User(String name, double salary) {
 			this.name = name;
 			this.salary = salary;
-			this.transID = nextTransID;
-			nextTransID++;
+			this.transID = nextTransID++;
 			
 		}
 		
@@ -31,15 +30,7 @@ public class User implements userManager {
 		public void setSalary(double salary) {
 			this.salary = salary;
 		}
-		@Override
-	    public void addUser(User user) {
-	        
-	    }
-
-	    @Override
-	    public void removeUser(User user) {
-	        
-	    }
+		
 		
 		
 }
