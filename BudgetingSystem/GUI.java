@@ -22,6 +22,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JTextField endDateT;
     JList<String> userList;
     
+    JButton insertNewUser;
     JButton insertNewPurchase;
     JTextArea purchaseOutputPanel;
     
@@ -109,16 +110,26 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		c.gridy = 1;
         this.add(emptyPanel2, c);
         
-        insertNewPurchase = new JButton("Insert");
+        insertNewPurchase = new JButton("Insert Purchase");
         insertNewPurchase.addActionListener(this);
-		JPanel submitPanel = new JPanel(new GridLayout(0, 1));
-		submitPanel.add(insertNewPurchase);
+		JPanel submitPanelPurchase = new JPanel(new GridLayout(0, 1));
+		submitPanelPurchase.add(insertNewPurchase);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
-		c.gridx = 2;
+		c.gridx = 3;
 		c.gridy = 2;
-        this.add(submitPanel, c);
+        this.add(submitPanelPurchase, c);
 
+        insertNewUser = new JButton("Insert New User");
+        insertNewUser.addActionListener(this);
+		JPanel submitPanelNewUser = new JPanel(new GridLayout(0, 1));
+		submitPanelNewUser.add(insertNewUser);
+		c.fill = GridBagConstraints.NONE;
+		c.anchor = GridBagConstraints.LINE_START;
+		c.gridx = 1;
+		c.gridy = 2;
+        this.add(submitPanelNewUser, c);
+        
         JLabel emptyLabel3 = new JLabel("                    \n          ");
         JPanel emptyPanel3 = new JPanel(new GridLayout(0, 1));
         emptyPanel3.add(emptyLabel3);
