@@ -15,6 +15,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	JLabel endDateL;
 	JLabel usersL;
 	
+    
 	JTextField nameT;
     JTextField budgetT;
     JTextField amountT;
