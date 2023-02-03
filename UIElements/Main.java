@@ -1,4 +1,4 @@
-package BudgetingSystem;
+package UIElements;
 
 public class Main {
 

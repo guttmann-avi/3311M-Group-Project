@@ -1,4 +1,4 @@
-package BudgetingSystem;
+package UIElements;
 
 import javax.swing.*;
 import java.awt.*;
@@ -147,7 +147,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		c.gridy = 4;
         this.add(outputPanel, c);
         
-
 		this.setBounds(50, 50, 600, 500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -155,6 +154,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
     public void itemStateChanged(ItemEvent e) {
 
+    	Object source = e.getItemSelectable();
+    	
+    	
     }
 
     public void actionPerformed(ActionEvent e) {
