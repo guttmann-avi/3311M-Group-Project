@@ -1,3 +1,5 @@
+package BudgetingSystem;
+
 import java.util.Date;
 
 public class Purchases {
