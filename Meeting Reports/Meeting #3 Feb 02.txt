@@ -1,0 +1,7 @@
+UPDATES : 
+Because of the difference in members' Eclipse versions, connection to GitHub was unsuccessful at first
+Team switched to Visual Studio Code as the main IDE
+Team decided on a new file system with the Purchases class in the BudgetingSystem package
+All members are now successfully connected to GitHub and can both fetch and push 
+The date of the next meeting was set 
+
