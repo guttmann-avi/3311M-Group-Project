@@ -47,7 +47,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         nameL = new JLabel("       New User Name ");
         nameL.setEnabled(true);
-        budgetL = new JLabel("		Total Budget Of User ");
+        budgetL = new JLabel("		Total User Income ");
         budgetL.setEnabled(true);
         nameT = new JTextField();
         nameT.setEnabled(true);
@@ -165,14 +165,18 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         Object source = e.getActionCommand();
         if (source == insertNewUser.getText()) {
             if (nameT.getText().isBlank() || budgetT.getText().isBlank()) {
-                purchaseOutputPanel.setText("Pease fill in "); 
+                purchaseOutputPanel.setText("Pease fill in fields for 'New User Name' and 'Total User Income' "); 
             } else {
-                User user = new User(nameT.getText(), Double.parseDouble(budgetT.getText()), null);
-                household.addUser(user);
-                userss[userCounter] = user.getName();
-                userCounter++;
-                userList.setListData(userss);
-                purchaseOutputPanel.setText("User has been added successfully");
+                try {
+                    User user = new User(nameT.getText(), Double.parseDouble(budgetT.getText()), null);
+                    household.addUser(user);
+                    userss[userCounter] = user.getName();
+                    userCounter++;
+                    userList.setListData(userss);
+                    purchaseOutputPanel.setText("User has been added successfully");
+                } catch (NumberFormatException numberFormatException) {
+                    purchaseOutputPanel.setText("Please make sure the value in the 'Total User Income' is a valid value.");
+                }
             } 
         }
     }
