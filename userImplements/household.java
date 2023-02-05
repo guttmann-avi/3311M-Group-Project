@@ -3,13 +3,14 @@ package userImplements;
 import java.util.ArrayList;
 import java.util.List;
 
-public class household implements userManager{
+public class Household implements userManager {
 
 	private List<User> users;
 	
-	public household() {
+	public Household() {
 		this.users = new ArrayList<>();
-		}
+	}
+
 	@Override
     public void addUser(User user) {
         this.users.add(user);
@@ -19,7 +20,8 @@ public class household implements userManager{
     public void removeUser(User user) {
         this.users.remove(user);
     }
-    public List<User> getUsers(){
+
+    public List<User> getUsers() {
     	return users;
     }
 	

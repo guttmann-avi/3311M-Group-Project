@@ -1,6 +1,10 @@
 package UIElements;
 
 import javax.swing.*;
+
+import userImplements.Household;
+import userImplements.User;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
@@ -8,13 +12,14 @@ import java.util.ArrayList;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 
+    private int userCounter = 0;
+
     JLabel nameL;
     JLabel budgetL;
     JLabel amountL;
 	JLabel startDateL;
 	JLabel endDateL;
 	JLabel usersL;
-	
     
 	JTextField nameT;
     JTextField budgetT;
@@ -26,7 +31,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JButton insertNewUser;
     JButton insertNewPurchase;
     JTextArea purchaseOutputPanel;
-    
+
+    Household household = new Household();
+
+	String[] userss = new String[10];
 
     public GUI() {
         initialize();
@@ -84,9 +92,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         userList = new JList<String>();
         userList.setEnabled(true);
-		String[] userss = new String[2];
-		userss[0] = "Avi";
-		userss[1] = "Abdullah";
 		userList.setListData(userss);
         JPanel newPurchase = new JPanel(new GridLayout(0, 2));
 		newPurchase.add(amountL);
@@ -153,14 +158,22 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
     }
 
-    public void itemStateChanged(ItemEvent e) {
-
-    	Object source = e.getItemSelectable();
-    	
-    	
+    public void itemStateChanged(ItemEvent e) {    
     }
 
     public void actionPerformed(ActionEvent e) {
-
+        Object source = e.getActionCommand();
+        if (source == insertNewUser.getText()) {
+            if (nameT.getText().isBlank() || budgetT.getText().isBlank()) {
+                purchaseOutputPanel.setText("Pease fill in "); 
+            } else {
+                User user = new User(nameT.getText(), Double.parseDouble(budgetT.getText()), null);
+                household.addUser(user);
+                userss[userCounter] = user.getName();
+                userCounter++;
+                userList.setListData(userss);
+                purchaseOutputPanel.setText("User has been added successfully");
+            } 
+        }
     }
 }

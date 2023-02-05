@@ -29,7 +29,7 @@ public class User {
 		this.date = date;
 	}
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
