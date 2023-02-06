@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Household implements userManager {
 
-	private List<User> users;
-	
-	public Household() {
-		this.users = new ArrayList<>();
-	}
+    private List<User> users;
 
-	@Override
+    public Household() {
+        this.users = new ArrayList<>();
+    }
+
+    @Override
     public void addUser(User user) {
         this.users.add(user);
-	}
+    }
 
     @Override
     public void removeUser(User user) {
@@ -22,8 +22,7 @@ public class Household implements userManager {
     }
 
     public List<User> getUsers() {
-    	return users;
+        return users;
     }
-	
-	
+
 }
