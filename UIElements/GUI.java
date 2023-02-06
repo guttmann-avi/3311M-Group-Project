@@ -44,7 +44,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         nameL = new JLabel("       New User Name ");
         nameL.setEnabled(true);
-        budgetL = new JLabel("		Total Budget Of User ");
+        budgetL = new JLabel("		Total Income Of User ");
         budgetL.setEnabled(true);
         nameT = new JTextField();
         nameT.setEnabled(true);
@@ -89,10 +89,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         userList = new JList<String>();
         userList.setEnabled(true);
-        String[] userss = new String[2];
-        userss[0] = "Avi";
-        userss[1] = "Abdullah";
-        userList.setListData(userss);
+        //String[] userss = new String[2];
+        //userList.setListData(userss);
         JPanel newPurchase = new JPanel(new GridLayout(0, 2));
         newPurchase.add(amountL);
         newPurchase.add(amountT);
@@ -159,9 +157,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     }
 
     public void itemStateChanged(ItemEvent e) {
-
         Object source = e.getItemSelectable();
-
     }
 
     public void actionPerformed(ActionEvent e) {
