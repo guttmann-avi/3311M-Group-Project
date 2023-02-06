@@ -25,4 +25,23 @@ public class Household implements userManager {
         return users;
     }
 
+    public User findUser(String name) {
+        for (User user : users) {
+            if (user.getName().equalsIgnoreCase(name)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public void replaceUser(User replacedUser) {
+        for (User user : users) {
+            if (user.getName().equalsIgnoreCase(replacedUser.getName())) {
+                int index = users.indexOf(user);
+                users.remove(user);
+                users.add(index, replacedUser);
+                break;
+            }
+        }
+    }
 }

@@ -1,28 +1,33 @@
 package UIElements;
 
 import javax.swing.*;
+
+import BudgetingSystem.Purchases;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 import java.util.ArrayList;
+import java.util.Date;
+
 import userImplements.Household;
 import userImplements.User;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 
     JLabel nameL;
-    JLabel budgetL;
+    JLabel incomeL;
     JLabel amountL;
-    JLabel startDateL;
-    JLabel endDateL;
+    JLabel purchaseDateL;
+    // JLabel endDateL;
     JLabel usersL;
 
     private int userCounter = 0;
     JTextField nameT;
-    JTextField budgetT;
+    JTextField incomeT;
     JTextField amountT;
-    JTextField startDateT;
-    JTextField endDateT;
+    JTextField purchaseDateT;
+    // JTextField endDateT;
     JList<String> userList;
 
     JButton insertNewUser;
@@ -44,18 +49,18 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         nameL = new JLabel("       New User Name ");
         nameL.setEnabled(true);
-        budgetL = new JLabel("		Total Income Of User ");
-        budgetL.setEnabled(true);
+        incomeL = new JLabel("		Total Income Of User ");
+        incomeL.setEnabled(true);
         nameT = new JTextField();
         nameT.setEnabled(true);
-        budgetT = new JTextField();
-        budgetT.setEnabled(true);
+        incomeT = new JTextField();
+        incomeT.setEnabled(true);
 
         JPanel newInformation = new JPanel(new GridLayout(0, 1));
         newInformation.add(nameL);
         newInformation.add(nameT);
-        newInformation.add(budgetL);
-        newInformation.add(budgetT);
+        newInformation.add(incomeL);
+        newInformation.add(incomeT);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
@@ -73,19 +78,19 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         amountL = new JLabel("       Amount ");
         amountL.setEnabled(true);
-        startDateL = new JLabel("       Start Date (DD/MM/YYYY)  ");
-        startDateL.setEnabled(true);
-        endDateL = new JLabel("       End Date (DD/MM/YYYY)  ");
-        endDateL.setEnabled(true);
+        purchaseDateL = new JLabel("       Purchase Date (DD/MM/YYYY)  ");
+        purchaseDateL.setEnabled(true);
+        // endDateL = new JLabel("       End Date (DD/MM/YYYY)  ");
+        // endDateL.setEnabled(true);
 
         usersL = new JLabel("			User Choice");
         usersL.setEnabled(true);
         amountT = new JTextField();
         amountT.setEnabled(true);
-        startDateT = new JTextField();
-        startDateT.setEnabled(true);
-        endDateT = new JTextField();
-        endDateT.setEnabled(true);
+        purchaseDateT = new JTextField();
+        purchaseDateT.setEnabled(true);
+        // endDateT = new JTextField();
+        // endDateT.setEnabled(true);
 
         userList = new JList<String>();
         userList.setEnabled(true);
@@ -94,10 +99,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel newPurchase = new JPanel(new GridLayout(0, 2));
         newPurchase.add(amountL);
         newPurchase.add(amountT);
-        newPurchase.add(startDateL);
-        newPurchase.add(startDateT);
-        newPurchase.add(endDateL);
-        newPurchase.add(endDateT);
+        newPurchase.add(purchaseDateL);
+        newPurchase.add(purchaseDateT);
+        // newPurchase.add(endDateL);
+        // newPurchase.add(endDateT);
         newPurchase.add(usersL);
         newPurchase.add(userList);
         datePanel.add(newPurchase);
@@ -157,24 +162,46 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     }
 
     public void itemStateChanged(ItemEvent e) {
-        Object source = e.getItemSelectable();
     }
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getActionCommand();
         if (source == insertNewUser.getText()) {
-            if (nameT.getText().isBlank() || budgetT.getText().isBlank()) {
+            if (nameT.getText().isBlank() || incomeT.getText().isBlank()) {
                 purchaseOutputPanel.setText("Pease fill in fields for 'New User Name' and 'Total User Income' ");
             } else {
                 try {
-                    User user = new User(nameT.getText(), Double.parseDouble(budgetT.getText()), null);
+                    User user = new User(nameT.getText(), Double.parseDouble(incomeT.getText()), null);
                     household.addUser(user);
                     userss[userCounter] = user.getName();
                     userCounter++;
                     userList.setListData(userss);
-                    purchaseOutputPanel.setText("User has been added successfully");
+                    purchaseOutputPanel.setText("User has been added successfully.");
                 } catch (NumberFormatException numberFormatException) {
                     purchaseOutputPanel.setText("Please make sure the value in the 'Total User Income' is a valid value.");
+                }
+            }
+        } else if (source == insertNewPurchase.getText()) {
+            // Question do we want to make date a mandatory field for purchases? 
+            // Question do we want to make user a mandatory field for purchases?
+            if (amountT.getText().isBlank() || purchaseDateT.getText().isBlank() 
+            || userList.getSelectedValue() == null) {
+                purchaseOutputPanel.setText("Please fill in fields for 'Amount', 'Purchase Date' and choose a user from the 'User Choice' list.");
+            } else {
+                Date purchaseDate = new Date();
+                try {
+                    String[] purchaseTime =  purchaseDateT.getText().split("/");
+                    purchaseDate = new Date(Integer.parseInt(purchaseTime[2]), Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
+                    try {
+                        User user = household.findUser(userList.getSelectedValue());
+                        user.addPurchases(new Purchases(Double.parseDouble(amountT.getText()), purchaseDate));
+                        household.replaceUser(user);
+                        purchaseOutputPanel.setText("Purchase has been added successfully to " + userList.getSelectedValue() + ".");
+                    } catch (Exception exception) {
+                        purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
+                    }
+                } catch (Exception exception) {
+                    purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
                 }
             }
         }

@@ -11,7 +11,6 @@ public class User {
 	private static int nextTransID = 0;
 	private String name;
 	private Income income;
-	private double salary;
 	private int transID;
 	private Date date;
 
@@ -19,21 +18,18 @@ public class User {
 
 	public User(String name, double salary, Date date) {
 		this.name = name;
-		this.salary = salary;
+		this.income = new Income(salary, null, null);
 		this.transID = nextTransID++;
 		this.date = date;
 		income = new Income(this.transID, this.name, this.date);
 		purchases = new ArrayList<>();
 	}
 
-	public void addPurchases(Purchases purchases){
-
+	public void addPurchases(Purchases purchases) {
 		this.purchases.add(purchases);
-
 	}
 
-	public ArrayList<Purchases> getPurchases(){
-
+	public ArrayList<Purchases> getPurchases() {
 		return this.purchases;
 	}
 
@@ -49,8 +45,8 @@ public class User {
 		return name;
 	}
 
-	public double getSalary() {
-		return salary;
+	public Income getIncome() {
+		return income;
 	}
 
 	public int getTransID() {
@@ -61,8 +57,8 @@ public class User {
 		this.name = name;
 	}
 
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
+	public void setIncome(Income income) {
+		this.income = income;
+	}	
 
 }
