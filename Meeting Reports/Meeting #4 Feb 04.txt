@@ -1,0 +1,6 @@
+UPDATES : 
+Team created Information classes for User, Purchases and Income 
+One of the members had a problem with the JDK version the file 
+was compiled with, it was later fixed
+UI was tested and some changes were made 
+Now purchase information can be changed through UI 

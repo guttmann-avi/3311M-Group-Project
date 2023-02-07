@@ -23,6 +23,9 @@ public purchaseInformation(String userName, String category, Date startDate, Dat
 
 }
 
+public purchaseInformation(String userName, String category){
+    this(userName, category, null, null);
+}
 
 public purchaseInformation(String userName, Date startDate, Date endDate){
     this(userName, null, startDate, endDate);
