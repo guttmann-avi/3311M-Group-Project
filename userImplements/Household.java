@@ -2,15 +2,37 @@ package userImplements;
 
 import java.util.ArrayList;
 import java.util.List;
+import BudgetingSystem.Purchases;
 
 public class Household implements userManager {
 
     private List<User> users;
+    private String name;
+    private static int nexthouseID = 0;
+    private int houseID;
+    ArrayList<Purchases> purchases;
 
-    public Household() {
+    public Household(String name) {
         this.users = new ArrayList<>();
+        this.houseID = nexthouseID++;
+        this.name = name;
     }
 
+    public String getName() {
+		return name;
+	}
+    public void setname(String name) {
+    	this.name = name;
+    }
+    
+    public int getHouseID() {
+    	return this.houseID;
+    }
+    
+    public void addPurchases(Purchases purchases) {
+		this.purchases.add(purchases);
+	}
+    
     @Override
     public void addUser(User user) {
         this.users.add(user);
@@ -20,6 +42,7 @@ public class Household implements userManager {
     public void removeUser(User user) {
         this.users.remove(user);
     }
+    
 
     public List<User> getUsers() {
         return users;
