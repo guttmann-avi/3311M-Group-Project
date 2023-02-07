@@ -6,8 +6,6 @@ import BudgetingSystem.Purchases;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.text.*;
-import java.util.ArrayList;
 import java.util.Date;
 
 import userImplements.Household;
@@ -32,6 +30,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
     JButton insertNewUser;
     JButton insertNewPurchase;
+    JButton viewPurchases;
     JTextArea purchaseOutputPanel;
 
     Household household = new Household();
@@ -74,7 +73,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 0;
         this.add(emptyPanel1, c);
 
-        JPanel datePanel = new JPanel(new GridLayout(0, 1));
+        JPanel purchasePanel = new JPanel(new GridLayout(0, 1));
 
         amountL = new JLabel("       Amount ");
         amountL.setEnabled(true);
@@ -83,8 +82,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         // endDateL = new JLabel("       End Date (DD/MM/YYYY)  ");
         // endDateL.setEnabled(true);
 
-        usersL = new JLabel("			User Choice");
-        usersL.setEnabled(true);
+        
         amountT = new JTextField();
         amountT.setEnabled(true);
         purchaseDateT = new JTextField();
@@ -92,42 +90,54 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         // endDateT = new JTextField();
         // endDateT.setEnabled(true);
 
-        userList = new JList<String>();
-        userList.setEnabled(true);
+        
         //String[] userss = new String[2];
         //userList.setListData(userss);
-        JPanel newPurchase = new JPanel(new GridLayout(0, 2));
+        JPanel newPurchase = new JPanel(new GridLayout(0, 1));
         newPurchase.add(amountL);
         newPurchase.add(amountT);
         newPurchase.add(purchaseDateL);
         newPurchase.add(purchaseDateT);
         // newPurchase.add(endDateL);
         // newPurchase.add(endDateT);
-        newPurchase.add(usersL);
-        newPurchase.add(userList);
-        datePanel.add(newPurchase);
+        // newPurchase.add(usersL);
+        // newPurchase.add(userList);
+        purchasePanel.add(newPurchase);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
         c.gridy = 0;
-        this.add(datePanel, c);
+        this.add(purchasePanel, c);
 
         JLabel emptyLabel2 = new JLabel("                    \n          ");
         JPanel emptyPanel2 = new JPanel(new GridLayout(0, 1));
         emptyPanel2.add(emptyLabel2);
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 1;
+        c.gridx = 3;
         c.gridy = 1;
         this.add(emptyPanel2, c);
 
-        insertNewPurchase = new JButton("Insert Purchase");
-        insertNewPurchase.addActionListener(this);
-        JPanel submitPanelPurchase = new JPanel(new GridLayout(0, 1));
-        submitPanelPurchase.add(insertNewPurchase);
-        c.fill = GridBagConstraints.NONE;
-        c.anchor = GridBagConstraints.LINE_START;
-        c.gridx = 3;
-        c.gridy = 2;
-        this.add(submitPanelPurchase, c);
+        JPanel userPanel = new JPanel(new GridLayout(0, 1));
+
+        usersL = new JLabel("			User Choice");
+        usersL.setEnabled(true);
+        userList = new JList<String>();
+        userList.setEnabled(true);
+        JPanel userChoicePanel = new JPanel(new GridLayout(0, 1));
+        userChoicePanel.add(usersL);
+        userChoicePanel.add(userList);
+        userPanel.add(userChoicePanel);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 4;
+        c.gridy = 0;
+        this.add(userPanel, c);
+
+        JLabel emptyLabel3 = new JLabel("                    \n          ");
+        JPanel emptyPanel3 = new JPanel(new GridLayout(0, 1));
+        emptyPanel3.add(emptyLabel3);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 1;
+        this.add(emptyPanel3, c);
 
         insertNewUser = new JButton("Insert New User");
         insertNewUser.addActionListener(this);
@@ -135,17 +145,37 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         submitPanelNewUser.add(insertNewUser);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
-        c.gridx = 1;
+        c.gridx = 0;
         c.gridy = 2;
         this.add(submitPanelNewUser, c);
 
-        JLabel emptyLabel3 = new JLabel("                    \n          ");
-        JPanel emptyPanel3 = new JPanel(new GridLayout(0, 1));
-        emptyPanel3.add(emptyLabel3);
+        insertNewPurchase = new JButton("Insert Purchase");
+        insertNewPurchase.addActionListener(this);
+        JPanel submitPanelPurchase = new JPanel(new GridLayout(0, 1));
+        submitPanelPurchase.add(insertNewPurchase);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 2;
+        c.gridy = 2;
+        this.add(submitPanelPurchase, c);        
+
+        viewPurchases = new JButton("View Purchases");
+        viewPurchases.addActionListener(this);
+        JPanel viewPurchasesPanel = new JPanel(new GridLayout(0, 1));
+        viewPurchasesPanel.add(viewPurchases);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 4;
+        c.gridy = 2;
+        this.add(viewPurchasesPanel, c);       
+
+        JLabel emptyLabel4 = new JLabel("                    \n          ");
+        JPanel emptyPanel4 = new JPanel(new GridLayout(0, 1));
+        emptyPanel4.add(emptyLabel4);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 3;
-        this.add(emptyPanel3, c);
+        this.add(emptyPanel4, c);
 
         purchaseOutputPanel = new JTextArea(18, 50);
         purchaseOutputPanel.setText("Any Output will be shown here.");
@@ -204,6 +234,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                     purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
                 }
             }
+        } else if (source == viewPurchases.getText()) { 
+            
         }
     }
 }
