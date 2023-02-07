@@ -2,11 +2,13 @@ package PrintingInformation;
 
 import java.util.Date;
 
+import userImplements.User; 
+;
 public class UserInformation  implements TotalInformation{
     private String info;
-    public UserInformation(String userName, double totalIncome, Date creationDate){
+    public UserInformation(User user){
         //logic 
-        printinfo();
+        info = "User's name is " + user.getName(); 
     }
     public String printinfo(){
 
