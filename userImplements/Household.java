@@ -12,15 +12,18 @@ public class Household implements userManager {
     private int houseID;
     ArrayList<Purchases> purchases;
 
-    public Household(String name) {
+    public Household() {
         this.users = new ArrayList<>();
         this.houseID = nexthouseID++;
-        this.name = name;
+        
     }
 
     public String getName() {
 		return name;
 	}
+    public void setName(String name) {
+    	this.name = name;
+    }
     public void setname(String name) {
     	this.name = name;
     }
