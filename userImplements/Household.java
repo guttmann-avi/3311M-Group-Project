@@ -39,6 +39,10 @@ public class Household implements userManager {
 		this.purchases.add(purchases);
 	}
 
+	public ArrayList<Purchases> getPurchases() {
+		return this.purchases;
+	}
+
 	@Override
 	public void addUser(User user) {
 		this.users.add(user);

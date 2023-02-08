@@ -1,45 +1,30 @@
 package PrintingInformation;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import BudgetingSystem.Purchases;
+import userImplements.User;
 
 public class purchaseInformation implements TotalInformation{
   
-String info;
+    String info = "";
 
-ArrayList<Purchases> purchases=new ArrayList<>();
+    public purchaseInformation(User user, String category, Date startDate, Date endDate){
+        for (Purchases purchase : user.getPurchases()) {
+            info += "Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: " + purchase.getDate().getDate() + "/" 
+                + purchase.getDate().getMonth() + "/" + purchase.getDate().getYear() + "\n"; 
+        }
+    }
 
-//Purchases purchase = new Purchases();
+    public purchaseInformation(User user, String category){
+        this(user, category, null, null);
+    }
 
+    public purchaseInformation(User user, Date startDate, Date endDate){
+        this(user, null, startDate, endDate);
+    }
 
-
-public purchaseInformation(String userName, String category, Date startDate, Date endDate){
-
-    //logic
-    info = "User's name is " + userName +" and the category is " + category + "which the start date is from " + startDate + " and end date is " + endDate;
-    printinfo();
-
-
-}
-
-public purchaseInformation(String userName, String category){
-    this(userName, category, null, null);
-}
-
-public purchaseInformation(String userName, Date startDate, Date endDate){
-    this(userName, null, startDate, endDate);
-}
-
-
-@Override
-public String printinfo() {
-    
-    return this.info;
-}
-
-
-
-
+    public String printinfo() {
+        return this.info;
+    }
 }
