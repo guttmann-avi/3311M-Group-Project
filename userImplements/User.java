@@ -23,7 +23,6 @@ public class User {
 		this.income = new Income(this.salary, this.name, this.date);
 		this.transID = nextTransID++;
 		this.date = date;
-		income = new Income(this.transID, this.name, this.date);
 		purchases = new ArrayList<>();
 	}
 

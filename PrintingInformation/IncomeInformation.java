@@ -1,6 +1,5 @@
 package PrintingInformation;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import BudgetingSystem.Income;
@@ -11,7 +10,6 @@ public class IncomeInformation implements TotalInformation {
 
     // user class will get
     // from user to income then print
-
     // assciation is used in constructor
     private double amount;
     private String Income_source;

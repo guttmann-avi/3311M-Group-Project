@@ -1,6 +1,5 @@
 package PrintingInformation;
 
 public interface TotalInformation {
-    
-public String printinfo();
+    public String printinfo();
 }

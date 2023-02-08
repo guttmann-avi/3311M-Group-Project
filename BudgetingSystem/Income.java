@@ -16,7 +16,7 @@ public class Income {
     }
 
     public double getAmount() {
-        return amount - purchases.getAmount();
+        return amount;
     }
 
     public void setAmount(double amount) {
