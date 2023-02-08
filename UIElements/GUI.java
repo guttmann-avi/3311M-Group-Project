@@ -3,6 +3,10 @@ package UIElements;
 import javax.swing.*;
 
 import BudgetingSystem.Purchases;
+import PrintingInformation.IncomeInformation;
+import PrintingInformation.MoneyLeftInformation;
+import PrintingInformation.UserInformation;
+import PrintingInformation.purchaseInformation;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -235,7 +239,18 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                 }
             }
         } else if (source == viewPurchases.getText()) { 
-            
+            try {
+                String info;
+                User user = household.findUser(userList.getSelectedValue());
+                UserInformation userInformation = new UserInformation(user);
+                IncomeInformation incomeInformation = new IncomeInformation(user.getIncome());
+                MoneyLeftInformation moneyLeftInformation = new MoneyLeftInformation(user);
+                purchaseInformation purchaseInformation = new purchaseInformation(user, null, null, null);
+                info = userInformation.printinfo() + incomeInformation.printinfo() + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
+                purchaseOutputPanel.setText(info);
+            } catch (Exception exception) {
+                purchaseOutputPanel.setText(exception.getMessage());
+            }
         }
     }
 }
