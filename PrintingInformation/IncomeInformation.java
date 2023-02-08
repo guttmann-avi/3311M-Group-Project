@@ -16,11 +16,11 @@ public class IncomeInformation implements TotalInformation {
     private Date Income_tabulation_date;
     private Income incomes;
 
-    public IncomeInformation(User used) {
-        incomes = used.getIncome();
-        amount = incomes.getAmount();
-        Income_tabulation_date = incomes.getDate();
-        Income_source = incomes.getSource();
+    public IncomeInformation(Income income) {
+
+        amount = income.getAmount();
+        Income_tabulation_date = income.getDate();
+        Income_source = income.getSource();
         printinfo();
     }
 
