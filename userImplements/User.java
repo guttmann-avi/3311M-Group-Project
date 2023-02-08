@@ -13,12 +13,14 @@ public class User {
 	private Income income;
 	private int transID;
 	private Date date;
+	private double salary;
 
 	ArrayList<Purchases> purchases;
 
 	public User(String name, double salary, Date date) {
 		this.name = name;
-		this.income = new Income(salary, null, null);
+		this.salary = salary;
+		this.income = new Income(this.salary, this.name, this.date);
 		this.transID = nextTransID++;
 		this.date = date;
 		income = new Income(this.transID, this.name, this.date);
@@ -59,6 +61,6 @@ public class User {
 
 	public void setIncome(Income income) {
 		this.income = income;
-	}	
+	}
 
 }
