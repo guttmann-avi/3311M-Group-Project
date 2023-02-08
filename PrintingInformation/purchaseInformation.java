@@ -18,6 +18,7 @@ ArrayList<Purchases> purchases=new ArrayList<>();
 public purchaseInformation(String userName, String category, Date startDate, Date endDate){
 
     //logic
+    info = "User's name is " + userName +" and the category is " + category + "which the start date is from " + startDate + " and end date is " + endDate;
     printinfo();
 
 
