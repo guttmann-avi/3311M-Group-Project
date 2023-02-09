@@ -14,7 +14,6 @@ public class MoneyLeftInformation implements TotalInformation {
         }
         info  = "Money Left: " + String.format("%.2f", moneyLeft) + "\n"; 
     }
-    
 
     public String printinfo() {
         return this.info;

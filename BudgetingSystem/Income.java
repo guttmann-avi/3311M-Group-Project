@@ -38,5 +38,4 @@ public class Income {
     public void setDate(Date date) {
         this.Income_tabulation_date = date;
     }
-
 }
