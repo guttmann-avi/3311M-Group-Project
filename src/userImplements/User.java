@@ -1,10 +1,10 @@
-package userImplements;
+package src.userImplements;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import BudgetingSystem.Income;
-import BudgetingSystem.Purchases;
+import src.BudgetingSystem.Income;
+import src.BudgetingSystem.Purchases;
 
 public class User {
 

@@ -1,4 +1,4 @@
-package UIElements;
+package src.UIElements;
 
 public class Main {
 

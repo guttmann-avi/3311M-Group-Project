@@ -1,10 +1,10 @@
-package PrintingInformation;
+package src.PrintingInformation;
 
 import java.util.Date;
 
-import BudgetingSystem.Income;
-import BudgetingSystem.Purchases;
-import userImplements.User;
+import src.BudgetingSystem.Income;
+import src.BudgetingSystem.Purchases;
+import src.userImplements.User;
 import java.lang.String;
 
 public class IncomeInformation implements TotalInformation {

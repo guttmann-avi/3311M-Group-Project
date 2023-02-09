@@ -1,19 +1,19 @@
-package UIElements;
+package src.UIElements;
 
 import javax.swing.*;
 
-import BudgetingSystem.Purchases;
-import PrintingInformation.IncomeInformation;
-import PrintingInformation.MoneyLeftInformation;
-import PrintingInformation.UserInformation;
-import PrintingInformation.purchaseInformation;
+import src.BudgetingSystem.Purchases;
+import src.PrintingInformation.IncomeInformation;
+import src.PrintingInformation.MoneyLeftInformation;
+import src.PrintingInformation.UserInformation;
+import src.PrintingInformation.purchaseInformation;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Date;
 
-import userImplements.Household;
-import userImplements.User;
+import src.userImplements.Household;
+import src.userImplements.User;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 

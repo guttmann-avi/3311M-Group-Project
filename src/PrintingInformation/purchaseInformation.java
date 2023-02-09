@@ -1,9 +1,9 @@
-package PrintingInformation;
+package src.PrintingInformation;
 
 import java.util.Date;
 
-import BudgetingSystem.Purchases;
-import userImplements.User;
+import src.BudgetingSystem.Purchases;
+import src.userImplements.User;
 
 public class purchaseInformation implements TotalInformation{
   
