@@ -1,4 +1,4 @@
-package BudgetingSystem;
+package src.BudgetingSystem;
 
 import java.util.Date;
 

@@ -1,9 +1,9 @@
-package userImplements;
+package src.userImplements;
 
 import java.util.ArrayList;
 import java.util.List;
-import BudgetingSystem.Purchases;
-import BudgetingSystem.Income;
+import src.BudgetingSystem.Purchases;
+import src.BudgetingSystem.Income;
 
 public class Household implements userManager {
 

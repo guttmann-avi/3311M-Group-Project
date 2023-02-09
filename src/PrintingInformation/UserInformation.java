@@ -1,6 +1,6 @@
-package PrintingInformation;
+package src.PrintingInformation;
 
-import userImplements.User; 
+import src.userImplements.User; 
 
 public class UserInformation  implements TotalInformation{
     private String info;
