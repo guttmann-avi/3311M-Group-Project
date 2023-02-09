@@ -246,7 +246,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                 IncomeInformation incomeInformation = new IncomeInformation(user.getIncome());
                 MoneyLeftInformation moneyLeftInformation = new MoneyLeftInformation(user);
                 purchaseInformation purchaseInformation = new purchaseInformation(user, null, null, null);
-                info = userInformation.printinfo() + incomeInformation.printinfo() + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
+                info = userInformation.printinfo() + incomeInformation.printinfo()+" \t" + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
                 purchaseOutputPanel.setText(info);
             } catch (Exception exception) {
                 purchaseOutputPanel.setText(exception.getMessage());
