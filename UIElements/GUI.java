@@ -77,7 +77,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel purchasePanel = new JPanel(new GridLayout(0, 1));
         amountL = new JLabel("Amount");
         amountL.setEnabled(true);
-        purchaseDateL = new JLabel("       Purchase Date (DD/MM/YYYY)  ");
+        purchaseDateL = new JLabel("Purchase Date (DD/MM/YYYY)");
         purchaseDateL.setEnabled(true);
         amountT = new JTextField();
         amountT.setEnabled(true);
@@ -104,7 +104,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         JPanel userPanel = new JPanel(new GridLayout(0, 1));
 
-        usersL = new JLabel("			User Choice");
+        usersL = new JLabel("User Choice");
         usersL.setEnabled(true);
         userList = new JList<String>();
         userList.setEnabled(true);
