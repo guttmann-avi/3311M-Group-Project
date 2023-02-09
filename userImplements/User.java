@@ -54,6 +54,10 @@ public class User {
 		return transID;
 	}
 
+	public void setTransID(int transID) {
+		this.transID = transID;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

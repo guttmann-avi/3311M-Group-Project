@@ -18,6 +18,7 @@ public class Household implements userManager {
 		this.users = new ArrayList<>();
 		this.houseID = nexthouseID++;
 		this.income = new Income(0,null,null);
+		this.purchases = new ArrayList<Purchases>();
 
 	}
 	// Next iteration we should make an interface for get/set name/ID as to not have
@@ -33,6 +34,14 @@ public class Household implements userManager {
 
 	public int getHouseID() {
 		return this.houseID;
+	}
+
+	public Income getIncome() {
+		return income;
+	}
+
+	public void setIncome(Income income) {
+		this.income = income;
 	}
 
 	public void addPurchases(Purchases purchases) {
