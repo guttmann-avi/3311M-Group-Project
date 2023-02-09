@@ -1,4 +1,0 @@
-UPDATES:
--Everyone got familiar with Github and how to commit there
--created required classes for the project and divided them into packages
--planned on how to make the GUI for the application

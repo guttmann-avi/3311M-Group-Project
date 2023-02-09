@@ -1,0 +1,40 @@
+Meeting #1 Jan 31:
+-Starting off by giving everyone 5 minutes to read through the document outlining what needs to be done in iteration 1
+-15 minutes
+
+Meeting #2 Feb 01:
+-Everyone got familiar with Github and how to commit there
+-created required classes for the project and divided them into packages
+-planned on how to make the GUI for the application
+-60 minutes
+
+Meeting #3 Feb 02:
+Because of the difference in members' Eclipse versions, connection to GitHub was unsuccessful at first
+Team switched to Visual Studio Code as the main IDE
+Team decided on a new file system with the Purchases class in the BudgetingSystem package
+All members are now successfully connected to GitHub and can both fetch and push 
+The date of the next meeting was set
+-90 minutes 
+
+Meeting #4 Feb 04:
+Team created Information classes for User, Purchases and Income 
+One of the members had a problem with the JDK version the file 
+was compiled with, it was later fixed
+UI was tested and some changes were made 
+Now purchase information can be changed through UI 
+-60 minutes
+
+Meeting #5 Feb 05:
+-finished working on the print information
+-everyone worked on a different class for printing the information
+-60 minutes
+
+Meeting #6 Feb 06:
+-we added purchaseInformation
+-extended the classes in the Printinginformation folder
+-60 minutes
+
+Meeting #7 Feb 07:
+-added thr MoneyLeftInformation to the Printinginformation folder
+-application is fully working and outputs user's purchases with details
+-90 minutes
