@@ -38,3 +38,38 @@ Meeting #7 Feb 07:
 -added thr MoneyLeftInformation to the Printinginformation folder
 -application is fully working and outputs user's purchases with details
 -90 minutes
+
+
+
+User stories updates:
+
+-choose users or household:
+original cost: 3 days
+updated cost: 
+cost with GUI:
+
+-Create users:
+original cost: 4 days
+updated cost:
+cost with GUI:
+
+-Store Purchases:
+original cost: 2 days
+updated cost:
+cost with GUI:
+
+
+-Set Periods of Time:
+original cost: 4 days
+updated cost:
+cost with GUI:
+
+
+-Generate Spending Information:
+original cost: 1 day
+updated cost:
+cost with GUI:
+
+
+
+
