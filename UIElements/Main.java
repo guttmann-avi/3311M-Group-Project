@@ -6,6 +6,4 @@ public class Main {
         GUI window = new GUI();
         window.setVisible(true);
     }
-
 }
-

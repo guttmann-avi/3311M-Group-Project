@@ -65,5 +65,4 @@ public class User {
 	public void setIncome(Income income) {
 		this.income = income;
 	}
-
 }

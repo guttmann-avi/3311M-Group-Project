@@ -21,7 +21,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JLabel incomeL;
     JLabel amountL;
     JLabel purchaseDateL;
-    // JLabel endDateL;
     JLabel usersL;
 
     private int userCounter = 0;
@@ -29,7 +28,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JTextField incomeT;
     JTextField amountT;
     JTextField purchaseDateT;
-    // JTextField endDateT;
     JList<String> userList;
 
     JButton insertNewUser;
@@ -46,13 +44,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     }
 
     private void initialize() {
-
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
-        nameL = new JLabel("       New User Name ");
+        nameL = new JLabel("New User Name");
         nameL.setEnabled(true);
-        incomeL = new JLabel("		Total Income Of User ");
+        incomeL = new JLabel("Total Income Of User");
         incomeL.setEnabled(true);
         nameT = new JTextField();
         nameT.setEnabled(true);
@@ -78,34 +75,19 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(emptyPanel1, c);
 
         JPanel purchasePanel = new JPanel(new GridLayout(0, 1));
-
-        amountL = new JLabel("       Amount ");
+        amountL = new JLabel("Amount");
         amountL.setEnabled(true);
-        purchaseDateL = new JLabel("       Purchase Date (DD/MM/YYYY)  ");
+        purchaseDateL = new JLabel("Purchase Date (DD/MM/YYYY)");
         purchaseDateL.setEnabled(true);
-        // endDateL = new JLabel("       End Date (DD/MM/YYYY)  ");
-        // endDateL.setEnabled(true);
-
-        
         amountT = new JTextField();
         amountT.setEnabled(true);
         purchaseDateT = new JTextField();
         purchaseDateT.setEnabled(true);
-        // endDateT = new JTextField();
-        // endDateT.setEnabled(true);
-
-        
-        //String[] userss = new String[2];
-        //userList.setListData(userss);
         JPanel newPurchase = new JPanel(new GridLayout(0, 1));
         newPurchase.add(amountL);
         newPurchase.add(amountT);
         newPurchase.add(purchaseDateL);
         newPurchase.add(purchaseDateT);
-        // newPurchase.add(endDateL);
-        // newPurchase.add(endDateT);
-        // newPurchase.add(usersL);
-        // newPurchase.add(userList);
         purchasePanel.add(newPurchase);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
@@ -122,7 +104,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         JPanel userPanel = new JPanel(new GridLayout(0, 1));
 
-        usersL = new JLabel("			User Choice");
+        usersL = new JLabel("User Choice");
         usersL.setEnabled(true);
         userList = new JList<String>();
         userList.setEnabled(true);
@@ -192,7 +174,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         this.setBounds(50, 50, 600, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     public void itemStateChanged(ItemEvent e) {
@@ -216,8 +197,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                 }
             }
         } else if (source == insertNewPurchase.getText()) {
-            // Question do we want to make date a mandatory field for purchases? 
-            // Question do we want to make user a mandatory field for purchases?
             if (amountT.getText().isBlank() || purchaseDateT.getText().isBlank() 
             || userList.getSelectedValue() == null) {
                 purchaseOutputPanel.setText("Please fill in fields for 'Amount', 'Purchase Date' and choose a user from the 'User Choice' list.");

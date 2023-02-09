@@ -21,9 +21,9 @@ public class Household implements userManager {
 		this.purchases = new ArrayList<Purchases>();
 
 	}
+
 	// Next iteration we should make an interface for get/set name/ID as to not have
 	// duplicate code
-
 	public String getName() {
 		return name;
 	}
@@ -69,7 +69,6 @@ public class Household implements userManager {
 	public void removeUser(User user) {
 		this.users.remove(user);
 		// this fixes the income of the household if a user is removed,
-
 		if (users.isEmpty()) {
 			this.income = new Income(0, null, null);
 		} else {
