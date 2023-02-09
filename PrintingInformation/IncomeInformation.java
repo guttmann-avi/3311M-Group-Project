@@ -5,6 +5,7 @@ import java.util.Date;
 import BudgetingSystem.Income;
 import BudgetingSystem.Purchases;
 import userImplements.User;
+import java.lang.String;
 
 public class IncomeInformation implements TotalInformation {
 
@@ -26,8 +27,8 @@ public class IncomeInformation implements TotalInformation {
 
     @Override
     public String printinfo() {
-
-        String reulString = "This" + Income_source + "is" + amount + "as of" + Income_tabulation_date;
+        String amount_string = "" + amount;
+        String reulString = "This" + Income_source + "is" + String.format(amount_string,"%2f");
         return reulString;
     }
 }
