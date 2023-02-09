@@ -27,8 +27,8 @@ public class IncomeInformation implements TotalInformation {
 
     @Override
     public String printinfo() {
-        String amount_string = "" + amount;
-        String reulString = "This" + Income_source + "is" + String.format(amount_string,"%2f");
+        String amount_string = " " + amount;
+        String reulString = " This " + Income_source + " is " + String.format(amount_string, "%2f");
         return reulString;
     }
 }
