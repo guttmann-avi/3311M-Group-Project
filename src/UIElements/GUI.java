@@ -164,7 +164,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(emptyPanel4, c);
 
         purchaseOutputPanel = new JTextArea(18, 50);
-        purchaseOutputPanel.setText("Any Output will be shown here.");
+        purchaseOutputPanel.setText("Any Output will be shown here. Please begin by creating a User and after adding some purchase information.");
         JScrollPane outputPanel = new JScrollPane(purchaseOutputPanel);
         c.gridwidth = GridBagConstraints.REMAINDER;
         c.fill = GridBagConstraints.BOTH;
@@ -193,7 +193,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                     userList.setListData(userss);
                     purchaseOutputPanel.setText("User has been added successfully.");
                 } catch (NumberFormatException numberFormatException) {
-                    purchaseOutputPanel.setText("Please make sure the value in the 'Total User Income' is a valid value.");
+                    purchaseOutputPanel.setText("Please make sure the value in the 'Total Income Of User' is a valid value.");
                 }
             }
         } else if (source == insertNewPurchase.getText()) {
