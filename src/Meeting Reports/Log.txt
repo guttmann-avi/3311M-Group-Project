@@ -1,43 +1,43 @@
 Meeting #1 Jan 31:
--Starting off by giving everyone 5 minutes to read through the document outlining what needs to be done in iteration 1
--time of the meeting: 15 minutes
+- Starting off by giving everyone 5 minutes to read through the document outlining what needs to be done in iteration 1
+- Time of the meeting: 15 minutes
 
 Meeting #2 Feb 01:
--Everyone got familiar with Github and how to commit there
--created required classes for the project and divided them into packages
--planned on how to make the GUI for the application
--time of the meeting: 60 minutes
+- Everyone got familiar with Github and how to commit there
+- Created required classes for the project and divided them into packages
+- Planned on how to make the GUI for the application
+- Time of the meeting: 60 minutes
 
 Meeting #3 Feb 02:
-Because of the difference in members' Eclipse versions, connection to GitHub was unsuccessful at first
-Team switched to Visual Studio Code as the main IDE
-Team decided on a new file system with the Purchases class in the BudgetingSystem package
-All members are now successfully connected to GitHub and can both fetch and push 
-The date of the next meeting was set
--time of the meeting: 90 minutes 
+- Because of the difference in members' Eclipse versions, connection to GitHub was unsuccessful at first
+- Team switched to Visual Studio Code as the main IDE
+- Team decided on a new file system with the Purchases class in the BudgetingSystem package
+- All members are now successfully connected to GitHub and can both fetch and push 
+- The date of the next meeting was set
+- Time of the meeting: 90 minutes 
 
 Meeting #4 Feb 04:
-Team created Information classes for User, Purchases and Income 
-One of the members had a problem with the JDK version the file 
-was compiled with, it was later fixed
-UI was tested and some changes were made 
-Now purchase information can be changed through UI 
--time of the meeting: 60 minutes
+- Team created Information classes for User, Purchases and Income 
+- One of the members had a problem with the JDK version the file 
+- Was compiled with, it was later fixed
+- UI was tested and some changes were made 
+- Now purchase information can be changed through UI 
+- Time of the meeting: 60 minutes
 
 Meeting #5 Feb 05:
--finished working on the print information
--everyone worked on a different class for printing the information
--time of the meeting: 60 minutes
+- Finished working on the print information
+- Everyone worked on a different class for printing the information
+- Time of the meeting: 60 minutes
 
 Meeting #6 Feb 06:
--we added purchaseInformation
--extended the classes in the Printinginformation folder
--time of the meeting: 60 minutes
+- We added purchaseInformation
+- Extended the classes in the Printinginformation folder
+- Time of the meeting: 60 minutes
 
 Meeting #7 Feb 07:
--added thr MoneyLeftInformation to the Printinginformation folder
--application is fully working and outputs user's purchases with details
--time of the meeting: 90 minutes
+- Added thr MoneyLeftInformation to the Printinginformation folder
+- Application is fully working and outputs user's purchases with details
+- Time of the meeting: 90 minutes
 
 
 
@@ -67,4 +67,12 @@ updated cost: 2 days
 
 
 
+Meeting #  Feb 19:
+- Team decided on which stories to work on
+- The ability to return, add return date, create categories and 
+buttons for viewing of purchases in a specific period of time and also a database was divided between 
+team members to implement.  
+- Multiple incomes for a user was discussed and needs to be worked on
+- Time of the next meeting was set
+- Time of the meeting : 30 minutes
 
