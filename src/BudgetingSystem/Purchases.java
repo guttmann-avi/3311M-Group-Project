@@ -1,16 +1,19 @@
 package src.BudgetingSystem;
 
 import java.util.Date;
+import src.BudgetingSystem.Categories;
+import java.util.List;
 
-public class Purchases {
+public class Purchases implements Categories {
 	private static final int Id = 0; 
 	private double amount; 				// Make sure to only show two decimal places
-	private String category;			// Not for Iteration 1 
+	private Categories category;			// Not for Iteration 1 
 	private Date date;
+	
 	
 	public Purchases(double amount, String category, Date date) {
 		this.amount = amount;
-		this.category = category;
+		this.category.setCategory(category);
 		this.date = date;
 	}
 
@@ -33,12 +36,15 @@ public class Purchases {
 		this.amount = amount;
 	}
 
-	public String getCategory() {
-		return category;
+	@Override
+	public String getCategory(){
+		return category.getCategory();
+		
 	}
 
+	@Override
 	public void setCategory(String category) {
-		this.category = category;
+		this.category.setCategory(category);
 	}
 
 	public Date getDate() {
