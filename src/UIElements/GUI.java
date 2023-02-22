@@ -35,6 +35,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JButton viewPurchases;
     JTextArea purchaseOutputPanel;
 
+    JPanel radioButtonsPanel;
+    JRadioButton purchaseRadioButton;
+    JRadioButton returnRadioButton;
+
     Household household = new Household();
 
     String[] userss = new String[10];
@@ -145,6 +149,19 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(submitPanelPurchase, c);        
 
+        radioButtonsPanel = new JPanel(new GridLayout(2, 1));
+        purchaseRadioButton = new JRadioButton("Purchase");
+        returnRadioButton = new JRadioButton("Return");
+        ButtonGroup radioGroup = new ButtonGroup();
+        radioGroup.add(purchaseRadioButton);
+        radioGroup.add(returnRadioButton);
+        radioButtonsPanel.add(purchaseRadioButton);
+        radioButtonsPanel.add(returnRadioButton);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 2;
+        c.gridy = 1;
+        this.add(radioButtonsPanel, c);
+
         viewPurchases = new JButton("View Purchases");
         viewPurchases.addActionListener(this);
         JPanel viewPurchasesPanel = new JPanel(new GridLayout(0, 1));
@@ -197,11 +214,50 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                 }
             }
         } else if (source == insertNewPurchase.getText()) {
+            Date purchaseDate; 
+            if(returnRadioButton.isSelected()){
+                if (amountT.getText().isBlank() || userList.getSelectedValue() == null){
+                    purchaseOutputPanel.setText("Please fill in fields for 'Amount' and choose a user from the 'User Choice' list.");
+                }
+                else{
+                    if(!(purchaseDateT.getText().isBlank())){
+                    try {
+                        String[] purchaseTime =  purchaseDateT.getText().split("/");
+                        purchaseDate = new Date(Integer.parseInt(purchaseTime[2]), Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
+                        try {
+                            User user = household.findUser(userList.getSelectedValue());
+                            user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText()), purchaseDate));
+                            household.replaceUser(user);
+                            purchaseOutputPanel.setText("Return has been added successfully to " + userList.getSelectedValue() + ".");
+                        } catch (Exception exception) {
+                            purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
+                        }
+                    } catch (Exception exception) {
+                        purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
+                    }
+                    }
+                    else{
+                        try {
+                            try {
+                                User user = household.findUser(userList.getSelectedValue());
+                                user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText())));
+                                household.replaceUser(user);
+                                purchaseOutputPanel.setText("Return has been added successfully to " + userList.getSelectedValue() + ".");
+                            } catch (Exception exception) {
+                                purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
+                            }
+                        } catch (Exception exception) {
+                            purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
+                        }
+                    }
+                }
+            }
+            else if(purchaseRadioButton.isSelected()){
             if (amountT.getText().isBlank() || purchaseDateT.getText().isBlank() 
             || userList.getSelectedValue() == null) {
                 purchaseOutputPanel.setText("Please fill in fields for 'Amount', 'Purchase Date' and choose a user from the 'User Choice' list.");
             } else {
-                Date purchaseDate = new Date();
+                purchaseDate = new Date();
                 try {
                     String[] purchaseTime =  purchaseDateT.getText().split("/");
                     purchaseDate = new Date(Integer.parseInt(purchaseTime[2]), Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
@@ -217,6 +273,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                     purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
                 }
             }
+        }
+        else{
+            purchaseOutputPanel.setText("Please choose the transaction type.");
+        }
         } else if (source == viewPurchases.getText()) { 
             try {
                 String info;

@@ -17,7 +17,10 @@ public class Purchases {
 	public Purchases(double amount, Date date) {
 		this(amount, null, date);
 	}
-
+	public Purchases(double amount){
+		this.amount = amount;
+		this.date = null;
+	}
 	public Purchases() {
 		this.amount = 0;
 	}
