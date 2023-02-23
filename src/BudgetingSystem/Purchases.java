@@ -11,9 +11,9 @@ public class Purchases implements Categories {
 	private Date date;
 	
 	
-	public Purchases(double amount, String category, Date date) {
+	public Purchases(double amount, Categories category, Date date) {
 		this.amount = amount;
-		this.category.setCategory(category);
+		this.category = category;
 		this.date = date;
 	}
 
