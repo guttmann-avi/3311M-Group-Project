@@ -1,5 +1,4 @@
-
-    package src.Database;
+package src.Database;
 
 import java.io.FileOutputStream;
 import java.io.File;
@@ -7,12 +6,12 @@ import java.util.ArrayList;
 
 public class WriteData
 {
-    public WriteData(final ArrayList<String> data, final String householdData) {
+    public WriteData(ArrayList<String> data, String householdData) {
         try {
-            final File file = new File("SavedData.json");
+            File file = new File("SavedData.json");
             file.createNewFile();
-            final FileOutputStream outputStream = new FileOutputStream(file);
-            final StringBuilder sb = new StringBuilder();
+            FileOutputStream outputStream = new FileOutputStream(file);
+            StringBuilder sb = new StringBuilder();
             sb.append(householdData);
             sb.append(",\r\n Users:{");
             for (int i = 0; i < data.size(); ++i) {

@@ -11,19 +11,29 @@ public class Purchases implements Categories {
 	private Date date;
 	
 	
-	public Purchases(double amount, Categories category, Date date) {
+	// public Purchases(double amount, Categories category, Date date) {
+	// 	this.amount = amount;
+	// 	this.category = category;
+	// 	this.date = date;
+	// }
+
+	public Purchases(double amount, String category, Date date) {
 		this.amount = amount;
-		this.category = category;
+		if (category != null) {
+			setCategory(category);
+		}
 		this.date = date;
 	}
 
 	public Purchases(double amount, Date date) {
 		this(amount, null, date);
 	}
+
 	public Purchases(double amount){
 		this.amount = amount;
 		this.date = null;
 	}
+
 	public Purchases() {
 		this.amount = 0;
 	}
@@ -37,9 +47,8 @@ public class Purchases implements Categories {
 	}
 
 	@Override
-	public String getCategory(){
+	public String getCategory() {
 		return category.getCategory();
-		
 	}
 
 	@Override
@@ -54,6 +63,4 @@ public class Purchases implements Categories {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	
 }

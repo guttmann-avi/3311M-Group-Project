@@ -18,7 +18,6 @@ public class SetData {
         this.getPurchases(data.substring(0, data.indexOf("]")), null);
         data = data.substring(data.indexOf("},") + 2);
         this.getUsers(data, this.household);
-        final int f = 0;
         return this.household;
     }
 
@@ -39,14 +38,14 @@ public class SetData {
         }
     }
 
-    private void getPurchases(String purchaseString, final User user) {
+    private void getPurchases(String purchaseString, User user) {
         if (!purchaseString.equalsIgnoreCase("purchases:[")) {
-            final String[] toReplace = { "{Amount:", ",Date:", ",Category:" };
-            final ArrayList<Purchases> purchases = new ArrayList<Purchases>();
+            String[] toReplace = { "{Amount:", ",Date:", ",Category:" };
+            ArrayList<Purchases> purchases = new ArrayList<Purchases>();
             purchaseString = purchaseString.replace("purchases:[", "");
-            final String[] purchasesList = purchaseString.split("},");
+            String[] purchasesList = purchaseString.split("},");
             for (int i = 0; i < purchasesList.length; ++i) {
-                final String[] purchaseValues = new String[2];
+                String[] purchaseValues = new String[2];
                 for (int f = 0; f < toReplace.length - 1; ++f) {
                     purchasesList[i] = purchasesList[i].substring(toReplace[f].length());
                     purchaseValues[f] = purchasesList[i].substring(0, purchasesList[i].indexOf(","));
@@ -69,11 +68,11 @@ public class SetData {
         }
     }
 
-    private void getUsers(String userString, final Household household) {
-        final String[] toReplace = { ",transID:", ",Date:" };
+    private void getUsers(String userString, Household household) {
+        String[] toReplace = { ",transID:", ",Date:" };
         userString = userString.substring(userString.indexOf("["), userString.lastIndexOf("]") + 1);
-        final String[] userValues = new String[2];
-        final String[] usersAllInfo = userString.split("name");
+        String[] userValues = new String[2];
+        String[] usersAllInfo = userString.split("name");
         for (int i = 1; i < usersAllInfo.length; ++i) {
             usersAllInfo[i] = usersAllInfo[i].substring(1);
             for (int f = 0; f < toReplace.length; ++f) {
@@ -81,13 +80,13 @@ public class SetData {
                 usersAllInfo[i] = usersAllInfo[i]
                         .substring(usersAllInfo[i].indexOf(toReplace[f]) + toReplace[f].length());
             }
-            final User user = new User(userValues[0], Double.parseDouble(userValues[1]),
+            User user = new User(userValues[0], Double.parseDouble(userValues[1]),
                     this.createDate(usersAllInfo[i].substring(0, usersAllInfo[i].indexOf(","))));
-            final String userIncomeString = usersAllInfo[i].substring(usersAllInfo[i].indexOf("income:"),
+            String userIncomeString = usersAllInfo[i].substring(usersAllInfo[i].indexOf("income:"),
                     usersAllInfo[i].indexOf("},purchases"));
             this.getIncome(userIncomeString, user);
             try {
-                final String userPurchaseString = usersAllInfo[i].substring(usersAllInfo[i].indexOf("purchases:["),
+                String userPurchaseString = usersAllInfo[i].substring(usersAllInfo[i].indexOf("purchases:["),
                         usersAllInfo[i].lastIndexOf("}"));
                 this.getPurchases(userPurchaseString, user);
             } catch (Exception ex) {
@@ -96,11 +95,11 @@ public class SetData {
         }
     }
 
-    private Date createDate(final String dateString) {
+    private Date createDate(String dateString) {
         if (dateString != null) {
             try {
-                final String[] dateValues = dateString.split("/");
-                final Date date = new Date();
+                String[] dateValues = dateString.split("/");
+                Date date = new Date();
                 date.setYear(Integer.parseInt(dateValues[2]));
                 date.setMonth(Integer.parseInt(dateValues[1]));
                 date.setDate(Integer.parseInt(dateValues[0]));

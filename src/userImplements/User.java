@@ -30,6 +30,10 @@ public class User {
 		this.purchases.add(purchases);
 	}
 
+	public void addPurchases(ArrayList<Purchases> purchases) {
+		this.purchases = purchases;
+	}
+
 	public ArrayList<Purchases> getPurchases() {
 		return this.purchases;
 	}

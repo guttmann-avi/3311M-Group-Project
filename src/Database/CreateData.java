@@ -10,13 +10,13 @@ import src.userImplements.Household;
 
 public class CreateData
 {
-    public CreateData(final Household household) {
+    public CreateData(Household household) {
         new WriteData(this.createUserInfoData(household), this.createHouseholdData(household));
     }
     
-    public ArrayList<String> createUserInfoData(final Household household) {
-        final ArrayList<String> data = new ArrayList<String>();
-        for (final User user : household.getUsers()) {
+    public ArrayList<String> createUserInfoData(Household household) {
+        ArrayList<String> data = new ArrayList<String>();
+        for (User user : household.getUsers()) {
             String userInfo = "[name:" + user.getName() + ",transID:" + user.getTransID() + ",Date:" + this.getDate(user.getDate()) + ", " + this.incomeStorageString(user.getIncome()) + ",purchases:[";
             if (!user.getPurchases().isEmpty()) {
                 userInfo = String.valueOf(userInfo) + this.purchaseStorageString(user.getPurchases());
@@ -29,7 +29,7 @@ public class CreateData
         return data;
     }
     
-    public String createHouseholdData(final Household household) {
+    public String createHouseholdData(Household household) {
         String householdInfo = "";
         householdInfo = String.valueOf(householdInfo) + "{{" + this.incomeStorageString(household.getIncome()) + ",purchases:[";
         if (!household.getPurchases().isEmpty()) {

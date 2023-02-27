@@ -3,6 +3,9 @@ package src.UIElements;
 import javax.swing.*;
 
 import src.BudgetingSystem.Purchases;
+import src.Database.CreateData;
+import src.Database.GetData;
+import src.Database.SetData;
 import src.PrintingInformation.IncomeInformation;
 import src.PrintingInformation.MoneyLeftInformation;
 import src.PrintingInformation.UserInformation;
@@ -44,6 +47,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     String[] userss = new String[10];
 
     public GUI() {
+        if (new GetData().saveData() != null) {
+            household = new SetData().passData();
+        }
         initialize();
     }
 
@@ -111,6 +117,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         usersL = new JLabel("User Choice");
         usersL.setEnabled(true);
         userList = new JList<String>();
+        if (!household.getUsers().isEmpty()) {
+            for (int i = 0; i < household.getUsers().size(); i++) {
+                userss[i] = household.getUsers().get(i).getName();
+            }
+            userList.setListData(userss);
+        }
         userList.setEnabled(true);
         JPanel userChoicePanel = new JPanel(new GridLayout(0, 1));
         userChoicePanel.add(usersL);
@@ -209,6 +221,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                     userCounter++;
                     userList.setListData(userss);
                     purchaseOutputPanel.setText("User has been added successfully.");
+                    new CreateData(household);
                 } catch (NumberFormatException numberFormatException) {
                     purchaseOutputPanel.setText("Please make sure the value in the 'Total Income Of User' is a valid value.");
                 }
@@ -229,6 +242,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                             user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText()), purchaseDate));
                             household.replaceUser(user);
                             purchaseOutputPanel.setText("Return has been added successfully to " + userList.getSelectedValue() + ".");
+                            new CreateData(household);
                         } catch (Exception exception) {
                             purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
                         }
@@ -243,6 +257,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                                 user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText())));
                                 household.replaceUser(user);
                                 purchaseOutputPanel.setText("Return has been added successfully to " + userList.getSelectedValue() + ".");
+                                new CreateData(household);
                             } catch (Exception exception) {
                                 purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
                             }
@@ -266,6 +281,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                         user.addPurchases(new Purchases(Double.parseDouble(amountT.getText()), purchaseDate));
                         household.replaceUser(user);
                         purchaseOutputPanel.setText("Purchase has been added successfully to " + userList.getSelectedValue() + ".");
+                        new CreateData(household);
                     } catch (Exception exception) {
                         purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
                     }
