@@ -12,6 +12,7 @@ private static final Map<String, List<String>> CategoryList = new HashMap<>();
 	        CategoryList.put("Clothing", Arrays.asList("clothing", "shoes"));
 	        CategoryList.put("Entertainment", Arrays.asList("movie", "music", "game", "book", "sports"));
 	        CategoryList.put("Appliance", Arrays.asList("phone","fridge", "machine", "dryer", "computer"));
+	        CategoryList.put("Transportation", Arrays.asList("car", "bus", "plane","cab","train","subway"));
 	        CategoryList.put("Other", null);
 	}
 	public static void categorizePurchases(List<Purchases> purchase) {
