@@ -1,7 +1,7 @@
 package src.PrintingInformation;
 
 import src.BudgetingSystem.Purchases;
-import src.userImplements.User;
+import src.UserImplements.User;
 
 public class MoneyLeftInformation implements TotalInformation {
 

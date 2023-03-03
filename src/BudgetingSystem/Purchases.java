@@ -1,12 +1,11 @@
 package src.BudgetingSystem;
 
 import java.util.Date;
-import java.util.List;
 
 public class Purchases {
 	private static final int Id = 0; 
-	private double amount; 				// Make sure to only show two decimal places
-	private String category;			// Not for Iteration 1 
+	private double amount;
+	private String category;	
 	private Date date;
 	
 	
@@ -21,9 +20,8 @@ public class Purchases {
 		this(amount, null, date);
 	}
 
-	public Purchases(double amount){
-		this.amount = amount;
-		this.date = null;
+	public Purchases(double amount) {
+		this(amount, null, null);
 	}
 
 	public Purchases() {

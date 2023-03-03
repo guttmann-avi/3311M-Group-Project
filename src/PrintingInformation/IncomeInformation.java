@@ -4,7 +4,7 @@ import java.util.Date;
 
 import src.BudgetingSystem.Income;
 import src.BudgetingSystem.Purchases;
-import src.userImplements.User;
+import src.UserImplements.User;
 import java.lang.String;
 
 public class IncomeInformation implements TotalInformation {

@@ -3,10 +3,9 @@ package src.Database;
 import java.util.Date;
 import src.BudgetingSystem.Income;
 import src.BudgetingSystem.Purchases;
-import java.util.Iterator;
-import src.userImplements.User;
+import src.UserImplements.User;
 import java.util.ArrayList;
-import src.userImplements.Household;
+import src.UserImplements.Household;
 
 public class CreateData
 {
@@ -41,10 +40,10 @@ public class CreateData
         return String.valueOf(householdInfo) + "}";
     }
     
-    private String purchaseStorageString(final ArrayList<Purchases> purchases) {
+    private String purchaseStorageString(ArrayList<Purchases> purchases) {
         String purchaseString = "";
         for (int i = 0; i < purchases.size(); ++i) {
-            final Purchases purchase = purchases.get(i);
+            Purchases purchase = purchases.get(i);
             purchaseString = String.valueOf(purchaseString) + "{Amount:" + purchase.getAmount() + ",Date:" + this.getDate(purchase.getDate()) + ",Category:" + purchase.getCategory();
             if (purchases.size() != i + 1) {
                 purchaseString = String.valueOf(purchaseString) + "},";
@@ -56,13 +55,13 @@ public class CreateData
         return purchaseString;
     }
     
-    private String incomeStorageString(final Income income) {
+    private String incomeStorageString(Income income) {
         String incomeString = "";
         incomeString = "income:{amount:" + income.getAmount() + ",Income_source:" + income.getSource() + ",Income_tabulation_date:" + this.getDate(income.getDate()) + "}";
         return incomeString;
     }
     
-    private String getDate(final Date date) {
+    private String getDate(Date date) {
         if (date != null) {
             return String.valueOf(date.getDate()) + "/" + date.getMonth() + "/" + date.getYear();
         }

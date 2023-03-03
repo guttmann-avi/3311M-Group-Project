@@ -9,14 +9,13 @@ import src.Database.SetData;
 import src.PrintingInformation.IncomeInformation;
 import src.PrintingInformation.MoneyLeftInformation;
 import src.PrintingInformation.UserInformation;
-import src.PrintingInformation.purchaseInformation;
+import src.UserImplements.Household;
+import src.UserImplements.User;
+import src.PrintingInformation.PurchaseInformation;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Date;
-
-import src.userImplements.Household;
-import src.userImplements.User;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 
@@ -300,7 +299,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                 UserInformation userInformation = new UserInformation(user);
                 IncomeInformation incomeInformation = new IncomeInformation(user.getIncome());
                 MoneyLeftInformation moneyLeftInformation = new MoneyLeftInformation(user);
-                purchaseInformation purchaseInformation = new purchaseInformation(user, null, null, null);
+                PurchaseInformation purchaseInformation = new PurchaseInformation(user, null, null, null);
                 info = userInformation.printinfo() + incomeInformation.printinfo()+" \t" + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
                 purchaseOutputPanel.setText(info);
             } catch (Exception exception) {

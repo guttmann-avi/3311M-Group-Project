@@ -4,8 +4,7 @@ import java.io.FileOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 
-public class WriteData
-{
+public class WriteData {
     public WriteData(ArrayList<String> data, String householdData) {
         try {
             File file = new File("SavedData.json");
@@ -18,8 +17,7 @@ public class WriteData
                 sb.append(data.get(i));
                 if (i + 1 != data.size()) {
                     sb.append(",\r\n");
-                }
-                else {
+                } else {
                     sb.append("}");
                 }
             }
@@ -27,7 +25,6 @@ public class WriteData
             outputStream.write(sb.toString().getBytes());
             outputStream.close();
         }
-        catch (Exception ex) {}
+        catch (Exception ex) { System.out.println(ex.getMessage()); }
     }
 }
-

@@ -25,11 +25,11 @@ public class GetData {
                     }
                     return sb.toString();
                 } catch (Exception e) {
-                    // TODO: handle exception
+                   System.out.println(e.getMessage());
                 }
             }
         } catch (Exception e) {
-                // TODO: handle exception
+               System.out.println(e.getMessage());
         }
         return null;
     }

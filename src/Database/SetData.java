@@ -4,8 +4,8 @@ import java.util.Date;
 import src.BudgetingSystem.Purchases;
 import java.util.ArrayList;
 import src.BudgetingSystem.Income;
-import src.userImplements.User;
-import src.userImplements.Household;
+import src.UserImplements.User;
+import src.UserImplements.Household;
 
 public class SetData {
     private Household household;
@@ -21,9 +21,9 @@ public class SetData {
         return this.household;
     }
 
-    private void getIncome(String incomeString, final User user) {
-        final String[] incomeValues = new String[2];
-        final String[] toReplace = { "income:{amount:", ",Income_source:", ",Income_tabulation_date:" };
+    private void getIncome(String incomeString, User user) {
+        String[] incomeValues = new String[2];
+        String[] toReplace = {"income:{amount:",",Income_source:",",Income_tabulation_date:"};
         incomeString = incomeString.replace(toReplace[0], "");
         for (int i = 0; i < toReplace.length - 1; incomeString = incomeString
                 .replace(String.valueOf(incomeValues[i]) + toReplace[++i], "")) {

@@ -3,29 +3,28 @@ package src.PrintingInformation;
 import java.util.Date;
 
 import src.BudgetingSystem.Purchases;
-import src.userImplements.User;
+import src.UserImplements.User;
 
-public class purchaseInformation implements TotalInformation{
+public class PurchaseInformation implements TotalInformation {
   
     String info = "";
 
-    public purchaseInformation(User user, String category, Date startDate, Date endDate){
+    public PurchaseInformation(User user, String category, Date startDate, Date endDate){
         for (Purchases purchase : user.getPurchases()) {
             if(purchase.getDate() == null){
                 info += "Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + "\n"; 
-            }
-            else{
+            } else {
             info += "Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: " + purchase.getDate().getDate() + "/" 
                 + purchase.getDate().getMonth() + "/" + purchase.getDate().getYear() + "\n"; 
             }
         }
     }
 
-    public purchaseInformation(User user, String category){
+    public PurchaseInformation(User user, String category){
         this(user, category, null, null);
     }
 
-    public purchaseInformation(User user, Date startDate, Date endDate){
+    public PurchaseInformation(User user, Date startDate, Date endDate){
         this(user, null, startDate, endDate);
     }
 

@@ -1,11 +1,11 @@
-package src.userImplements;
+package src.UserImplements;
 
 import java.util.ArrayList;
 import java.util.List;
 import src.BudgetingSystem.Purchases;
 import src.BudgetingSystem.Income;
 
-public class Household implements userManager {
+public class Household implements UserManager {
 
 	private List<User> users;
 	private String name;

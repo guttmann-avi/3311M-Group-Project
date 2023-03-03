@@ -1,6 +1,6 @@
-package src.userImplements;
+package src.UserImplements;
 
-public interface userManager {
+public interface UserManager {
 	public void addUser(User user); // uses assocation
 	public void removeUser(User user);
 }

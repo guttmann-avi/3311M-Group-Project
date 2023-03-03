@@ -1,4 +1,4 @@
-package src.userImplements;
+package src.UserImplements;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,32 +26,20 @@ public class User {
 		purchases = new ArrayList<>();
 	}
 
-	public void addPurchases(Purchases purchases) {
-		this.purchases.add(purchases);
-	}
-
-	public void addPurchases(ArrayList<Purchases> purchases) {
-		this.purchases = purchases;
-	}
-
-	public ArrayList<Purchases> getPurchases() {
-		return this.purchases;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public String getName() {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Income getIncome() {
 		return income;
+	}
+
+	public void setIncome(Income income) {
+		this.income = income;
 	}
 
 	public int getTransID() {
@@ -62,11 +50,23 @@ public class User {
 		this.transID = transID;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setIncome(Income income) {
-		this.income = income;
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void addPurchases(Purchases purchases) {
+		this.purchases.add(purchases);
+	}
+
+	public void addPurchases(ArrayList<Purchases> purchases) {
+		this.purchases = purchases;
+	}
+
+	public ArrayList<Purchases> getPurchases() {
+		return this.purchases;
 	}
 }
