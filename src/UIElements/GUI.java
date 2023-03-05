@@ -1,21 +1,27 @@
 package src.UIElements;
 
-import javax.swing.*;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.HashMap;
 
-import src.BudgetingSystem.Purchases;
-import src.Database.CreateData;
-import src.Database.GetData;
-import src.Database.SetData;
-import src.PrintingInformation.IncomeInformation;
-import src.PrintingInformation.MoneyLeftInformation;
-import src.PrintingInformation.UserInformation;
-import src.UserImplements.Household;
-import src.UserImplements.User;
-import src.PrintingInformation.PurchaseInformation;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.Date;
+import src.UILogic.InputHolder;
+import src.UILogic.Users;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 
@@ -41,14 +47,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JRadioButton purchaseRadioButton;
     JRadioButton returnRadioButton;
 
-    Household household = new Household();
-
-    String[] userss = new String[10];
+    private InputHolder inputHolder;
 
     public GUI() {
-        if (new GetData().saveData() != null) {
-            household = new SetData().passData();
-        }
+        this.inputHolder = new InputHolder();
         initialize();
     }
 
@@ -86,7 +88,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel purchasePanel = new JPanel(new GridLayout(0, 1));
         amountL = new JLabel("Amount");
         amountL.setEnabled(true);
-        purchaseDateL = new JLabel("Purchase Date (DD/MM/YYYY)");
+        purchaseDateL = new JLabel("Purchase/Return Date (DD/MM/YYYY)");
         purchaseDateL.setEnabled(true);
         amountT = new JTextField();
         amountT.setEnabled(true);
@@ -116,12 +118,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         usersL = new JLabel("User Choice");
         usersL.setEnabled(true);
         userList = new JList<String>();
-        if (!household.getUsers().isEmpty()) {
-            for (int i = 0; i < household.getUsers().size(); i++) {
-                userss[i] = household.getUsers().get(i).getName();
-            }
-            userList.setListData(userss);
-        }
+        userList.setListData(new Users(inputHolder.getHousehold()).getUserNames());
         userList.setEnabled(true);
         JPanel userChoicePanel = new JPanel(new GridLayout(0, 1));
         userChoicePanel.add(usersL);
@@ -192,8 +189,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(emptyPanel4, c);
 
         purchaseOutputPanel = new JTextArea(18, 50);
-        purchaseOutputPanel.setText(
-                "Any Output will be shown here. Please begin by creating a User and after adding some purchase information.");
+        purchaseOutputPanel.setText("Any Output will be shown here. Please begin by creating a User and after adding some purchase information.");
         JScrollPane outputPanel = new JScrollPane(purchaseOutputPanel);
         c.gridwidth = GridBagConstraints.REMAINDER;
         c.fill = GridBagConstraints.BOTH;
@@ -205,114 +201,39 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void itemStateChanged(ItemEvent e) {
-    }
+    public void itemStateChanged(ItemEvent e) {}
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getActionCommand();
-        if (source == insertNewUser.getText()) {
-            if (nameT.getText().isBlank() || incomeT.getText().isBlank()) {
-                purchaseOutputPanel.setText("Pease fill in fields for 'New User Name' and 'Total User Income' ");
+        inputHolder.setAction(source.toString());
+        if (purchaseRadioButton.isSelected() || returnRadioButton.isSelected()) {
+            if (purchaseRadioButton.isSelected()) {
+                inputHolder.setRadioButton(purchaseRadioButton.getText());
             } else {
-                try {
-                    User user = new User(nameT.getText(), Double.parseDouble(incomeT.getText()), null);
-                    household.addUser(user);
-                    userss[userCounter] = user.getName();
-                    userCounter++;
-                    userList.setListData(userss);
-                    purchaseOutputPanel.setText("User has been added successfully.");
-                    new CreateData(household);
-                } catch (NumberFormatException numberFormatException) {
-                    purchaseOutputPanel
-                            .setText("Please make sure the value in the 'Total Income Of User' is a valid value.");
-                }
-            }
-        } else if (source == insertNewPurchase.getText()) {
-            Date purchaseDate;
-            if (returnRadioButton.isSelected()) {
-                if (amountT.getText().isBlank() || userList.getSelectedValue() == null) {
-                    purchaseOutputPanel.setText(
-                            "Please fill in fields for 'Amount' and choose a user from the 'User Choice' list.");
-                } else {
-                    if (!(purchaseDateT.getText().isBlank())) {
-                        try {
-                            String[] purchaseTime = purchaseDateT.getText().split("/");
-                            purchaseDate = new Date(Integer.parseInt(purchaseTime[2]),
-                                    Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
-                            try {
-                                User user = household.findUser(userList.getSelectedValue());
-                                user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText()), purchaseDate));
-                                household.replaceUser(user);
-                                purchaseOutputPanel.setText(
-                                        "Return has been added successfully to " + userList.getSelectedValue() + ".");
-                                new CreateData(household);
-                            } catch (Exception exception) {
-                                purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
-                            }
-                        } catch (Exception exception) {
-                            purchaseOutputPanel
-                                    .setText("Please make sure the 'Purchase Date' field is filled correctly.");
-                        }
-                    } else {
-                        try {
-                            try {
-                                User user = household.findUser(userList.getSelectedValue());
-                                user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText())));
-                                household.replaceUser(user);
-                                purchaseOutputPanel.setText(
-                                        "Return has been added successfully to " + userList.getSelectedValue() + ".");
-                                new CreateData(household);
-                            } catch (Exception exception) {
-                                purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
-                            }
-                        } catch (Exception exception) {
-                            purchaseOutputPanel
-                                    .setText("Please make sure the 'Purchase Date' field is filled correctly.");
-                        }
-                    }
-                }
-            } else if (purchaseRadioButton.isSelected()) {
-                if (amountT.getText().isBlank() || purchaseDateT.getText().isBlank()
-                        || userList.getSelectedValue() == null) {
-                    purchaseOutputPanel.setText(
-                            "Please fill in fields for 'Amount', 'Purchase Date' and choose a user from the 'User Choice' list.");
-                } else {
-                    purchaseDate = new Date();
-                    try {
-                        String[] purchaseTime = purchaseDateT.getText().split("/");
-                        purchaseDate = new Date(Integer.parseInt(purchaseTime[2]), Integer.parseInt(purchaseTime[1]),
-                                Integer.parseInt(purchaseTime[0]));
-                        try {
-                            User user = household.findUser(userList.getSelectedValue());
-                            user.addPurchases(new Purchases(Double.parseDouble(amountT.getText()), purchaseDate));
-                            household.replaceUser(user);
-                            purchaseOutputPanel.setText(
-                                    "Purchase has been added successfully to " + userList.getSelectedValue() + ".");
-                            new CreateData(household);
-                        } catch (Exception exception) {
-                            purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
-                        }
-                    } catch (Exception exception) {
-                        purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
-                    }
-                }
-            } else {
-                purchaseOutputPanel.setText("Please choose the transaction type.");
-            }
-        } else if (source == viewPurchases.getText()) {
-            try {
-                String info;
-                User user = household.findUser(userList.getSelectedValue());
-                UserInformation userInformation = new UserInformation(user);
-                IncomeInformation incomeInformation = new IncomeInformation(user.getIncome());
-                MoneyLeftInformation moneyLeftInformation = new MoneyLeftInformation(user);
-                PurchaseInformation purchaseInformation = new PurchaseInformation(user, null, null, null);
-                info = userInformation.printinfo() + incomeInformation.printinfo() + " \t"
-                        + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
-                purchaseOutputPanel.setText(info);
-            } catch (Exception exception) {
-                purchaseOutputPanel.setText(exception.getMessage());
+                inputHolder.setRadioButton(returnRadioButton.getText());
             }
         }
-    }
+        HashMap<String, String> inputValues = new HashMap();
+        String[] inputs = { "User Name", "Income", "Amount", "Purchase/Return Date", "User Choice" };
+
+        for (String input : inputs)
+            inputValues.put(input, null);
+
+        if (!nameT.getText().isBlank())
+            inputValues.put(inputs[0], nameT.getText());
+        if (!incomeT.getText().isBlank())
+            inputValues.put(inputs[1], incomeT.getText());
+        if (!amountT.getText().isBlank())
+            inputValues.put(inputs[2], amountT.getText());
+        if (!purchaseDateT.getText().isBlank())
+            inputValues.put(inputs[3], purchaseDateT.getText());
+        if (userList.getSelectedValue() != null)
+            inputValues.put(inputs[4], userList.getSelectedValue());
+
+        inputHolder.setInput(inputValues, inputs);
+        purchaseOutputPanel.setText(inputHolder.output());
+        String selected = userList.getSelectedValue();
+        userList.setListData(new Users(inputHolder.getHousehold()).getUserNames());
+        userList.setSelectedValue(selected, rootPaneCheckingEnabled);
+   }
 }

@@ -12,11 +12,10 @@ public class PurchaseInformation implements TotalInformation {
     public PurchaseInformation(User user, String category, Date startDate, Date endDate) {
         for (Purchases purchase : user.getPurchases()) {
             if (purchase.getDate() == null) {
-                info += "Purchase Id: " + purchase.gtPurchaseId() + "          Purchase Amount: "
-                        + String.format("%.2f", purchase.getAmount()) + "           Purchase Date:  No Date" + "\n";
+                info += "Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + "\n"; 
             } else {
-                info += "Purchase Id: " + purchase.gtPurchaseId() + "          Purchase Amount: "
-                        + String.format("%.2f", purchase.getAmount()) + "           Purchase Date: "
+                info += "Purchase Id: " + purchase.gtPurchaseId() + "\t Purchase Amount: "
+                        + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
                         + purchase.getDate().getDate() + "/"
                         + purchase.getDate().getMonth() + "/" + purchase.getDate().getYear() + "\n";
             }
