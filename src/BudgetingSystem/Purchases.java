@@ -3,18 +3,19 @@ package src.BudgetingSystem;
 import java.util.Date;
 
 public class Purchases {
-	private static final int Id = 0; 
+	private static int Id = 0;
 	private double amount;
-	private String category;	
+	private String category;
 	private Date date;
-	
-	
+	private int purchaseid;
+
 	public Purchases(double amount, String category, Date date) {
 		this.amount = amount;
 		this.category = category;
 		this.date = date;
-	 }
-
+		this.purchaseid = Id;
+		Id++;
+	}
 
 	public Purchases(double amount, Date date) {
 		this(amount, null, date);
@@ -35,9 +36,11 @@ public class Purchases {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public String getCategory(){
+
+	public String getCategory() {
 		return this.category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
@@ -48,5 +51,13 @@ public class Purchases {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public int getid() {
+		return Id;
+	}
+
+	public int gtPurchaseId() {
+		return purchaseid;
 	}
 }

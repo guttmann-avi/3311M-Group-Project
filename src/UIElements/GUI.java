@@ -158,7 +158,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.anchor = GridBagConstraints.LINE_START;
         c.gridx = 2;
         c.gridy = 2;
-        this.add(submitPanelPurchase, c);        
+        this.add(submitPanelPurchase, c);
 
         radioButtonsPanel = new JPanel(new GridLayout(2, 1));
         purchaseRadioButton = new JRadioButton("Purchase");
@@ -181,7 +181,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.anchor = GridBagConstraints.LINE_START;
         c.gridx = 4;
         c.gridy = 2;
-        this.add(viewPurchasesPanel, c);       
+        this.add(viewPurchasesPanel, c);
 
         JLabel emptyLabel4 = new JLabel("                    \n          ");
         JPanel emptyPanel4 = new JPanel(new GridLayout(0, 1));
@@ -192,7 +192,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(emptyPanel4, c);
 
         purchaseOutputPanel = new JTextArea(18, 50);
-        purchaseOutputPanel.setText("Any Output will be shown here. Please begin by creating a User and after adding some purchase information.");
+        purchaseOutputPanel.setText(
+                "Any Output will be shown here. Please begin by creating a User and after adding some purchase information.");
         JScrollPane outputPanel = new JScrollPane(purchaseOutputPanel);
         c.gridwidth = GridBagConstraints.REMAINDER;
         c.fill = GridBagConstraints.BOTH;
@@ -222,25 +223,71 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                     purchaseOutputPanel.setText("User has been added successfully.");
                     new CreateData(household);
                 } catch (NumberFormatException numberFormatException) {
-                    purchaseOutputPanel.setText("Please make sure the value in the 'Total Income Of User' is a valid value.");
+                    purchaseOutputPanel
+                            .setText("Please make sure the value in the 'Total Income Of User' is a valid value.");
                 }
             }
         } else if (source == insertNewPurchase.getText()) {
-            Date purchaseDate; 
-            if(returnRadioButton.isSelected()){
-                if (amountT.getText().isBlank() || userList.getSelectedValue() == null){
-                    purchaseOutputPanel.setText("Please fill in fields for 'Amount' and choose a user from the 'User Choice' list.");
+            Date purchaseDate;
+            if (returnRadioButton.isSelected()) {
+                if (amountT.getText().isBlank() || userList.getSelectedValue() == null) {
+                    purchaseOutputPanel.setText(
+                            "Please fill in fields for 'Amount' and choose a user from the 'User Choice' list.");
+                } else {
+                    if (!(purchaseDateT.getText().isBlank())) {
+                        try {
+                            String[] purchaseTime = purchaseDateT.getText().split("/");
+                            purchaseDate = new Date(Integer.parseInt(purchaseTime[2]),
+                                    Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
+                            try {
+                                User user = household.findUser(userList.getSelectedValue());
+                                user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText()), purchaseDate));
+                                household.replaceUser(user);
+                                purchaseOutputPanel.setText(
+                                        "Return has been added successfully to " + userList.getSelectedValue() + ".");
+                                new CreateData(household);
+                            } catch (Exception exception) {
+                                purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
+                            }
+                        } catch (Exception exception) {
+                            purchaseOutputPanel
+                                    .setText("Please make sure the 'Purchase Date' field is filled correctly.");
+                        }
+                    } else {
+                        try {
+                            try {
+                                User user = household.findUser(userList.getSelectedValue());
+                                user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText())));
+                                household.replaceUser(user);
+                                purchaseOutputPanel.setText(
+                                        "Return has been added successfully to " + userList.getSelectedValue() + ".");
+                                new CreateData(household);
+                            } catch (Exception exception) {
+                                purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
+                            }
+                        } catch (Exception exception) {
+                            purchaseOutputPanel
+                                    .setText("Please make sure the 'Purchase Date' field is filled correctly.");
+                        }
+                    }
                 }
-                else{
-                    if(!(purchaseDateT.getText().isBlank())){
+            } else if (purchaseRadioButton.isSelected()) {
+                if (amountT.getText().isBlank() || purchaseDateT.getText().isBlank()
+                        || userList.getSelectedValue() == null) {
+                    purchaseOutputPanel.setText(
+                            "Please fill in fields for 'Amount', 'Purchase Date' and choose a user from the 'User Choice' list.");
+                } else {
+                    purchaseDate = new Date();
                     try {
-                        String[] purchaseTime =  purchaseDateT.getText().split("/");
-                        purchaseDate = new Date(Integer.parseInt(purchaseTime[2]), Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
+                        String[] purchaseTime = purchaseDateT.getText().split("/");
+                        purchaseDate = new Date(Integer.parseInt(purchaseTime[2]), Integer.parseInt(purchaseTime[1]),
+                                Integer.parseInt(purchaseTime[0]));
                         try {
                             User user = household.findUser(userList.getSelectedValue());
-                            user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText()), purchaseDate));
+                            user.addPurchases(new Purchases(Double.parseDouble(amountT.getText()), purchaseDate));
                             household.replaceUser(user);
-                            purchaseOutputPanel.setText("Return has been added successfully to " + userList.getSelectedValue() + ".");
+                            purchaseOutputPanel.setText(
+                                    "Purchase has been added successfully to " + userList.getSelectedValue() + ".");
                             new CreateData(household);
                         } catch (Exception exception) {
                             purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
@@ -248,51 +295,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                     } catch (Exception exception) {
                         purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
                     }
-                    }
-                    else{
-                        try {
-                            try {
-                                User user = household.findUser(userList.getSelectedValue());
-                                user.addPurchases(new Purchases(-Double.parseDouble(amountT.getText())));
-                                household.replaceUser(user);
-                                purchaseOutputPanel.setText("Return has been added successfully to " + userList.getSelectedValue() + ".");
-                                new CreateData(household);
-                            } catch (Exception exception) {
-                                purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
-                            }
-                        } catch (Exception exception) {
-                            purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
-                        }
-                    }
                 }
-            }
-            else if(purchaseRadioButton.isSelected()){
-            if (amountT.getText().isBlank() || purchaseDateT.getText().isBlank() 
-            || userList.getSelectedValue() == null) {
-                purchaseOutputPanel.setText("Please fill in fields for 'Amount', 'Purchase Date' and choose a user from the 'User Choice' list.");
             } else {
-                purchaseDate = new Date();
-                try {
-                    String[] purchaseTime =  purchaseDateT.getText().split("/");
-                    purchaseDate = new Date(Integer.parseInt(purchaseTime[2]), Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
-                    try {
-                        User user = household.findUser(userList.getSelectedValue());
-                        user.addPurchases(new Purchases(Double.parseDouble(amountT.getText()), purchaseDate));
-                        household.replaceUser(user);
-                        purchaseOutputPanel.setText("Purchase has been added successfully to " + userList.getSelectedValue() + ".");
-                        new CreateData(household);
-                    } catch (Exception exception) {
-                        purchaseOutputPanel.setText("Please make sure the 'Amount' field is filled correctly.");
-                    }
-                } catch (Exception exception) {
-                    purchaseOutputPanel.setText("Please make sure the 'Purchase Date' field is filled correctly.");
-                }
+                purchaseOutputPanel.setText("Please choose the transaction type.");
             }
-        }
-        else{
-            purchaseOutputPanel.setText("Please choose the transaction type.");
-        }
-        } else if (source == viewPurchases.getText()) { 
+        } else if (source == viewPurchases.getText()) {
             try {
                 String info;
                 User user = household.findUser(userList.getSelectedValue());
@@ -300,7 +307,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
                 IncomeInformation incomeInformation = new IncomeInformation(user.getIncome());
                 MoneyLeftInformation moneyLeftInformation = new MoneyLeftInformation(user);
                 PurchaseInformation purchaseInformation = new PurchaseInformation(user, null, null, null);
-                info = userInformation.printinfo() + incomeInformation.printinfo()+" \t" + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
+                info = userInformation.printinfo() + incomeInformation.printinfo() + " \t"
+                        + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
                 purchaseOutputPanel.setText(info);
             } catch (Exception exception) {
                 purchaseOutputPanel.setText(exception.getMessage());
