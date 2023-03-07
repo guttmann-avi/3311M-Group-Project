@@ -14,7 +14,7 @@ public class PurchaseInformation implements TotalInformation {
             if (purchase.getDate() == null) {
                 info += "Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + "\n"; 
             } else {
-                info += "Purchase Id: " + purchase.gtPurchaseId() + "\t Purchase Amount: "
+                info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: "
                         + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
                         + purchase.getDate().getDate() + "/"
                         + purchase.getDate().getMonth() + "/" + purchase.getDate().getYear() + "\n";

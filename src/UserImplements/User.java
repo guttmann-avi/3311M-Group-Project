@@ -8,7 +8,7 @@ import src.BudgetingSystem.Purchases;
 
 public class User {
 
-	private static int num = 1;
+	private static int count = 1;
 	private static int nextTransID = 0;
 	private String name;
 	private Income income;
@@ -20,7 +20,7 @@ public class User {
 
 	public User(String name, double salary, Date date) {
 		if (!name.contains("0")) {
-			this.name = name + String.format("%04d", num++);
+			this.name = name + String.format("%04d", count++);
 		} else {
 			this.name = name;
 		}
@@ -38,7 +38,7 @@ public class User {
 	public void setName(String name) {
 		if (!
 		name.contains("0")) {
-			this.name = name + String.format("%04d", num++);
+			this.name = name + String.format("%04d", count++);
 		} else {
 			this.name = name;
 		}
@@ -78,5 +78,9 @@ public class User {
 
 	public ArrayList<Purchases> getPurchases() {
 		return this.purchases;
+	}
+
+	public void setCount(int count) {
+		this.count = count+1;
 	}
 }
