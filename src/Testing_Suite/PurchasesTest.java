@@ -15,7 +15,7 @@ public class PurchasesTest {
         Date d = new Date();
         p.setDate(d);
         assertEquals(100.0, p.getAmount(), 0.001);
-        assertEquals("BillS", p.getCategory());
+        assertEquals("Bills", p.getCategory());
         assertEquals(d, p.getDate());
     }
 
@@ -49,17 +49,11 @@ public class PurchasesTest {
         assertNull(p.getDate());
     }
 
-    @Test
-    public void testGetId() {
-        Purchases p1 = new Purchases();
-        Purchases p2 = new Purchases();
-        assertEquals(p1.getid() + 1, p2.getid());
-    }
 
     @Test
     public void testPurchaseId() {
         Purchases p1 = new Purchases();
         Purchases p2 = new Purchases();
-        assertEquals(p1.gtPurchaseId() + 1, p2.gtPurchaseId());
+        assertEquals(p1.gtPurchaseId()+1, p2.gtPurchaseId());
     }
 }

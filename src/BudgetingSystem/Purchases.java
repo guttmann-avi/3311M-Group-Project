@@ -26,7 +26,7 @@ public class Purchases {
 	}
 
 	public Purchases() {
-		this.amount = 0;
+		this(0);
 	}
 
 	public double getAmount() {
@@ -53,11 +53,9 @@ public class Purchases {
 		this.date = date;
 	}
 
-	public int getid() {
-		return Id;
-	}
+	
 
 	public int gtPurchaseId() {
-		return purchaseid;
+		return this.purchaseid;
 	}
 }
