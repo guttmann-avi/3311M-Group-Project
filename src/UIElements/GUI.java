@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -46,6 +47,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
     JRadioButton returnRadioButton;
+
+    private JComboBox<String> frequencyDropdown;
 
     private InputHolder inputHolder;
 
@@ -136,6 +139,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 1;
         c.gridy = 1;
         this.add(emptyPanel3, c);
+
+        String[] frequencyOptions = {"Yearly", "Monthly", "Weekly"};
+        frequencyDropdown = new JComboBox<String>(frequencyOptions);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 1;
+        this.add(frequencyDropdown, c);
+
 
         insertNewUser = new JButton("Insert New User");
         insertNewUser.addActionListener(this);
