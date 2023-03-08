@@ -47,6 +47,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JButton viewPurchases;
     JButton deletePurchases;
     JTextArea purchaseOutputPanel;
+    JButton insertCategory;
 
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
@@ -183,6 +184,16 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 2;
         c.gridy = 1;
         this.add(radioButtonsPanel, c);
+        
+        insertCategory = new JButton("Insert Purchase Category");
+        insertCategory.addActionListener(this);
+        JPanel submitPurchaseCategory = new JPanel(new GridLayout(0, 1));
+        submitPurchaseCategory.add(insertCategory);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 2;
+        c.gridy = 3;
+        this.add(submitPurchaseCategory,c);
 
         viewPurchases = new JButton("View Purchases");
         viewPurchases.addActionListener(this);
@@ -241,6 +252,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 7;
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
+        
+        
 
     }
 
