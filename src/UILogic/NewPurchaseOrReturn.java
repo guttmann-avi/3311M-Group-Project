@@ -2,6 +2,8 @@ package src.UILogic;
 
 import java.util.Date;
 import java.util.HashMap;
+import src.BudgetingSystem.*;
+import java.util.List;
 
 import src.UserImplements.Household;
 
@@ -11,13 +13,16 @@ public class NewPurchaseOrReturn implements Output{
     private HashMap<String, String> inputValues;
     private String[] inputs;
     private String radioButton;
+    private List<Purchases> categories;
     
 
-    public NewPurchaseOrReturn(String radioButton, HashMap<String, String> inputValues, String[] inputs, Household household) {
+    public NewPurchaseOrReturn(String radioButton, HashMap<String, String> inputValues, String[] inputs, Household household, List<Purchases> categories) {
         this.inputValues = inputValues;
         this.inputs = inputs;
         this.household = household;
         this.radioButton = radioButton;
+        this.categories = categories;
+        PurchaseOrganiser.categorizePurchases(categories);
     }
 
     private Date purchaseOrReturnDateField() {
