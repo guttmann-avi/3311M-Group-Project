@@ -19,7 +19,6 @@ public class Household implements UserManager {
 		this.houseID = nexthouseID++;
 		this.income = new Income(0,null,null);
 		this.purchases = new ArrayList<Purchases>();
-
 	}
 
 	// Next iteration we should make an interface for get/set name/ID as to not have

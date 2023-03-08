@@ -20,7 +20,7 @@ public class User {
 
 	public User(String name, double salary, Date date) {
 		if (!name.contains("0")) {
-			this.name = name + String.format("%04d", count++);
+			this.name = name + String.format("%04d", count);
 		} else {
 			this.name = name;
 		}
@@ -29,6 +29,7 @@ public class User {
 		this.transID = nextTransID++;
 		this.date = date;
 		purchases = new ArrayList<>();
+		count++;
 	}
 
 	public String getName() {
@@ -38,10 +39,11 @@ public class User {
 	public void setName(String name) {
 		if (!
 		name.contains("0")) {
-			this.name = name + String.format("%04d", count++);
+			this.name = name + String.format("%04d", count);
 		} else {
 			this.name = name;
 		}
+		count++;
 	}
 
 	public Income getIncome() {
