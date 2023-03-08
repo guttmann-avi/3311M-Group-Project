@@ -6,6 +6,8 @@ import src.Database.CreateData;
 import src.Database.GetData;
 import src.Database.SetData;
 import src.UserImplements.Household;
+import java.util.List;
+import src.BudgetingSystem.*;
 
 public class InputHolder {
 
@@ -15,6 +17,7 @@ public class InputHolder {
     private String radioButton;
     private HashMap<String, String> inputValues;
     private String[] inputs;
+    private List<Purchases> categories;
  
     final String[] actionOptions = {"Insert New User", "Insert Purchase", "View Purchases"};
     final String[] purchaseOrReturn = {"Purchase","Return"};
@@ -59,6 +62,13 @@ public class InputHolder {
         this.inputValues = inputValues;
         this.inputs = inputs;
     }
+    public List<Purchases> getCategories(){
+    	return this.categories;
+    }
+    
+    public void setCategories(Purchases purchase) {
+    	this.categories.add(purchase);
+    }
 
     public String output() {
         String output = "";
@@ -68,8 +78,8 @@ public class InputHolder {
                 setHousehold(new NewUser(inputValues, inputs).setHousehold(household));  
                 break;
             case "Insert Purchase":    
-                output = new NewPurchaseOrReturn(radioButton, inputValues, inputs, household).output();
-                setHousehold(new NewPurchaseOrReturn(radioButton, inputValues, inputs, household).setHousehold());
+                output = new NewPurchaseOrReturn(radioButton, inputValues, inputs, household,categories).output();
+                setHousehold(new NewPurchaseOrReturn(radioButton, inputValues, inputs, household,categories).setHousehold());
                 break;
             case "View Purchases":
                     output = new ViewPurchases(household.findUser(inputValues.get(inputs[4]))).output();
