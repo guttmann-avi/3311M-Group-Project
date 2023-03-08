@@ -258,7 +258,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             }
         }
         HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = { "User Name", "Income", "Amount", "Purchase/Return Date", "User Choice" };
+        String[] inputs = { "User Name", "Income", "Amount", "Purchase/Return Date", "User Choice", "Transaction Id" };
 
         for (String input : inputs)
             inputValues.put(input, null);
@@ -273,6 +273,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             inputValues.put(inputs[3], purchaseDateT.getText());
         if (userList.getSelectedValue() != null)
             inputValues.put(inputs[4], userList.getSelectedValue());
+        if (!deleteT.getText().isBlank())
+            inputValues.put(inputs[5], deleteT.getText());
 
         inputHolder.setInput(inputValues, inputs);
         purchaseOutputPanel.setText(inputHolder.output());
