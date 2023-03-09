@@ -15,14 +15,15 @@ public class NewPurchaseOrReturn implements Output{
     private String radioButton;
     private List<Purchases> categories;
     
-
     public NewPurchaseOrReturn(String radioButton, HashMap<String, String> inputValues, String[] inputs, Household household, List<Purchases> categories) {
         this.inputValues = inputValues;
         this.inputs = inputs;
         this.household = household;
         this.radioButton = radioButton;
         this.categories = categories;
-        PurchaseOrganiser.categorizePurchases(categories);
+        if (categories != null) {
+            PurchaseOrganiser.categorizePurchases(categories);
+        }
     }
 
     private Date purchaseOrReturnDateField() {
@@ -34,8 +35,6 @@ public class NewPurchaseOrReturn implements Output{
             return null;
         }
     }
-
-    
 
     @Override
     public String output() {

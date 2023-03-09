@@ -276,7 +276,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             }
         }
         HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = { "User Name", "Income", "Amount", "Purchase/Return Date", "User Choice", "Transaction Id", "Frequency" };
+        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
 
         for (String input : inputs)
             inputValues.put(input, null);
@@ -293,8 +293,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             inputValues.put(inputs[4], userList.getSelectedValue());
         if (!deleteT.getText().isBlank())
             inputValues.put(inputs[5], deleteT.getText());
-        String selectedOption = (String) frequencyDropdown.getSelectedItem();
-        inputValues.put(inputs[6], selectedOption);
+        inputValues.put(inputs[6], frequencyDropdown.getSelectedItem().toString());
         inputHolder.setInput(inputValues, inputs);
         purchaseOutputPanel.setText(inputHolder.output());
         String selected = userList.getSelectedValue();
