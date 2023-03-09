@@ -92,3 +92,10 @@ Meeting #12 Mar 7:
 - Broke down an issue that was affecting people
 - Split up the remaining tasks to help people who are having a harder time
 - Spoke to almost everyone in the group to get progress report
+
+Meeting #13 Mar 8:
+- Went over remaining todo's
+- went over parts of the code and how to fix issues
+- figured out parts that need to be cleaned up in the code
+- split up some of the remaining tasks
+- discovered and discussed a bug that was found and how to fix it
