@@ -9,20 +9,17 @@ import java.util.Date;
 import org.junit.Test;
 public class IncomeTest {
 
-
-
-    
     @Test
     public void testGetAmount() {
         Income income = new Income(1000.0, "Salary", new Date());
-        assertEquals(1000.0, income.getAmount(), 0.0);
+        assertEquals(1000.0, income.getBaseAmount(), 0.0);
     }
     
     @Test
     public void testSetAmount() {
         Income income = new Income(0.0, "Salary", new Date());
         income.setAmount(2000.0);
-        assertEquals(2000.0, income.getAmount(), 0.0);
+        assertEquals(2000.0, income.getBaseAmount(), 0.0);
     }
     
     @Test
@@ -55,6 +52,3 @@ public class IncomeTest {
     }
 
 }
-
-
-
