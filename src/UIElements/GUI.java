@@ -235,7 +235,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 0;
         this.add(deletePanel, c);
 
-        deletePurchases = new JButton("delete Transaction");
+        deletePurchases = new JButton("Delete Transaction");
         deletePurchases.addActionListener(this);
         JPanel deletePurchasesPanel = new JPanel(new GridLayout(0, 1));
         deletePurchasesPanel.add(deletePurchases);

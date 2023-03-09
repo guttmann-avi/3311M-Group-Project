@@ -23,6 +23,10 @@ public class Income {
         this.frequency = frequency;
     }
 
+    public double getBaseAmount() {
+        return this.amount;
+    }
+
     public double getAmount() {
         switch(frequency){
             case "Weekly": 
@@ -51,5 +55,8 @@ public class Income {
 
     public void setDate(Date date) {
         this.Income_tabulation_date = date;
+    }
+    public String getFrequency() {
+        return frequency;
     }
 }

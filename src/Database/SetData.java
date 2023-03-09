@@ -18,14 +18,14 @@ public class SetData {
         this.getPurchases(data.substring(0, data.indexOf("]")), null);
         data = data.substring(data.indexOf("},") + 2);
         this.getUsers(data, this.household);
-        this.household.getUsers().get(household.getUsers().size()-1).setCount(household.getUsers().size());
-        
+        this.household.getUsers().get(household.getUsers().size() - 1).setCount(household.getUsers().size());
+
         return this.household;
     }
 
     private void getIncome(String incomeString, User user) {
-        String[] incomeValues = new String[2];
-        String[] toReplace = {"income:{amount:",",Income_source:",",Income_tabulation_date:"};
+        String[] incomeValues = new String[3];
+        String[] toReplace = { "income:{amount:", ",Income_source:", ",Income_tabulation_date:", ",frequency:" };
         incomeString = incomeString.replace(toReplace[0], "");
         for (int i = 0; i < toReplace.length - 1; incomeString = incomeString
                 .replace(String.valueOf(incomeValues[i]) + toReplace[++i], "")) {
@@ -33,10 +33,12 @@ public class SetData {
         }
         if (user == null) {
             this.household.setIncome(
-                    new Income(Double.parseDouble(incomeValues[0]), incomeValues[1], this.createDate(incomeString)));
+                    new Income(Double.parseDouble(incomeValues[0]), incomeValues[1], this.createDate(incomeValues[2]),
+                            incomeString));
         } else {
             user.setIncome(
-                    new Income(Double.parseDouble(incomeValues[0]), incomeValues[1], this.createDate(incomeString)));
+                    new Income(Double.parseDouble(incomeValues[0]), incomeValues[1], this.createDate(incomeValues[2]),
+                            incomeString));
         }
     }
 
@@ -46,6 +48,8 @@ public class SetData {
             ArrayList<Purchases> purchases = new ArrayList<Purchases>();
             purchaseString = purchaseString.replace("purchases:[", "");
             String[] purchasesList = purchaseString.split("},");
+            if (purchasesList.length == 1)
+                purchasesList[0] = purchasesList[0].substring(0, purchasesList[0].length()-1); 
             for (int i = 0; i < purchasesList.length; ++i) {
                 String[] purchaseValues = new String[2];
                 for (int f = 0; f < toReplace.length - 1; ++f) {
@@ -71,7 +75,7 @@ public class SetData {
     }
 
     private void getUsers(String userString, Household household) {
-        String[] toReplace = {",transID:",",Date:"};
+        String[] toReplace = { ",transID:", ",Date:" };
         userString = userString.substring(userString.indexOf("["), userString.lastIndexOf("]") + 1);
         String[] userValues = new String[2];
         String[] usersAllInfo = userString.split("name");

@@ -65,7 +65,7 @@ public class Household implements UserManager {
 			incomeHelper += users.get(i).getIncome().getAmount();
 		}
 		this.income = new Income(incomeHelper, users.get(0).getIncome().getSource(),
-				users.get(0).getIncome().getDate());
+				users.get(0).getIncome().getDate(), users.get(0).getIncome().getFrequency());
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class Household implements UserManager {
 			}
 			// this may cause problems if there is no user at users(0)
 			this.income = new Income(incomeHelper, users.get(0).getIncome().getSource(),
-					users.get(0).getIncome().getDate());
+					users.get(0).getIncome().getDate(), users.get(0).getIncome().getFrequency());
 		}
 	}
 
