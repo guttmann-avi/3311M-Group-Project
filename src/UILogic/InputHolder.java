@@ -6,6 +6,8 @@ import src.Database.CreateData;
 import src.Database.GetData;
 import src.Database.SetData;
 import src.UserImplements.Household;
+import src.UserImplements.User;
+
 import java.util.List;
 import src.BudgetingSystem.*;
 
@@ -18,9 +20,9 @@ public class InputHolder {
     private HashMap<String, String> inputValues;
     private String[] inputs;
     private List<Purchases> categories;
- 
-    final String[] actionOptions = {"Insert New User", "Insert Purchase", "View Purchases"};
-    final String[] purchaseOrReturn = {"Purchase","Return"};
+
+    final String[] actionOptions = { "Insert New User", "Insert Purchase", "View Purchases" };
+    final String[] purchaseOrReturn = { "Purchase", "Return" };
 
     public InputHolder() {
         if (new GetData().saveData() != null) {
@@ -53,7 +55,7 @@ public class InputHolder {
     public void setRadioButton(String radioButton) {
         this.radioButton = radioButton;
     }
-    
+
     public HashMap<String, String> getInputValues() {
         return inputValues;
     }
@@ -62,12 +64,13 @@ public class InputHolder {
         this.inputValues = inputValues;
         this.inputs = inputs;
     }
-    public List<Purchases> getCategories(){
-    	return this.categories;
+
+    public List<Purchases> getCategories() {
+        return this.categories;
     }
-    
+
     public void setCategories(Purchases purchase) {
-    	this.categories.add(purchase);
+        this.categories.add(purchase);
     }
 
     public String output() {
@@ -75,16 +78,55 @@ public class InputHolder {
         switch (action) {
             case "Insert New User":
                 output = new NewUser(inputValues, inputs).output();
-                setHousehold(new NewUser(inputValues, inputs).setHousehold(household));  
+                setHousehold(new NewUser(inputValues, inputs).setHousehold(household));
                 break;
-            case "Insert Purchase":    
-                output = new NewPurchaseOrReturn(radioButton, inputValues, inputs, household,categories).output();
-                setHousehold(new NewPurchaseOrReturn(radioButton, inputValues, inputs, household,categories).setHousehold());
+            case "Insert Purchase":
+                output = new NewPurchaseOrReturn(radioButton, inputValues, inputs, household, categories).output();
+                setHousehold(new NewPurchaseOrReturn(radioButton, inputValues, inputs, household, categories)
+                        .setHousehold());
                 break;
             case "View Purchases":
-                    output = new ViewPurchases(household.findUser(inputValues.get(inputs[4]))).output();
+                output = new ViewPurchases(household.findUser(inputValues.get(inputs[4]))).output();
                 break;
+
+            case "delete Transaction":
+
+                boolean result = true;
+
+                // submitPanelPurchase(new Household()/setHousehold(household););
+                for (Purchases purchases : household.getPurchases()) {
+
+                    if (purchases.getPurchaseId() == Integer.parseInt(inputValues.get(inputs[5]))) {
+
+                        // }
+                        household.removePurchase(purchases);
+                        result = false;
+                        break;
+                    }
+
+                }
+
+                for (User user : household.getUsers()) {
+
+                    for (Purchases purchases : user.getPurchases()) {
+
+                        if (purchases.getPurchaseId() == Integer.parseInt(inputValues.get(inputs[5]))) {
+
+                            // }
+                            user.removepurchase(purchases);
+                            result = false;
+                            break;
+                        }
+
+                    }
+                    if (result == false) {
+                        break;
+                    }
+
+                }
+
         }
+
         new CreateData(household);
         return output;
     }

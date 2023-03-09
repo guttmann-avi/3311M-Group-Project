@@ -37,8 +37,7 @@ public class User {
 	}
 
 	public void setName(String name) {
-		if (!
-		name.contains("0")) {
+		if (!name.contains("0")) {
 			this.name = name + String.format("%04d", count);
 		} else {
 			this.name = name;
@@ -83,6 +82,12 @@ public class User {
 	}
 
 	public void setCount(int count) {
-		this.count = count+1;
+		this.count = count + 1;
+	}
+
+	public void removepurchase(Purchases purchases) {
+
+		this.purchases.remove(purchases);
+
 	}
 }

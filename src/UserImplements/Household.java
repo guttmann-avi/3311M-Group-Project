@@ -17,7 +17,7 @@ public class Household implements UserManager {
 	public Household() {
 		this.users = new ArrayList<>();
 		this.houseID = nexthouseID++;
-		this.income = new Income(0,null,null);
+		this.income = new Income(0, null, null);
 		this.purchases = new ArrayList<Purchases>();
 	}
 
@@ -59,7 +59,7 @@ public class Household implements UserManager {
 	public void addUser(User user) {
 		this.users.add(user);
 		// adds income of each user in household as they are added, defaulting the date
-		// and source to the same as the  first user
+		// and source to the same as the first user
 		double incomeHelper = 0;
 		for (int i = 0; i < users.size(); i++) {
 			incomeHelper += users.get(i).getIncome().getAmount();
@@ -83,6 +83,12 @@ public class Household implements UserManager {
 			this.income = new Income(incomeHelper, users.get(0).getIncome().getSource(),
 					users.get(0).getIncome().getDate());
 		}
+	}
+
+	public void removePurchase(Purchases purchases) {
+
+		this.purchases.remove(purchases);
+
 	}
 
 	public List<User> getUsers() {
