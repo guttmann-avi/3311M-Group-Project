@@ -32,6 +32,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JLabel purchaseDateL;
     JLabel usersL;
     JLabel deleteL;
+    JLabel categoryL;
 
     private int userCounter = 0;
     JTextField nameT;
@@ -39,6 +40,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JTextField amountT;
     JTextField purchaseDateT;
     JTextField deleteT;
+    JTextField categoryT;
 
     JList<String> userList;
 
@@ -47,7 +49,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JButton viewPurchases;
     JButton deletePurchases;
     JTextArea purchaseOutputPanel;
-    JButton insertCategory;
+    
 
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
@@ -184,16 +186,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 2;
         c.gridy = 1;
         this.add(radioButtonsPanel, c);
-        
-        insertCategory = new JButton("Insert Purchase Category");
-        insertCategory.addActionListener(this);
-        JPanel submitPurchaseCategory = new JPanel(new GridLayout(0, 1));
-        submitPurchaseCategory.add(insertCategory);
-        c.fill = GridBagConstraints.NONE;
-        c.anchor = GridBagConstraints.LINE_START;
-        c.gridx = 2;
-        c.gridy = 3;
-        this.add(submitPurchaseCategory,c);
 
         viewPurchases = new JButton("View Purchases");
         viewPurchases.addActionListener(this);
@@ -253,7 +245,20 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
         
+        JPanel categoryPanel = new JPanel(new GridLayout(0,1)); 
         
+        categoryL = new JLabel("Category");
+        categoryL.setEnabled(true);
+        categoryT = new JTextField();
+        categoryT.setEnabled(true);
+        
+        JPanel insertCategory = new JPanel(new GridLayout(0,1));
+        insertCategory.add(categoryL);
+        insertCategory.add(categoryT);
+        categoryPanel.add(insertCategory);
+        c.gridx = 3;
+        c.gridy = 2;
+        this.add(categoryPanel, c);
 
     }
 
