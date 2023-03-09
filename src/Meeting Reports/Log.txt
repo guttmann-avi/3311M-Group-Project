@@ -67,12 +67,28 @@ updated cost: 2 days
 
 
 
-Meeting #  Feb 19:
+Meeting #8  Feb 19:
 - Team decided on which stories to work on
-- The ability to return, add return date, create categories and 
+- The ability to return, add return date if wanted, create categories and 
 buttons for viewing of purchases in a specific period of time and also a database was divided between 
 team members to implement.  
 - Multiple incomes for a user was discussed and needs to be worked on
 - Time of the next meeting was set
 - Time of the meeting : 30 minutes
 
+Meeting #9  Feb 22:
+- broke up tasks in which each group member would work on through break
+- Explained the database and how it works
+
+Meeting #10 Mar 2:
+- went through to still be done list before the deadline
+
+Meeting #11 Mar 5:
+- went through some issues that people were facing
+- helped people with the issues well breaking down more things that need to be done
+
+Meeting #12 Mar 7: 
+- found out what each person will do before the next meeting
+- Broke down an issue that was affecting people
+- Split up the remaining tasks to help people who are having a harder time
+- Spoke to almost everyone in the group to get progress report

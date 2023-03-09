@@ -6,6 +6,7 @@ public class Income {
 
     private double amount;
     private String Income_source;
+    private String frequency; 
     private Date Income_tabulation_date;
     Purchases purchases = new Purchases(); // aggregation is used
 
@@ -13,9 +14,22 @@ public class Income {
         this.amount = amount;
         this.Income_source = Income_source;
         this.Income_tabulation_date = Income_tabulation_date;
+        this.frequency = "";
+    }
+    public Income(double amount, String Income_source, Date Income_tabulation_date, String frequency) {
+        this.amount = amount;
+        this.Income_source = Income_source;
+        this.Income_tabulation_date = Income_tabulation_date;
+        this.frequency = frequency;
     }
 
     public double getAmount() {
+        switch(frequency){
+            case "Weekly": 
+                return amount*52;
+            case "Monthly": 
+                return amount*12;
+        }
         return amount;
     }
 

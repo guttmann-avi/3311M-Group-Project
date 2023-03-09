@@ -1,5 +1,6 @@
 package src.UILogic;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import src.UserImplements.Household;
@@ -31,7 +32,8 @@ public class NewUser implements Output {
 
     public Household setHousehold(Household household) {
         if (success()) {
-            User user = new User(inputValues.get(inputs[0]), Double.parseDouble(inputValues.get(inputs[1])), null);
+            Date today = new Date();
+            User user = new User(inputValues.get(inputs[0]), Double.parseDouble(inputValues.get(inputs[1])), today, inputValues.get(inputs[6]));
             household.addUser(user);
             return household;
         } 

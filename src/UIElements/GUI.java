@@ -31,18 +31,23 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JLabel amountL;
     JLabel purchaseDateL;
     JLabel usersL;
+    JLabel deleteL;
 
     private int userCounter = 0;
     JTextField nameT;
     JTextField incomeT;
     JTextField amountT;
     JTextField purchaseDateT;
+    JTextField deleteT;
+
     JList<String> userList;
 
     JButton insertNewUser;
     JButton insertNewPurchase;
     JButton viewPurchases;
+    JButton deletePurchases;
     JTextArea purchaseOutputPanel;
+    JButton insertCategory;
 
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
@@ -140,13 +145,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 1;
         this.add(emptyPanel3, c);
 
-        String[] frequencyOptions = {"Yearly", "Monthly", "Weekly"};
+        String[] frequencyOptions = { "Yearly", "Monthly", "Weekly" };
         frequencyDropdown = new JComboBox<String>(frequencyOptions);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 1;
         this.add(frequencyDropdown, c);
-
 
         insertNewUser = new JButton("Insert New User");
         insertNewUser.addActionListener(this);
@@ -180,6 +184,16 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 2;
         c.gridy = 1;
         this.add(radioButtonsPanel, c);
+        
+        insertCategory = new JButton("Insert Purchase Category");
+        insertCategory.addActionListener(this);
+        JPanel submitPurchaseCategory = new JPanel(new GridLayout(0, 1));
+        submitPurchaseCategory.add(insertCategory);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 2;
+        c.gridy = 3;
+        this.add(submitPurchaseCategory,c);
 
         viewPurchases = new JButton("View Purchases");
         viewPurchases.addActionListener(this);
@@ -200,7 +214,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(emptyPanel4, c);
 
         purchaseOutputPanel = new JTextArea(18, 50);
-        purchaseOutputPanel.setText("Any Output will be shown here. Please begin by creating a User and after adding some purchase information.");
+        purchaseOutputPanel.setText(
+                "Any Output will be shown here. Please begin by creating a User and after adding some purchase information.");
         JScrollPane outputPanel = new JScrollPane(purchaseOutputPanel);
         c.gridwidth = GridBagConstraints.REMAINDER;
         c.fill = GridBagConstraints.BOTH;
@@ -210,9 +225,40 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         this.setBounds(50, 50, 600, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // new code
+        JPanel deletePanel = new JPanel(new GridLayout(0, 1));
+
+        deleteL = new JLabel("Transaction Id");
+        deleteL.setEnabled(true);
+        deleteT = new JTextField();
+        deleteT.setEnabled(true);
+
+        JPanel deleteInformation = new JPanel(new GridLayout(0, 1));
+        deleteInformation.add(deleteL);
+        deleteInformation.add(deleteT);
+        deletePanel.add(deleteInformation);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 7;
+        c.gridy = 0;
+        this.add(deletePanel, c);
+
+        deletePurchases = new JButton("delete Transaction");
+        deletePurchases.addActionListener(this);
+        JPanel deletePurchasesPanel = new JPanel(new GridLayout(0, 1));
+        deletePurchasesPanel.add(deletePurchases);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 7;
+        c.gridy = 2;
+        this.add(deletePurchasesPanel, c);
+        
+        
+
     }
 
-    public void itemStateChanged(ItemEvent e) {}
+    public void itemStateChanged(ItemEvent e) {
+    }
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getActionCommand();
@@ -225,7 +271,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             }
         }
         HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = { "User Name", "Income", "Amount", "Purchase/Return Date", "User Choice" };
+        String[] inputs = { "User Name", "Income", "Amount", "Purchase/Return Date", "User Choice", "Transaction Id", "Frequency" };
 
         for (String input : inputs)
             inputValues.put(input, null);
@@ -240,11 +286,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             inputValues.put(inputs[3], purchaseDateT.getText());
         if (userList.getSelectedValue() != null)
             inputValues.put(inputs[4], userList.getSelectedValue());
-
+        if (!deleteT.getText().isBlank())
+            inputValues.put(inputs[5], deleteT.getText());
+        String selectedOption = (String) frequencyDropdown.getSelectedItem();
+        inputValues.put(inputs[6], selectedOption);
         inputHolder.setInput(inputValues, inputs);
         purchaseOutputPanel.setText(inputHolder.output());
         String selected = userList.getSelectedValue();
         userList.setListData(new Users(inputHolder.getHousehold()).getUserNames());
         userList.setSelectedValue(selected, rootPaneCheckingEnabled);
-   }
+    }
 }

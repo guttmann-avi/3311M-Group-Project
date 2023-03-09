@@ -53,6 +53,6 @@ public class PurchasesTest {
     public void testPurchaseId() {
         Purchases p1 = new Purchases();
         Purchases p2 = new Purchases();
-        assertEquals(p1.gtPurchaseId() + 1, p2.gtPurchaseId());
+        assertEquals(p1.getPurchaseId() + 1, p2.getPurchaseId());
     }
 }

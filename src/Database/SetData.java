@@ -18,6 +18,8 @@ public class SetData {
         this.getPurchases(data.substring(0, data.indexOf("]")), null);
         data = data.substring(data.indexOf("},") + 2);
         this.getUsers(data, this.household);
+        this.household.getUsers().get(household.getUsers().size()-1).setCount(household.getUsers().size());
+        
         return this.household;
     }
 
@@ -69,7 +71,7 @@ public class SetData {
     }
 
     private void getUsers(String userString, Household household) {
-        String[] toReplace = { ",transID:", ",Date:" };
+        String[] toReplace = {",transID:",",Date:"};
         userString = userString.substring(userString.indexOf("["), userString.lastIndexOf("]") + 1);
         String[] userValues = new String[2];
         String[] usersAllInfo = userString.split("name");

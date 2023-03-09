@@ -3,7 +3,7 @@ package src.BudgetingSystem;
 import java.util.Date;
 
 public class Purchases {
-	private static int Id = 0;
+	private static int idCount = 0;
 	private double amount;
 	private String category;
 	private Date date;
@@ -13,8 +13,8 @@ public class Purchases {
 		this.amount = amount;
 		this.category = category;
 		this.date = date;
-		this.purchaseid = Id;
-		Id++;
+		this.purchaseid = idCount;
+		idCount++;
 	}
 
 	public Purchases(double amount, Date date) {
@@ -53,9 +53,7 @@ public class Purchases {
 		this.date = date;
 	}
 
-	
-
-	public int gtPurchaseId() {
+	public int getPurchaseId() {
 		return this.purchaseid;
 	}
 }
