@@ -11,6 +11,7 @@ public class User {
 	private static int count = 1;
 	private static int nextTransID = 0;
 	private String name;
+	private String frequency; 
 	private Income income;
 	private int transID;
 	private Date date;
@@ -31,7 +32,20 @@ public class User {
 		purchases = new ArrayList<>();
 		count++;
 	}
-
+	public User(String name, double salary, Date date, String frequency) {
+		if (!name.contains("0")) {
+			this.name = name + String.format("%04d", count);
+		} else {
+			this.name = name;
+		}
+		this.salary = salary;
+		this.frequency = frequency;
+		this.income = new Income(this.salary, this.name, this.date, this.frequency);
+		this.transID = nextTransID++;
+		this.date = date;
+		purchases = new ArrayList<>();
+		count++;
+	}
 	public String getName() {
 		return name;
 	}
