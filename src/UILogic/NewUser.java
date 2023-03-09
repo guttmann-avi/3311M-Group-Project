@@ -19,7 +19,7 @@ public class NewUser implements Output {
     @Override
     public String output() {
         if (inputValues.get(inputs[0]) == null || inputValues.get(inputs[1]) == null) {
-            return "Pease fill in fields for 'New User Name' and 'Total User Income' ";
+            return "Pease fill in fields for 'New User Name' and 'Total User Income'";
         } else {
             try {
                 double amount = Double.parseDouble(inputValues.get(inputs[1]));
