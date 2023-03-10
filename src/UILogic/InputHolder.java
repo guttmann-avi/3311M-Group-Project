@@ -21,8 +21,8 @@ public class InputHolder {
     private String[] inputs;
     private List<Purchases> categories;
 
-    final String[] actionOptions = { "Insert New User", "Insert Purchase", "View Purchases" };
-    final String[] purchaseOrReturn = { "Purchase", "Return" };
+    // final String[] actionOptions = { "Insert New User", "Insert Purchase", "View Purchases" };
+    // final String[] purchaseOrReturn = { "Purchase", "Return" };
 
     public InputHolder() {
         if (new GetData().saveData() != null) {

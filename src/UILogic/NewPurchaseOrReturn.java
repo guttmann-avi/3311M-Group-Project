@@ -7,15 +7,16 @@ import java.util.List;
 
 import src.UserImplements.Household;
 
-public class NewPurchaseOrReturn implements Output{
+public class NewPurchaseOrReturn implements Output {
 
     private Household household;
     private HashMap<String, String> inputValues;
     private String[] inputs;
     private String radioButton;
     private List<Purchases> categories;
-    
-    public NewPurchaseOrReturn(String radioButton, HashMap<String, String> inputValues, String[] inputs, Household household, List<Purchases> categories) {
+
+    public NewPurchaseOrReturn(String radioButton, HashMap<String, String> inputValues, String[] inputs,
+            Household household, List<Purchases> categories) {
         this.inputValues = inputValues;
         this.inputs = inputs;
         this.household = household;
@@ -27,10 +28,10 @@ public class NewPurchaseOrReturn implements Output{
     }
 
     private Date purchaseOrReturnDateField() {
-        String[] purchaseTime = inputValues.get(inputs[3]).split("/");
         try {
+            String[] purchaseTime = inputValues.get(inputs[3]).split("/");
             return new Date(Integer.parseInt(purchaseTime[2]),
-                Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
+                    Integer.parseInt(purchaseTime[1]), Integer.parseInt(purchaseTime[0]));
         } catch (Exception exception) {
             return null;
         }
@@ -46,10 +47,14 @@ public class NewPurchaseOrReturn implements Output{
         } else {
             try {
                 double amount = Double.parseDouble(inputValues.get(inputs[2]));
-                if (radioButton.equalsIgnoreCase("Purchase")) {
-                   output = new NewPurchase(inputValues, inputs, household).output();
-                } else if (radioButton.equalsIgnoreCase("Return")) {
-                    output = new NewRefund(inputValues, inputs, household).output();
+                if (radioButton != null) {
+                    if (radioButton.equalsIgnoreCase("Purchase")) {
+                        output = new NewPurchase(inputValues, inputs, household).output();
+                    } else if (radioButton.equalsIgnoreCase("Return")) {
+                        output = new NewRefund(inputValues, inputs, household).output();
+                    }
+                } else {
+                    output = "Please make sure you have either 'Purchase' or 'Refund' selected.";
                 }
             } catch (Exception exception) {
                 output = "Please make sure the 'Amount' field is filled correctly.";
