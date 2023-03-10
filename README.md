@@ -28,12 +28,12 @@ In the event of any problems, users can easily erase records and alter purchase 
 - Payment notifications
 - Updating and deleting purchase information
 
-## Installation
+## Installation and Running
 
 To install the application, follow these steps:
 
-1. Clone the repository.
-2. 
+1. Download the folder.
+2. Open the jar file.
 
 ## Usage
 
