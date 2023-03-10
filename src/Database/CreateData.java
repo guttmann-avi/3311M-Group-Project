@@ -13,7 +13,7 @@ public class CreateData
         new WriteData(this.createUserInfoData(household), this.createHouseholdData(household));
     }
     
-    public ArrayList<String> createUserInfoData(Household household) {
+    private ArrayList<String> createUserInfoData(Household household) {
         ArrayList<String> data = new ArrayList<String>();
         for (User user : household.getUsers()) {
             String userInfo = "[name:" + user.getName() + ",transID:" + user.getTransID() + ",Date:" + this.getDate(user.getDate()) + ", " + this.incomeStorageString(user.getIncome()) + ",purchases:[";
@@ -28,13 +28,12 @@ public class CreateData
         return data;
     }
     
-    public String createHouseholdData(Household household) {
+    private String createHouseholdData(Household household) {
         String householdInfo = "";
         householdInfo = String.valueOf(householdInfo) + "{{" + this.incomeStorageString(household.getIncome()) + ",purchases:[";
         if (!household.getPurchases().isEmpty()) {
             householdInfo = String.valueOf(householdInfo) + this.purchaseStorageString(household.getPurchases());
-        }
-        else {
+        } else {
             householdInfo = String.valueOf(householdInfo) + "]";
         }
         return String.valueOf(householdInfo) + "}";
@@ -57,7 +56,7 @@ public class CreateData
     
     private String incomeStorageString(Income income) {
         String incomeString = "";
-        incomeString = "income:{amount:" + income.getAmount() + ",Income_source:" + income.getSource() + ",Income_tabulation_date:" + this.getDate(income.getDate()) + "}";
+        incomeString = "income:{amount:" + income.getBaseAmount() + ",Income_source:" + income.getSource() + ",Income_tabulation_date:" + this.getDate(income.getDate()) +",frequency:" + income.getFrequency() + "}";
         return incomeString;
     }
     

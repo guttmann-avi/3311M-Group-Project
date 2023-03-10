@@ -90,41 +90,36 @@ public class InputHolder {
                 break;
 
             case "delete Transaction":
-
-                boolean result = true;
-
-                // submitPanelPurchase(new Household()/setHousehold(household););
-                for (Purchases purchases : household.getPurchases()) {
-
-                    if (purchases.getPurchaseId() == Integer.parseInt(inputValues.get(inputs[5]))) {
-
-                        // }
-                        household.removePurchase(purchases);
-                        result = false;
-                        break;
-                    }
-
-                }
-
-                for (User user : household.getUsers()) {
-
-                    for (Purchases purchases : user.getPurchases()) {
-
+                try {
+                    boolean result = true;
+                    for (Purchases purchases : household.getPurchases()) {
                         if (purchases.getPurchaseId() == Integer.parseInt(inputValues.get(inputs[5]))) {
-
-                            // }
-                            user.removepurchase(purchases);
+                            household.removePurchase(purchases);
                             result = false;
                             break;
                         }
+                    }
+                    for (User user : household.getUsers()) {
+                        for (Purchases purchases : user.getPurchases()) {
+                            if (purchases.getPurchaseId() == Integer.parseInt(inputValues.get(inputs[5]))) {
 
+                                user.removepurchase(purchases);
+                                result = false;
+                                break;
+                            }
+                        }
+                        if (result == false) {
+                            break;
+                        }
                     }
                     if (result == false) {
-                        break;
+                        output = "Purchase with ID: " + inputValues.get(inputs[5]) + " has been deleted.";
+                    } else {
+                        output = "Purchase with ID: " + inputValues.get(inputs[5]) + " did not exist please try again.";
                     }
-
-                }
-
+            } catch (Exception e) {
+                output = "Please make sure to enter a vaild ID value in the Transaction ID Field.";
+            }
         }
 
         new CreateData(household);
