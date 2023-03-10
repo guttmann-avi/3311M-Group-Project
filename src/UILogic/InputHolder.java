@@ -89,7 +89,7 @@ public class InputHolder {
                 output = new ViewPurchases(household.findUser(inputValues.get(inputs[4]))).output();
                 break;
 
-            case "delete Transaction":
+            case "Delete Transaction":
                 try {
                     boolean result = true;
                     for (Purchases purchases : household.getPurchases()) {

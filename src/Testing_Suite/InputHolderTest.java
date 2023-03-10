@@ -165,7 +165,7 @@ public class InputHolderTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		assertEquals("User has been added successfully.",inputHolder.output());
+		assertEquals("User has been added successfully.", inputHolder.output());
 	}
 
 	@Test

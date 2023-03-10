@@ -1,0 +1,6 @@
+{{income:{amount:554000.0,Income_source:Avi0001,Income_tabulation_date:null,frequency:Yearly},purchases:[{Amount:100.0,Date:null,Category:null}]},
+ Users:{[name:Avi0001,transID:152,Date:null, income:{amount:1000.0,Income_source:Avi0001,Income_tabulation_date:null,frequency:Yearly},purchases:[{Amount:250.0,Date:null,Category:null},{Amount:450.0,Date:null,Category:null},{Amount:-100.0,Date:null,Category:null},{Amount:-250.0,Date:null,Category:null},{Amount:250.0,Date:null,Category:null},{Amount:250.0,Date:null,Category:null}]],
+[name:Mark0002,transID:153,Date:null, income:{amount:2500.0,Income_source:Mark0002,Income_tabulation_date:null,frequency:Monthly},purchases:[{Amount:350.0,Date:null,Category:null},{Amount:550.0,Date:null,Category:null}]],
+[name:John0003,transID:154,Date:null, income:{amount:10000.0,Income_source:John0003,Income_tabulation_date:null,frequency:Weekly},purchases:[]],
+[name:Avi0004,transID:155,Date:10/2/123, income:{amount:1000.0,Income_source:Avi0004,Income_tabulation_date:null,frequency:Yearly},purchases:[]],
+[name:Mark0005,transID:156,Date:10/2/123, income:{amount:2000.0,Income_source:Mark0005,Income_tabulation_date:null,frequency:Yearly},purchases:[]]}}
