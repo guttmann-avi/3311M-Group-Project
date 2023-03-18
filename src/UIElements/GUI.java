@@ -249,14 +249,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
         
-        JPanel categoryPanel = new JPanel(new GridLayout(0,1)); 
+        JPanel categoryPanel = new JPanel(new GridLayout(0, 1)); 
         
         categoryL = new JLabel("Category");
         categoryL.setEnabled(true);
         categoryT = new JTextField();
         categoryT.setEnabled(true);
         
-        JPanel insertCategory = new JPanel(new GridLayout(0,1));
+        JPanel insertCategory = new JPanel(new GridLayout(0, 1));
         insertCategory.add(categoryL);
         insertCategory.add(categoryT);
         categoryPanel.add(insertCategory);
