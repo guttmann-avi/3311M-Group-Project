@@ -181,11 +181,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         bonusRadioButton = new JRadioButton("One Time Bonus");
         ButtonGroup radioGroup = new ButtonGroup();
         radioGroup.add(purchaseRadioButton);
-        radioGroup.add(returnRadioButton);
         radioGroup.add(bonusRadioButton);
+        radioGroup.add(returnRadioButton);
         radioButtonsPanel.add(purchaseRadioButton);
-        radioButtonsPanel.add(returnRadioButton);
         radioButtonsPanel.add(bonusRadioButton);
+        radioButtonsPanel.add(returnRadioButton);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
         c.gridy = 1;
