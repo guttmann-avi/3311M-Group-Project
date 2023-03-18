@@ -54,6 +54,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
     JRadioButton returnRadioButton;
+    JRadioButton bonusRadioButton;
 
     private JComboBox<String> frequencyDropdown;
 
@@ -174,14 +175,17 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(submitPanelPurchase, c);
 
-        radioButtonsPanel = new JPanel(new GridLayout(2, 1));
+        radioButtonsPanel = new JPanel(new GridLayout(2, 2));
         purchaseRadioButton = new JRadioButton("Purchase");
         returnRadioButton = new JRadioButton("Return");
+        bonusRadioButton = new JRadioButton("One Time Bonus");
         ButtonGroup radioGroup = new ButtonGroup();
         radioGroup.add(purchaseRadioButton);
         radioGroup.add(returnRadioButton);
+        radioGroup.add(bonusRadioButton);
         radioButtonsPanel.add(purchaseRadioButton);
         radioButtonsPanel.add(returnRadioButton);
+        radioButtonsPanel.add(bonusRadioButton);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
         c.gridy = 1;
@@ -260,6 +264,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(categoryPanel, c);
 
+        
+        
     }
 
     public void itemStateChanged(ItemEvent e) {
