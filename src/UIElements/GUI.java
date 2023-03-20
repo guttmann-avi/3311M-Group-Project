@@ -286,7 +286,15 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 3;
         this.add(incomeButtonPanel, c);
         
-        
+        replacePurchasesButton = new JButton("Replace Purchase Info");
+        replacePurchasesButton.addActionListener(this);
+        JPanel purchaseButtonPanel = new JPanel(new GridLayout(0, 1));
+        purchaseButtonPanel.add(replacePurchasesButton);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 4;
+        c.gridy = 3;
+        this.add(purchaseButtonPanel, c);
     }
 
     public void itemStateChanged(ItemEvent e) {
