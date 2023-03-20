@@ -48,13 +48,16 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JButton insertNewPurchase;
     JButton viewPurchases;
     JButton deletePurchases;
+    JButton bonusRadioButton;
+    JButton newIncomeButton;
+    JButton replacePurchasesButton;
     JTextArea purchaseOutputPanel;
     
 
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
     JRadioButton returnRadioButton;
-    JRadioButton bonusRadioButton;
+    
 
     private JComboBox<String> frequencyDropdown;
 
@@ -178,13 +181,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         radioButtonsPanel = new JPanel(new GridLayout(2, 2));
         purchaseRadioButton = new JRadioButton("Purchase");
         returnRadioButton = new JRadioButton("Return");
-        bonusRadioButton = new JRadioButton("One Time Bonus");
         ButtonGroup radioGroup = new ButtonGroup();
         radioGroup.add(purchaseRadioButton);
-        radioGroup.add(bonusRadioButton);
         radioGroup.add(returnRadioButton);
         radioButtonsPanel.add(purchaseRadioButton);
-        radioButtonsPanel.add(bonusRadioButton);
         radioButtonsPanel.add(returnRadioButton);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
@@ -264,6 +264,27 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(categoryPanel, c);
 
+        //new buttons below
+        
+        bonusRadioButton = new JButton("One-Time Bonus");
+        bonusRadioButton.addActionListener(this);
+        JPanel bonusButtonPanel = new JPanel(new GridLayout(0, 1));
+        bonusButtonPanel.add(bonusRadioButton);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 2;
+        c.gridy = 3;
+        this.add(bonusButtonPanel, c);
+        
+        newIncomeButton = new JButton("Modify Income");
+        newIncomeButton.addActionListener(this);
+        JPanel incomeButtonPanel = new JPanel(new GridLayout(0, 1));
+        incomeButtonPanel.add(newIncomeButton);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 0;
+        c.gridy = 3;
+        this.add(incomeButtonPanel, c);
         
         
     }
