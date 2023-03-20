@@ -59,4 +59,13 @@ public class Income {
     public String getFrequency() {
         return frequency;
     }
+    public String outputAlert()
+    {
+        String result=null;
+        if(getAmount()<0)
+        {
+            result="The Income at this point is neagtive";
+        }
+        return result;
+    }
 }
