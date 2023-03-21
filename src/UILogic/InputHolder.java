@@ -68,14 +68,15 @@ public class InputHolder {
     public String[] getCategories() {
        String[] categories = new String[10];
        
-       if(this.categories.size() > 10) {
-    	   categories = new String[this.categories.size()];
-       }
-       
-       if(!this.categories.isEmpty()) {
-    	   for(int i=0;i<this.categories.size();i++) {
-    		   categories[i] = this.categories.get(i).toString();
+       if(this.categories != null) {
+    	   if(this.categories.size() > 10) {
+    		   categories = new String[this.categories.size()];
     	   }
+    	   if(!this.categories.isEmpty()) {
+    		   for(int i=0;i<this.categories.size();i++) {
+    		   		categories[i] = this.categories.get(i).toString();
+    	   		}
+    	   	}
        }
        return categories;
     }

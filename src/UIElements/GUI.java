@@ -149,7 +149,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(userPanel, c);
         
         
-        JPanel categoryPanel = new JPanel(new GridLayout(0,2));
+        JPanel categoryPanel1 = new JPanel(new GridLayout(0,1));
         categoryL = new JLabel("Category Choice");
         categoryL.setEnabled(true);
         categoryList = new JList<String>();
@@ -158,11 +158,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel categoryChoicePanel = new JPanel(new GridLayout(0,1));
         categoryChoicePanel.add(categoryL);
         categoryChoicePanel.add(categoryList);
-        categoryPanel.add(categoryChoicePanel);
+        categoryPanel1.add(categoryChoicePanel);
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 5;
+        c.gridx = 6;
         c.gridy = 0;
-        this.add(categoryPanel,c);
+        this.add(categoryPanel1,c);
         
         
 
@@ -274,6 +274,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         
      
         // Category panel here
+        JPanel categoryPanel = new JPanel(new GridLayout(0,1));
         categoryL = new JLabel("Category");
         categoryL.setEnabled(true);
         categoryT = new JTextField();
