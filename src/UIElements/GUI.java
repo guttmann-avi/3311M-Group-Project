@@ -24,6 +24,7 @@ import javax.swing.JCheckBox;
 
 import src.UILogic.InputHolder;
 import src.UILogic.Users;
+import src.BudgetingSystem.*;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 
@@ -34,6 +35,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JLabel usersL;
     JLabel deleteL;
     JLabel categoryL;
+    
 
     private int userCounter = 0;
     JTextField nameT;
@@ -44,6 +46,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JTextField categoryT;
 
     JList<String> userList;
+    JList<String> categoryList;
 
     JButton insertNewUser;
     JButton insertNewPurchase;
@@ -144,6 +147,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 4;
         c.gridy = 0;
         this.add(userPanel, c);
+        
+        categoryL = new JLabel("Category Choice");
+        categoryL.setEnabled(true);
+       
+        
 
         JLabel emptyLabel3 = new JLabel("                    \n          ");
         JPanel emptyPanel3 = new JPanel(new GridLayout(0, 1));
@@ -319,7 +327,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             }
         }
         HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
+        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency","Category"};
 
         for (String input : inputs)
             inputValues.put(input, null);
@@ -336,6 +344,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             inputValues.put(inputs[4], userList.getSelectedValue());
         if (!deleteT.getText().isBlank())
             inputValues.put(inputs[5], deleteT.getText());
+        if(!categoryT.getText().isBlank())
+        	inputValues.put(inputs[7],categoryT.getText());
         inputValues.put(inputs[6], frequencyDropdown.getSelectedItem().toString());
         inputHolder.setInput(inputValues, inputs);
         purchaseOutputPanel.setText(inputHolder.output());
