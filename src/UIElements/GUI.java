@@ -301,7 +301,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(purchaseButtonPanel, c);
         
         allTimeCheckbox = new JCheckBox("All Time");
-        
         this.add(allTimeCheckbox);
         
     }
