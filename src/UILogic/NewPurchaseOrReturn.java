@@ -73,4 +73,5 @@ public class NewPurchaseOrReturn implements Output {
         }
         return household;
     }
+    
 }

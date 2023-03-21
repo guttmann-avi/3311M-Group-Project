@@ -148,11 +148,22 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 0;
         this.add(userPanel, c);
         
+        
+        JPanel categoryPanel = new JPanel(new GridLayout(0,2));
         categoryL = new JLabel("Category Choice");
         categoryL.setEnabled(true);
         categoryList = new JList<String>();
-        categoryList.setListData(new Purchases(inputHolder.getCategories().toString()));
-       
+        categoryList.setListData(inputHolder.getCategories());
+        categoryList.setEnabled(true);
+        JPanel categoryChoicePanel = new JPanel(new GridLayout(0,1));
+        categoryChoicePanel.add(categoryL);
+        categoryChoicePanel.add(categoryList);
+        categoryPanel.add(categoryChoicePanel);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 5;
+        c.gridy = 0;
+        this.add(categoryPanel,c);
+        
         
 
         JLabel emptyLabel3 = new JLabel("                    \n          ");
@@ -261,8 +272,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
         
-        JPanel categoryPanel = new JPanel(new GridLayout(0, 1)); 
-        
+     
+        // Category panel here
         categoryL = new JLabel("Category");
         categoryL.setEnabled(true);
         categoryT = new JTextField();
