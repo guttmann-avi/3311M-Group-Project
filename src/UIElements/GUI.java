@@ -150,6 +150,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         
         categoryL = new JLabel("Category Choice");
         categoryL.setEnabled(true);
+        categoryList = new JList<String>();
+        categoryList.setListData(new Purchases(inputHolder.getCategories().toString()));
        
         
 
