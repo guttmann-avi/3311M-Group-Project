@@ -20,6 +20,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JCheckBox;
 
 import src.UILogic.InputHolder;
 import src.UILogic.Users;
@@ -52,7 +53,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JButton newIncomeButton;
     JButton replacePurchasesButton;
     JTextArea purchaseOutputPanel;
-    
+    JCheckBox allTimeCheckbox;
 
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
@@ -60,6 +61,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     
 
     private JComboBox<String> frequencyDropdown;
+    
 
     private InputHolder inputHolder;
 
@@ -263,6 +265,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 3;
         c.gridy = 2;
         this.add(categoryPanel, c);
+        
+        
 
         //new buttons below
         
@@ -295,6 +299,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 4;
         c.gridy = 3;
         this.add(purchaseButtonPanel, c);
+        
+        allTimeCheckbox = new JCheckBox("All Time");
+        
+        this.add(allTimeCheckbox);
+        
     }
 
     public void itemStateChanged(ItemEvent e) {
