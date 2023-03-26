@@ -12,6 +12,10 @@ public class MoneyLeftInformation implements TotalInformation {
         for (Purchases purchases : user.getPurchases()) {
             moneyLeft = moneyLeft - purchases.getAmount();
         }
+        if(moneyLeft<0)
+        {
+            info="There is no more money left";
+        }
         info  = "Money Left: " + String.format("%.2f", moneyLeft) + "\n"; 
     }
 

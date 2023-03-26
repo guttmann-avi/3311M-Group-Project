@@ -22,13 +22,20 @@ public class IncomeInformation implements TotalInformation {
         amount = income.getAmount();
         Income_tabulation_date = income.getDate();
         Income_source = income.getSource();
+        
         printinfo();
     }
 
     @Override
     public String printinfo() {
+        String resultString;
+        if(amount < 0) {
+            resultString="Amount cannot be negative";
+        }
+        else{
         String amount_string = " " + amount;
-        String resultString = "User " + Income_source + " Income is" + String.format(amount_string, "%.2f");
+        resultString = "User " + Income_source + " Income is" + String.format(amount_string, "%.2f");
+       }
         return resultString;
     }
 }

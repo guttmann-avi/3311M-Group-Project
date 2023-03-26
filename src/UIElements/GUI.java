@@ -323,6 +323,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(purchaseButtonPanel, c);
         
         allTimeCheckbox = new JCheckBox("All Time");
+        allTimeCheckbox.setAlignmentY((float) 10.0);
+        allTimeCheckbox.setAlignmentX((float) 1.0);
         this.add(allTimeCheckbox);
         
     }
