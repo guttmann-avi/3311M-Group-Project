@@ -11,41 +11,35 @@ public class User {
 	private static int count = 1;
 	private static int nextTransID = 0;
 	private String name;
-	private String frequency; 
-	private Income income;
+	private ArrayList<Income> income;
 	private int transID;
 	private Date date;
-	private double salary;
 
 	ArrayList<Purchases> purchases;
 
-	public User(String name, double salary, Date date) {
+	public User(String name, Date date) {
+		setName(name);
+		setDate(date);
+		this.income = new ArrayList<>();
+		this.purchases = new ArrayList<>();
+		this.transID = nextTransID++;
+		count++;
+	}
+
+	public User(String name, double salary, String frequency) {
 		if (!name.contains("0")) {
 			this.name = name + String.format("%04d", count);
 		} else {
 			this.name = name;
 		}
-		this.salary = salary;
-		this.income = new Income(this.salary, this.name, this.date);
+		this.income = new ArrayList<>();
+		this.income.add(new Income(salary, name, frequency));
 		this.transID = nextTransID++;
-		this.date = date;
+		this.date = new Date();
 		purchases = new ArrayList<>();
 		count++;
 	}
-	public User(String name, double salary, Date date, String frequency) {
-		if (!name.contains("0")) {
-			this.name = name + String.format("%04d", count);
-		} else {
-			this.name = name;
-		}
-		this.salary = salary;
-		this.frequency = frequency;
-		this.income = new Income(this.salary, this.name, this.date, this.frequency);
-		this.transID = nextTransID++;
-		this.date = date;
-		purchases = new ArrayList<>();
-		count++;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -59,12 +53,21 @@ public class User {
 		count++;
 	}
 
-	public Income getIncome() {
-		return income;
+	public ArrayList<Income> getIncome() {
+		return this.income;
+	}
+
+	public void setIncome(ArrayList<Income> incomes) {
+		this.income = incomes;
 	}
 
 	public void setIncome(Income income) {
-		this.income = income;
+		this.income = new ArrayList<>();
+		this.income.add(income);
+	}
+
+	public void addIncome(Income income) {
+		this.income.add(income);
 	}
 
 	public int getTransID() {
@@ -100,8 +103,34 @@ public class User {
 	}
 
 	public void removepurchase(Purchases purchases) {
-
 		this.purchases.remove(purchases);
+	}
 
+	public double totalUserIncomeAllTime() {
+		double totalUserIncome = 0.00;
+		for (Income income : this.income) {
+			if (income.getFrequency().equalsIgnoreCase("One Time Bonus")) { 
+				totalUserIncome += income.getBaseAmount();
+			} else {
+				totalUserIncome += income.getAmountYearly(); 
+			}
+		}
+		return totalUserIncome;
+	}
+
+	public double totalUserIncomeTimePeriod(String time) {
+		double totalUserIncome = 0.00;
+		for (Income income : this.income) {
+			if (time.equalsIgnoreCase("Yearly")) {
+				totalUserIncome += income.getAmountYearly();
+			} else if (time.equalsIgnoreCase("Monthly")) {
+				totalUserIncome += income.getAmountMonthly();
+			} else if (time.equalsIgnoreCase("Weekly")) {
+				totalUserIncome += income.getAmountWeekly();
+			} else if (time.equalsIgnoreCase("One Time Bonus")) {
+				totalUserIncome += income.getBaseAmount();
+			}
+		}
+		return totalUserIncome;
 	}
 }

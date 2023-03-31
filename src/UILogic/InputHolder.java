@@ -20,6 +20,7 @@ public class InputHolder {
     private HashMap<String, String> inputValues;
     private String[] inputs;
     private List<Purchases> categories;
+    private Boolean allTime;
 
     // final String[] actionOptions = { "Insert New User", "Insert Purchase", "View Purchases" };
     // final String[] purchaseOrReturn = { "Purchase", "Return" };
@@ -86,6 +87,10 @@ public class InputHolder {
         this.categories.add(purchase);
     }
 
+    public void setAllTime(Boolean allTime) {
+        this.allTime = allTime;
+    }
+
     public String output() {
         String output = "";
         switch (action) {
@@ -99,7 +104,7 @@ public class InputHolder {
                         .setHousehold());
                 break;
             case "View Purchases":
-                output = new ViewPurchases(household.findUser(inputValues.get(inputs[4]))).output();
+                output = new ViewPurchases(household.findUser(inputValues.get(inputs[4])), allTime, inputValues.get(inputs[6])).output();
                 break;
 
             case "Delete Transaction":
@@ -130,9 +135,18 @@ public class InputHolder {
                     } else {
                         output = "Purchase with ID: " + inputValues.get(inputs[5]) + " did not exist please try again.";
                     }
-            } catch (Exception e) {
-                output = "Please make sure to enter a vaild ID value in the Transaction ID Field.";
-            }
+                } catch (Exception e) {
+                    output = "Please make sure to enter a vaild ID value in the Transaction ID Field.";
+                }
+            case "Extra Income":
+                output = new ExtraIncome(inputValues, inputs).output();
+                setHousehold(new ExtraIncome(inputValues, inputs).setHousehold(household));
+            break;
+
+            case "One-Time Bonus":
+                output = new OneTimeBonus(inputValues, inputs).output();
+                setHousehold(new OneTimeBonus(inputValues, inputs).setHousehold(household));
+            break;
         }
 
         new CreateData(household);

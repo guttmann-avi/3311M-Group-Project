@@ -100,7 +100,7 @@ public class NewPurchaseOrReturnTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		assertEquals("Please make sure the 'Purchase/Return Date' field is filled correctly.", new NewPurchaseOrReturn("Purchase", inputValues, inputs, household, null).output());
+		assertEquals("Please make sure the 'Purchase/Return Date' field is filled correctly and that all values are positive.", new NewPurchaseOrReturn("Purchase", inputValues, inputs, household, null).output());
 	}
 
 	@Test
@@ -113,7 +113,7 @@ public class NewPurchaseOrReturnTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		assertEquals("Please make sure the 'Purchase/Return Date' field is filled correctly.", new NewPurchaseOrReturn("Purchase", inputValues, inputs, household, null).output());
+		assertEquals("Please make sure the 'Purchase/Return Date' field is filled correctly and that all values are positive.", new NewPurchaseOrReturn("Purchase", inputValues, inputs, household, null).output());
 	}
 
 	@Test

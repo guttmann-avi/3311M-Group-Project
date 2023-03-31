@@ -88,10 +88,10 @@ public class NewUserTest {
 		Household householdOutput = new Household();
 		new NewUser(inputValues, inputs).setHousehold(householdOutput);
 		assertEquals("Avi0001", householdOutput.getUsers().get(0).getName());
-		assertEquals(null, 1000, householdOutput.getUsers().get(0).getIncome().getAmount(), 0);
-		assertEquals(null, householdOutput.getUsers().get(0).getIncome().getDate());
-		assertEquals("Yearly", householdOutput.getUsers().get(0).getIncome().getFrequency());
-		assertEquals("Avi0001", householdOutput.getUsers().get(0).getIncome().getSource());
+		assertEquals(null, 1000, householdOutput.getUsers().get(0).getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, householdOutput.getUsers().get(0).getIncome().get(0).getDate());
+		assertEquals("Yearly", householdOutput.getUsers().get(0).getIncome().get(0).getFrequency());
+		assertEquals("Avi0001", householdOutput.getUsers().get(0).getIncome().get(0).getSource());
 		assertEquals(null, 1, householdOutput.getUsers().size(),0);
 	}
 

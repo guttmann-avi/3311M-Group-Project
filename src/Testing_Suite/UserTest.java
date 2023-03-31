@@ -20,9 +20,9 @@ public class UserTest {
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 0, user.getIncome().getAmount(), 0);
-		assertEquals(null, user.getIncome().getDate());
-		assertEquals("Avi0001", user.getIncome().getSource());
+		assertEquals(null, 0, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(null, user.getDate());
 	}
@@ -35,9 +35,9 @@ public class UserTest {
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().getAmount(), 0);
-		assertEquals(null, user.getIncome().getDate());
-		assertEquals("Avi0001", user.getIncome().getSource());
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(null, user.getDate());
 	}
@@ -45,15 +45,15 @@ public class UserTest {
 	@Test
 	public void testConstructorWithNameAndSalaryAndDate() {
 		Date date = new Date();
-		User user = new User("Avi0001", 1000, date);
+		User user = new User("Avi0001", 1000, "Yearly");
 		assertEquals("Avi0001", user.getName());
 
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().getAmount(), 0);
-		assertEquals(null, user.getIncome().getDate());
-		assertEquals("Avi0001", user.getIncome().getSource());
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
 	}
@@ -61,7 +61,7 @@ public class UserTest {
 	@Test
 	public void testWithSinglePurchase() {
 		Date date = new Date();
-		User user = new User("Avi0001", 1000, date);
+		User user = new User("Avi0001", 1000, "Yearly");
 		Purchases purchase = new Purchases();
 		user.addPurchases(purchase);
 		assertEquals("Avi0001", user.getName());
@@ -70,9 +70,9 @@ public class UserTest {
 		purchases.add(purchase);
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().getAmount(), 0);
-		assertEquals(null, user.getIncome().getDate());
-		assertEquals("Avi0001", user.getIncome().getSource());
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
 	}
@@ -80,7 +80,7 @@ public class UserTest {
 	@Test
 	public void testWithMultiplePurchases() {
 		Date date = new Date();
-		User user = new User("Avi0001", 1000, date);
+		User user = new User("Avi0001", 1000, "Yearly");
 		Purchases purchase = new Purchases();
 		Purchases purchase2 = new Purchases();
 		user.addPurchases(purchase);
@@ -92,9 +92,9 @@ public class UserTest {
 		purchases.add(purchase2);
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().getAmount(), 0);
-		assertEquals(null, user.getIncome().getDate());
-		assertEquals("Avi0001", user.getIncome().getSource());
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
 	}
@@ -102,15 +102,15 @@ public class UserTest {
 	@Test
 	public void testMultipleUsers() {
 		Date date = new Date();
-		User user = new User("Avi0001", 1000, date);
-		User user2 = new User("Mark0002", 2500, date);
+		User user = new User("Avi0001", 1000, "Yearly");
+		User user2 = new User("Mark0002", 2500, "Yearly");
 		assertEquals("Avi0001", user.getName());
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().getAmount(), 0);
-		assertEquals(null, user.getIncome().getDate());
-		assertEquals("Avi0001", user.getIncome().getSource());
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
 
@@ -119,9 +119,9 @@ public class UserTest {
 
 		assertEquals(purchases, user2.getPurchases());
 
-		assertEquals(null, 2500, user2.getIncome().getAmount(), 0);
-		assertEquals(null, user2.getIncome().getDate());
-		assertEquals("Mark0002", user2.getIncome().getSource());
+		assertEquals(null, 2500, user2.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, user2.getIncome().get(0).getDate());
+		assertEquals("Mark0002", user2.getIncome().get(0).getSource());
 
 		assertEquals(date, user2.getDate());
 	}
