@@ -112,7 +112,11 @@ public class Household implements UserManager {
 				incomeHelper += income.getAmountYearly();
 			}
 		}
+		try {
 		this.income = new Income(incomeHelper, users.get(0).getIncome().get(0).getSource(),
 				users.get(0).getIncome().get(0).getDate(), "Yearly");
+		}
+		catch (Exception e) {}
+		}
+				
 	}
-}
