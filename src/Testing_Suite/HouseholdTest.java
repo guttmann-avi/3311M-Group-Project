@@ -24,7 +24,7 @@ public class HouseholdTest {
 		Household household = new Household();
 		ArrayList arrayList = new ArrayList<>();
 		assertEquals(arrayList, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmount(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
 		assertEquals(null, household.getIncome().getDate());
 		assertEquals(null, household.getIncome().getSource());
 		assertEquals(arrayList, household.getPurchases());
@@ -38,7 +38,7 @@ public class HouseholdTest {
 		ArrayList arrayListUsers = new ArrayList<>();
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmount(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
 		assertEquals(null, household.getIncome().getDate());
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -53,7 +53,7 @@ public class HouseholdTest {
 		ArrayList arrayListUsers = new ArrayList<>();
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmount(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
 		assertEquals(null, household.getIncome().getDate());
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -71,7 +71,7 @@ public class HouseholdTest {
 		ArrayList arrayListUsers = new ArrayList<>();
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmount(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
 		assertEquals(null, household.getIncome().getDate());
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -103,7 +103,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user1);
 		arrayListUsers.add(user2);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 1000, household.getIncome().getAmount(), 0);
+		assertEquals(null, 1000, household.getIncome().getAmountYearly(), 0);
 		assertEquals(null, household.getIncome().getDate());
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -121,7 +121,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user1);
 		arrayListUsers.add(user2);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 3500, household.getIncome().getAmount(), 0);
+		assertEquals(null, 3500, household.getIncome().getAmountYearly(), 0);
 		assertEquals(null, household.getIncome().getDate());
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -177,11 +177,11 @@ public class HouseholdTest {
 		household.addUser(user2);
 		assertEquals(user1, household.findUser("Avi0001"));
 		assertEquals(user2, household.findUser("Mark0002"));
-		assertEquals(null, 1000, household.findUser("Mark0002").getIncome().getAmount(), 0);
+		assertEquals(null, 1000, household.findUser("Mark0002").getIncome().get(0).getAmountYearly(), 0);
 		user2 = new User("Mark0002", 2500, null);
 		household.replaceUser(user2);
 		assertEquals(user1, household.findUser("Avi0001"));
-		assertEquals(null, 2500, household.findUser("Mark0002").getIncome().getAmount(), 0);
+		assertEquals(null, 2500, household.findUser("Mark0002").getIncome().get(0).getAmountYearly(), 0);
 	}	
 
 	@Test

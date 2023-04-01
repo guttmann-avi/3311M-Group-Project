@@ -1,6 +1,7 @@
 package src.UserImplements;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import src.BudgetingSystem.Purchases;
 import src.BudgetingSystem.Income;
@@ -17,7 +18,7 @@ public class Household implements UserManager {
 	public Household() {
 		this.users = new ArrayList<>();
 		this.houseID = nexthouseID++;
-		this.income = new Income(0, null, null);
+		this.income = new Income(0, null, new Date(), null);
 		this.purchases = new ArrayList<Purchases>();
 	}
 
@@ -60,12 +61,9 @@ public class Household implements UserManager {
 		this.users.add(user);
 		// adds income of each user in household as they are added, defaulting the date
 		// and source to the same as the first user
-		double incomeHelper = 0;
-		for (int i = 0; i < users.size(); i++) {
-			incomeHelper += users.get(i).getIncome().getAmount();
+		if (!user.getIncome().isEmpty()) {
+			incomeCheck(); 
 		}
-		this.income = new Income(incomeHelper, users.get(0).getIncome().getSource(),
-				users.get(0).getIncome().getDate(), users.get(0).getIncome().getFrequency());
 	}
 
 	@Override
@@ -73,22 +71,14 @@ public class Household implements UserManager {
 		this.users.remove(user);
 		// this fixes the income of the household if a user is removed,
 		if (users.isEmpty()) {
-			this.income = new Income(0, null, null);
+			this.income = new Income(0, null, new Date(), null);
 		} else {
-			double incomeHelper = 0;
-			for (int i = 0; i < users.size(); i++) {
-				incomeHelper += users.get(i).getIncome().getAmount();
-			}
-			// this may cause problems if there is no user at users(0)
-			this.income = new Income(incomeHelper, users.get(0).getIncome().getSource(),
-					users.get(0).getIncome().getDate(), users.get(0).getIncome().getFrequency());
+			incomeCheck();
 		}
 	}
 
 	public void removePurchase(Purchases purchases) {
-
 		this.purchases.remove(purchases);
-
 	}
 
 	public List<User> getUsers() {
@@ -113,5 +103,16 @@ public class Household implements UserManager {
 				break;
 			}
 		}
+	}
+
+	private void incomeCheck() {
+		double incomeHelper = 0;
+		for (int i = 0; i < users.size(); i++) {
+			for (Income income : users.get(i).getIncome()) {
+				incomeHelper += income.getAmountYearly();
+			}
+		}
+		this.income = new Income(incomeHelper, users.get(0).getIncome().get(0).getSource(),
+				users.get(0).getIncome().get(0).getDate(), "Yearly");
 	}
 }

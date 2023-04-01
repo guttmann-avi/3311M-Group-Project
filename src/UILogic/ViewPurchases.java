@@ -9,9 +9,13 @@ import src.UserImplements.User;
 public class ViewPurchases implements Output {
 
     private User user;
+    private Boolean allTime;
+    private String time;
 
-    public ViewPurchases(User user) {
+    public ViewPurchases(User user, Boolean allTime, String time) {
         this.user = user;
+        this.allTime = allTime;
+        this.time = time;
     }
 
     @Override
@@ -20,9 +24,9 @@ public class ViewPurchases implements Output {
         if (user != null) {
             try {
                 UserInformation userInformation = new UserInformation(user);
-                IncomeInformation incomeInformation = new IncomeInformation(user.getIncome());
-                MoneyLeftInformation moneyLeftInformation = new MoneyLeftInformation(user);
-                PurchaseInformation purchaseInformation = new PurchaseInformation(user, null, null, null);
+                IncomeInformation incomeInformation = new IncomeInformation(user, allTime, time);
+                MoneyLeftInformation moneyLeftInformation = new MoneyLeftInformation(user, allTime, time);
+                PurchaseInformation purchaseInformation = new PurchaseInformation(user, null, time, allTime);
                 info = userInformation.printinfo() + incomeInformation.printinfo() + " \t"
                         + moneyLeftInformation.printinfo() + purchaseInformation.printinfo();
             } catch (Exception exception) {

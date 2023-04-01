@@ -1,5 +1,8 @@
 package src.PrintingInformation;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import src.BudgetingSystem.Purchases;
@@ -9,25 +12,54 @@ public class PurchaseInformation implements TotalInformation {
 
     String info = "";
 
-    public PurchaseInformation(User user, String category, Date startDate, Date endDate) {
+    public PurchaseInformation(User user, String category, String time, Boolean allTime) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         for (Purchases purchase : user.getPurchases()) {
-            if (purchase.getDate() == null) {
-                info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + "\n"; 
+            if (allTime) {
+                if (purchase.getDate() == null) {
+                    info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + "\n"; 
+                } else {
+                    info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: "
+                            + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
+                            + sdf.format(purchase.getDate()) + "\n";
+                }
             } else {
-                info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: "
-                        + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
-                        + purchase.getDate().getDate() + "/"
-                        + purchase.getDate().getMonth() + "/" + purchase.getDate().getYear() + "\n";
+                if (purchase.getDate() != null && checkDate(purchase, time)) {
+                    info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: "
+                    + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
+                    + sdf.format(purchase.getDate()) + "\n";
+                }
             }
         }
     }
 
-    public PurchaseInformation(User user, String category) {
-        this(user, category, null, null);
-    }
+    private Boolean checkDate(Purchases purchase, String time) {
+        Date holder = new Date();
+        holder.setSeconds(0);
+        holder.setMinutes(0);
+        holder.setHours(0);
 
-    public PurchaseInformation(User user, Date startDate, Date endDate) {
-        this(user, null, startDate, endDate);
+        Long timeValue = holder.getTime();
+        holder.setSeconds(59);
+        holder.setMinutes(59);
+        holder.setHours(23);
+        if (time.equalsIgnoreCase("Yearly")) {
+            if (purchase.getDate().getTime() >= timeValue-Long.parseLong("31536001000") 
+            && purchase.getDate().before(holder)) {
+                    return true;
+                }
+        } else if (time.equalsIgnoreCase("Monthly")) {
+           if (purchase.getDate().getTime() >= timeValue-Long.parseLong("2678401000") 
+            && purchase.getDate().before(holder)) {
+                    return true;
+                }
+        } else if (time.equalsIgnoreCase("Weekly")) {
+            if (purchase.getDate().getTime() >= timeValue-Long.parseLong("604801000") 
+            && purchase.getDate().before(holder)) {
+                    return true;
+                }
+        }
+        return false;
     }
 
     public String printinfo() {

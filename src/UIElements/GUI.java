@@ -302,7 +302,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 3;
         this.add(bonusButtonPanel, c);
         
-        newIncomeButton = new JButton("Modify Income");
+        newIncomeButton = new JButton("Extra Income");
         newIncomeButton.addActionListener(this);
         JPanel incomeButtonPanel = new JPanel(new GridLayout(0, 1));
         incomeButtonPanel.add(newIncomeButton);
@@ -329,8 +329,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         
     }
 
-    public void itemStateChanged(ItemEvent e) {
-    }
+    public void itemStateChanged(ItemEvent e) {}
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getActionCommand();
@@ -345,24 +344,16 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         HashMap<String, String> inputValues = new HashMap();
         String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency","Category"};
 
-        for (String input : inputs)
-            inputValues.put(input, null);
-
-        if (!nameT.getText().isBlank())
-            inputValues.put(inputs[0], nameT.getText());
-        if (!incomeT.getText().isBlank())
-            inputValues.put(inputs[1], incomeT.getText());
-        if (!amountT.getText().isBlank())
-            inputValues.put(inputs[2], amountT.getText());
-        if (!purchaseDateT.getText().isBlank())
-            inputValues.put(inputs[3], purchaseDateT.getText());
-        if (userList.getSelectedValue() != null)
-            inputValues.put(inputs[4], userList.getSelectedValue());
-        if (!deleteT.getText().isBlank())
-            inputValues.put(inputs[5], deleteT.getText());
-        if(!categoryT.getText().isBlank())
-        	inputValues.put(inputs[7],categoryT.getText());
+        for (String input : inputs) inputValues.put(input, null);
+        if (!nameT.getText().isBlank()) inputValues.put(inputs[0], nameT.getText());
+        if (!incomeT.getText().isBlank()) inputValues.put(inputs[1], incomeT.getText());
+        if (!amountT.getText().isBlank()) inputValues.put(inputs[2], amountT.getText());
+        if (!purchaseDateT.getText().isBlank()) inputValues.put(inputs[3], purchaseDateT.getText());
+        if (userList.getSelectedValue() != null) inputValues.put(inputs[4], userList.getSelectedValue());
+        if (!deleteT.getText().isBlank()) inputValues.put(inputs[5], deleteT.getText());
         inputValues.put(inputs[6], frequencyDropdown.getSelectedItem().toString());
+        if (!categoryT.getText().isBlank()) inputValues.put(inputs[7],categoryT.getText());
+        inputHolder.setAllTime(allTimeCheckbox.isSelected());
         inputHolder.setInput(inputValues, inputs);
         purchaseOutputPanel.setText(inputHolder.output());
         String selected = userList.getSelectedValue();

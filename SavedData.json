@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 {{income:{amount:551000.0,Income_source:Avi0001,Income_tabulation_date:null,frequency:Yearly},purchases:[{Amount:100.0,Date:null,Category:null}]},
  Users:{[name:Avi0001,transID:0,Date:null, income:{amount:1000.0,Income_source:Avi0001,Income_tabulation_date:null,frequency:Yearly},purchases:[{Amount:250.0,Date:null,Category:null},{Amount:450.0,Date:null,Category:null}]],
 [name:Mark0002,transID:1,Date:null, income:{amount:2500.0,Income_source:Mark0002,Income_tabulation_date:null,frequency:Monthly},purchases:[{Amount:350.0,Date:null,Category:null},{Amount:550.0,Date:null,Category:null}]],
 [name:John0003,transID:2,Date:null, income:{amount:10000.0,Income_source:John0003,Income_tabulation_date:null,frequency:Weekly},purchases:[]]}}
+=======
+{{income:{amount:552000.0,Income_source:Avi0001,Income_tabulation_date:31/03/2023,frequency:Yearly},purchases:[{Amount:100.0,Date:null,Category:null}]},
+ Users:{[name:Avi0001,transID:0,Date:31/03/2023,income:[{amount:1000.0,Income_source:Avi0001,Income_tabulation_date:31/03/2023,frequency:Yearly},{amount:1000.0,Income_source:Avi0001,Income_tabulation_date:31/03/2023,frequency:One Time Bonus}}],purchases:[{Amount:250.0,Date:null,Category:null},{Amount:450.0,Date:null,Category:null},{Amount:1000.0,Date:02/02/2022,Category:null}]],
+[name:Mark0002,transID:1,Date:31/03/2023,income:[{amount:2500.0,Income_source:Mark0002,Income_tabulation_date:31/03/2023,frequency:Monthly}],purchases:[{Amount:350.0,Date:null,Category:null},{Amount:550.0,Date:null,Category:null}]],
+[name:John0003,transID:2,Date:31/03/2023,income:[{amount:10000.0,Income_source:John0003,Income_tabulation_date:31/03/2023,frequency:Weekly}],purchases:[]]}}
+>>>>>>> 90e83602f722522ae52a8f11d8f49e56a0a4870f
