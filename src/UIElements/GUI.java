@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -48,6 +49,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JList<String> userList;
     JList<String> categoryList;
 
+    
     JButton insertNewUser;
     JButton insertNewPurchase;
     JButton viewPurchases;
