@@ -15,18 +15,17 @@ private static final Map<String, List<String>> CategoryList = new HashMap<>();
 	        CategoryList.put("Transportation", Arrays.asList("car", "bus", "plane","cab","train","subway","gas"));
 	        CategoryList.put("Other", null);
 	}
-	public static void categorizePurchases(List<Purchases> purchase) {
-		for(Purchases purchases : purchase) {
-			for (Map.Entry<String, List<String>> category : CategoryList.entrySet()) {
-                for (String keyword : category.getValue()) {
-                    if (purchases.getCategory().toLowerCase().contains(keyword.toLowerCase())) {
-                        purchases.setCategory(category.getKey());
-                        }
-                    else {		
-                    	purchases.setCategory("Other");
+	public static void categorizePurchases(Purchases purchase) {
+		for (Map.Entry<String, List<String>> category : CategoryList.entrySet()) {
+               for (String keyword : category.getValue()) {
+                   if (purchase.getCategory().toLowerCase().contains(keyword.toLowerCase())) {
+                       purchase.setCategory(category.getKey());
+                       }
+                   else {		
+                    purchase.setCategory("Other");
                     }
                 }
             }
         }
-	}
 }
+

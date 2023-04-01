@@ -1,41 +1,65 @@
 package src.PrintingInformation;
 
-import java.util.Date;
-
 import src.BudgetingSystem.Income;
-import src.BudgetingSystem.Purchases;
 import src.UserImplements.User;
 import java.lang.String;
+import java.util.Date;
 
 public class IncomeInformation implements TotalInformation {
 
-    // user class will get
-    // from user to income then print
-    // assciation is used in constructor
     private double amount;
-    private String Income_source;
-    private Date Income_tabulation_date;
-    private Income incomes;
+    private String income_source;
 
-    public IncomeInformation(Income income) {
-
-        amount = income.getAmount();
-        Income_tabulation_date = income.getDate();
-        Income_source = income.getSource();
-        
+    public IncomeInformation(User user, Boolean allTime, String time) {
+        if (allTime) {
+            amount = user.totalUserIncomeAllTime();
+        } else {
+            for (Income income : user.getIncome()) {
+               amount += getValue(income, time);
+            }
+        }
+        this.income_source = user.getName();
         printinfo();
+    }
+
+    private double getValue(Income income, String time) {
+        Date holder = new Date();
+        holder.setSeconds(0);
+        holder.setMinutes(0);
+        holder.setHours(0);
+        Long timeValue = holder.getTime();
+        holder.setSeconds(59);
+        holder.setMinutes(59);
+        holder.setHours(23);
+        if (income.getFrequency().equalsIgnoreCase("One Time Bonus")) {
+            return income.getBaseAmount();
+        } else if (time.equalsIgnoreCase("Yearly")) {
+            if (income.getDate().getTime() >= timeValue-Long.parseLong("31536001000") 
+            && income.getDate().before(holder)) {
+                    return income.getAmountYearly();
+                }
+        } else if (time.equalsIgnoreCase("Monthly")) {
+           if (income.getDate().getTime() >= timeValue-Long.parseLong("2678401000") 
+            && income.getDate().before(holder)) {
+                    return income.getAmountMonthly();
+                }
+        } else if (time.equalsIgnoreCase("Weekly")) {
+            if (income.getDate().getTime() >= timeValue-Long.parseLong("604801000") 
+            && income.getDate().before(holder)) {
+                    return income.getAmountWeekly();
+                }
+        }
+        return 0.00;
     }
 
     @Override
     public String printinfo() {
         String resultString;
-        if(amount < 0) {
-            resultString="Amount cannot be negative";
+        if (amount < 0) {
+            resultString = "Amount cannot be negative";
+        } else {
+            resultString = "User " + income_source + " Income is " + String.format("%.2f", amount);
         }
-        else{
-        String amount_string = " " + amount;
-        resultString = "User " + Income_source + " Income is" + String.format(amount_string, "%.2f");
-       }
         return resultString;
     }
 }

@@ -32,8 +32,7 @@ public class NewUser implements Output {
 
     public Household setHousehold(Household household) {
         if (success()) {
-            Date today = new Date();
-            User user = new User(inputValues.get(inputs[0]), Double.parseDouble(inputValues.get(inputs[1])), today, inputValues.get(inputs[6]));
+            User user = new User(inputValues.get(inputs[0]), Double.parseDouble(inputValues.get(inputs[1])), inputValues.get(inputs[6]));
             household.addUser(user);
             return household;
         } 
