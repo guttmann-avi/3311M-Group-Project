@@ -18,7 +18,7 @@ public class Household implements UserManager {
 	public Household() {
 		this.users = new ArrayList<>();
 		this.houseID = nexthouseID++;
-		this.income = new Income(0, null, new Date(), null);
+		this.income = new Income(0, null, new Date(), "");
 		this.purchases = new ArrayList<Purchases>();
 	}
 
@@ -71,7 +71,7 @@ public class Household implements UserManager {
 		this.users.remove(user);
 		// this fixes the income of the household if a user is removed,
 		if (users.isEmpty()) {
-			this.income = new Income(0, null, new Date(), null);
+			this.income = new Income(0, null, new Date(), "");
 		} else {
 			incomeCheck();
 		}

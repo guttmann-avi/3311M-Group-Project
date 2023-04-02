@@ -20,14 +20,22 @@ public class Income {
         this.amount = amount;
         this.Income_source = Income_source;
         this.Income_tabulation_date = new Date();
-        this.frequency = frequency;
+        if (frequency == null) {
+            this.frequency = "Yearly";
+        } else {
+            this.frequency = frequency;
+        }
     }
 
     public Income(double amount, String Income_source, Date Income_tabulation_date, String frequency) {
         this.amount = amount;
         this.Income_source = Income_source;
         this.Income_tabulation_date = Income_tabulation_date;
-        this.frequency = frequency;
+        if (frequency == null) {
+            this.frequency = "Yearly";
+        } else {
+            this.frequency = frequency;
+        }
     }
 
     public double getBaseAmount() {

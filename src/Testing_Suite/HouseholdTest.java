@@ -2,7 +2,9 @@ package src.Testing_Suite;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -12,6 +14,8 @@ import src.UserImplements.Household;
 import src.UserImplements.User;
 
 public class HouseholdTest {
+
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	@Test
 	public void testConstructor() {
@@ -25,7 +29,7 @@ public class HouseholdTest {
 		ArrayList arrayList = new ArrayList<>();
 		assertEquals(arrayList, household.getUsers());
 		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
-		assertEquals(null, household.getIncome().getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals(null, household.getIncome().getSource());
 		assertEquals(arrayList, household.getPurchases());
 	}
@@ -33,13 +37,13 @@ public class HouseholdTest {
 	@Test
 	public void testSingleUser() {
 		Household household = new Household();
-		User user1 = new User("Avi0001", 0, null);
+		User user1 = new User("Avi0001", 0, "Yearly");
 		household.addUser(user1);
 		ArrayList arrayListUsers = new ArrayList<>();
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
 		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
-		assertEquals(null, household.getIncome().getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
 		assertEquals(arrayListPurchases, household.getPurchases());
