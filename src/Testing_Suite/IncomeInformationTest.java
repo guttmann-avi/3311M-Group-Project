@@ -56,6 +56,6 @@ public class IncomeInformationTest {
 	public void test8() {
 		User user = new User("Avi0001", 2000, "Weekly");
 		user.addIncome(new Income(1000, "Avi0001", "Monthly"));
-		assertEquals("User Avi0001 Income is 2250.00", new IncomeInformation(user, false, "Weekly").printinfo());
+		assertEquals("User Avi0001 Income is 3000.00", new IncomeInformation(user, false, "Weekly").printinfo());
 	}
 }

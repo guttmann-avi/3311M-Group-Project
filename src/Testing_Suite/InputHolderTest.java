@@ -2,6 +2,8 @@ package src.Testing_Suite;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.junit.BeforeClass;
@@ -14,6 +16,8 @@ import src.UserImplements.Household;
 import src.UserImplements.User;
 
 public class InputHolderTest {
+
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -39,7 +43,7 @@ public class InputHolderTest {
 		assertEquals(null,1000 , household.getUsers().get(0).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Yearly", household.getUsers().get(0).getIncome().get(0).getFrequency());
 		assertEquals("Avi0001", household.getUsers().get(0).getIncome().get(0).getSource());
-		assertEquals(null, household.getUsers().get(0).getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(0).getIncome().get(0).getDate()));
 
 		assertEquals(null, 250, household.getUsers().get(0).getPurchases().get(0).getAmount(),0);
 		assertEquals(null, household.getUsers().get(0).getPurchases().get(0).getCategory());
@@ -58,7 +62,7 @@ public class InputHolderTest {
 		assertEquals(null,2500*12, household.getUsers().get(1).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Monthly", household.getUsers().get(1).getIncome().get(0).getFrequency());
 		assertEquals("Mark0002", household.getUsers().get(1).getIncome().get(0).getSource());
-		assertEquals(null, household.getUsers().get(1).getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(1).getIncome().get(0).getDate()));
 
 		assertEquals(null, 350, household.getUsers().get(1).getPurchases().get(0).getAmount(),0);
 		assertEquals(null, household.getUsers().get(1).getPurchases().get(0).getCategory());
@@ -77,7 +81,7 @@ public class InputHolderTest {
 		assertEquals(null,10000*52, household.getUsers().get(2).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Weekly", household.getUsers().get(2).getIncome().get(0).getFrequency());
 		assertEquals("John0003", household.getUsers().get(2).getIncome().get(0).getSource());
-		assertEquals(null, household.getUsers().get(2).getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(2).getIncome().get(0).getDate()));
 	}
 
 	@Test
@@ -100,7 +104,7 @@ public class InputHolderTest {
 		assertEquals(null,12000 , household.getUsers().get(0).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Monthly", household.getUsers().get(0).getIncome().get(0).getFrequency());
 		assertEquals("Avi0001", household.getUsers().get(0).getIncome().get(0).getSource());
-		assertEquals(null, household.getUsers().get(0).getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(0).getIncome().get(0).getDate()));
 		assertEquals(null, 12000, household.getIncome().getBaseAmount(), 0);
 	}
 

@@ -2,6 +2,8 @@ package src.Testing_Suite;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.junit.Test;
@@ -10,6 +12,8 @@ import src.UILogic.NewUser;
 import src.UserImplements.Household;
 
 public class NewUserTest {
+
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	@Test
 	public void testOutput1() {
@@ -89,7 +93,7 @@ public class NewUserTest {
 		new NewUser(inputValues, inputs).setHousehold(householdOutput);
 		assertEquals("Avi0001", householdOutput.getUsers().get(0).getName());
 		assertEquals(null, 1000, householdOutput.getUsers().get(0).getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, householdOutput.getUsers().get(0).getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(householdOutput.getUsers().get(0).getIncome().get(0).getDate()));
 		assertEquals("Yearly", householdOutput.getUsers().get(0).getIncome().get(0).getFrequency());
 		assertEquals("Avi0001", householdOutput.getUsers().get(0).getIncome().get(0).getSource());
 		assertEquals(null, 1, householdOutput.getUsers().size(),0);

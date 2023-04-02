@@ -2,6 +2,7 @@ package src.Testing_Suite;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,6 +13,8 @@ import src.UserImplements.User;
 
 public class UserTest {
 	
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
 	@Test
 	public void testConstructorWithName() {
 		User user = new User("Avi0001", 0, null);
@@ -21,10 +24,10 @@ public class UserTest {
 		assertEquals(purchases, user.getPurchases());
 
 		assertEquals(null, 0, user.getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
-		assertEquals(null, user.getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getDate()));
 	}
 
 	@Test
@@ -36,10 +39,10 @@ public class UserTest {
 		assertEquals(purchases, user.getPurchases());
 
 		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
-		assertEquals(null, user.getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getDate()));
 	}
 
 	@Test
@@ -52,7 +55,7 @@ public class UserTest {
 		assertEquals(purchases, user.getPurchases());
 
 		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
@@ -71,7 +74,7 @@ public class UserTest {
 		assertEquals(purchases, user.getPurchases());
 
 		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
@@ -93,7 +96,7 @@ public class UserTest {
 		assertEquals(purchases, user.getPurchases());
 
 		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
@@ -109,7 +112,7 @@ public class UserTest {
 		assertEquals(purchases, user.getPurchases());
 
 		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, user.getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
 		assertEquals(date, user.getDate());
@@ -120,9 +123,9 @@ public class UserTest {
 		assertEquals(purchases, user2.getPurchases());
 
 		assertEquals(null, 2500, user2.getIncome().get(0).getAmountYearly(), 0);
-		assertEquals(null, user2.getIncome().get(0).getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(user2.getIncome().get(0).getDate()));
 		assertEquals("Mark0002", user2.getIncome().get(0).getSource());
 
-		assertEquals(date, user2.getDate());
+		assertEquals(sdf.format(date), sdf.format(user2.getDate()));
 	}
 }

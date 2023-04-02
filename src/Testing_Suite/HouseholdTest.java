@@ -58,7 +58,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
 		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
-		assertEquals(null, household.getIncome().getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
 		Purchases purchase = new Purchases();
@@ -76,7 +76,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
 		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
-		assertEquals(null, household.getIncome().getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
 		Purchases purchase = new Purchases();
@@ -108,7 +108,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user2);
 		assertEquals(arrayListUsers, household.getUsers());
 		assertEquals(null, 1000, household.getIncome().getAmountYearly(), 0);
-		assertEquals(null, household.getIncome().getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
 		assertEquals(arrayListPurchases, household.getPurchases());
@@ -126,7 +126,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user2);
 		assertEquals(arrayListUsers, household.getUsers());
 		assertEquals(null, 3500, household.getIncome().getAmountYearly(), 0);
-		assertEquals(null, household.getIncome().getDate());
+		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
 		assertEquals(arrayListPurchases, household.getPurchases());
