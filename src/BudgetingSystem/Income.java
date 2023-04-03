@@ -42,20 +42,32 @@ public class Income {
         return this.amount;
     }
 
-    public double getAmountYearly() {
+    public double getAmountAllTime(double value) {
         switch(frequency) {
+            case "Yearly":
+                return amount*Math.floor(Math.abs((value/86400000)/365.25));
             case "Monthly": 
-                return amount*12;
+                return amount*Math.floor(Math.abs((value/86400000)/30.4));
             case "Weekly": 
-                return amount*52;
+                return amount*Math.floor(Math.abs((value/86400000)/7));
         }
         return amount;
     }
 
-    public double getAmountMonthly() {
+    public double getAmountYearly(double value) {
+        switch(frequency) {
+            case "Monthly": 
+                return amount*Math.floor(Math.abs((value/86400000)/30.4));
+            case "Weekly": 
+                return amount*Math.floor(Math.abs((value/86400000)/7));
+        }
+        return amount;
+    }
+
+    public double getAmountMonthly(double value) {
         switch(frequency) {
             case "Weekly": 
-                return amount*4;
+                return amount*Math.floor(Math.abs((value/86400000)/4));
         }
         return amount;
     }
@@ -86,13 +98,5 @@ public class Income {
 
     public String getFrequency() {
         return frequency;
-    }
-
-    public String outputAlert() {
-        String result = null;
-        if (getAmountYearly() < 0) {
-            result="The Income at this point is neagtive";
-        }
-        return result;
     }
 }

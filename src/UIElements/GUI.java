@@ -172,7 +172,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         categoryChoicePanel.add(categoryL);
         categoryChoicePanel.add(categoryList);
         categoryPanel1.add(categoryChoicePanel);
-        categoryPanel1.hide();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1;
         c.weighty = 0;
@@ -317,7 +316,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         insertCategory.add(categoryL);
         insertCategory.add(categoryT);
         categoryPanel.add(insertCategory);
-        insertCategory.hide();
         c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
         c.weighty = 0;

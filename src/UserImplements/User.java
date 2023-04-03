@@ -105,6 +105,27 @@ public class User {
 	public void removepurchase(Purchases purchases) {
 		this.purchases.remove(purchases);
 	}
+
+	public double totalUserIncomeAllTime() {
+		double totalUserIncome = 0.00;
+		for (Income income : this.income) {
+			if (income.getFrequency().equalsIgnoreCase("One Time Bonus")) { 
+				totalUserIncome += income.getBaseAmount();
+			} else {
+				totalUserIncome += income.getAmountYearly(new Date().getTime() - income.getDate().getTime()); 
+			}
+		}
+		return totalUserIncome;
+	}
+	
+	public double totalUserPurchaseAmountAllTime() {
+		double totalUserPurchaseAmount = 0.00;
+		for (Purchases purchases : purchases) {
+			totalUserPurchaseAmount += purchases.getAmount();
+		}
+		return totalUserPurchaseAmount;
+	}
+
 	public void replacePurchase(Purchases purchases, Purchases newPurchase){
 		int i=0; 
 		for(Purchases iterator : this.purchases){
@@ -113,33 +134,5 @@ public class User {
 			}
 			i++;
 		}
-	}
-
-	public double totalUserIncomeAllTime() {
-		double totalUserIncome = 0.00;
-		for (Income income : this.income) {
-			if (income.getFrequency().equalsIgnoreCase("One Time Bonus")) { 
-				totalUserIncome += income.getBaseAmount();
-			} else {
-				totalUserIncome += income.getAmountYearly(); 
-			}
-		}
-		return totalUserIncome;
-	}
-
-	public double totalUserIncomeTimePeriod(String time) {
-		double totalUserIncome = 0.00;
-		for (Income income : this.income) {
-			if (time.equalsIgnoreCase("Yearly")) {
-				totalUserIncome += income.getAmountYearly();
-			} else if (time.equalsIgnoreCase("Monthly")) {
-				totalUserIncome += income.getAmountMonthly();
-			} else if (time.equalsIgnoreCase("Weekly")) {
-				totalUserIncome += income.getAmountWeekly();
-			} else if (time.equalsIgnoreCase("One Time Bonus")) {
-				totalUserIncome += income.getBaseAmount();
-			}
-		}
-		return totalUserIncome;
 	}
 }

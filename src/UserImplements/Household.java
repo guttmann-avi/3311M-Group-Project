@@ -93,15 +93,6 @@ public class Household implements UserManager {
 		}
 		return null;
 	}
-	public void replacePurchase(Purchases purchases, Purchases newPurchase){
-		int i=0; 
-		for(Purchases iterator : this.purchases){
-			if(iterator.equals(purchases)){
-				this.purchases.set(i, newPurchase);
-			}
-			i++;
-		}
-	}
 
 	public void replaceUser(User replacedUser) {
 		for (User user : users) {
@@ -118,7 +109,7 @@ public class Household implements UserManager {
 		double incomeHelper = 0;
 		for (int i = 0; i < users.size(); i++) {
 			for (Income income : users.get(i).getIncome()) {
-				incomeHelper += income.getAmountYearly();
+				incomeHelper += income.getAmountYearly(Double.parseDouble("31536000000"));
 			}
 		}
 		try {
@@ -126,6 +117,15 @@ public class Household implements UserManager {
 				users.get(0).getIncome().get(0).getDate(), "Yearly");
 		}
 		catch (Exception e) {}
-		}
-				
 	}
+
+	public void replacePurchase(Purchases purchases, Purchases newPurchase){
+		int i=0; 
+		for(Purchases iterator : this.purchases){
+			if(iterator.equals(purchases)){
+				this.purchases.set(i, newPurchase);
+			}
+			i++;
+		}
+	}			
+}

@@ -169,7 +169,11 @@ public class InputHolder {
 									break;
 								}
 								try {
-									user.replacePurchase(purchases, new Purchases(Double.parseDouble(inputValues.get(inputs[2])), inputValues.get(inputs[7]), newDate));
+									if (user.totalUserIncomeAllTime() < (user.totalUserPurchaseAmountAllTime() + Double.parseDouble(inputValues.get(inputs[2])))) {
+										return "All Incomes of the User is not enough to satisfy the purchase.";
+									} else {
+										user.replacePurchase(purchases, new Purchases(Double.parseDouble(inputValues.get(inputs[2])), inputValues.get(inputs[7]), newDate));
+									}
 								} catch (Exception e) {
 									output = "Please fill in the field for 'Amount' with a valid integer if not filled in properly.";
 								}

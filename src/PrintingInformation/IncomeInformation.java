@@ -36,12 +36,12 @@ public class IncomeInformation implements TotalInformation {
         } else if (time.equalsIgnoreCase("Yearly")) {
             if (income.getDate().getTime() >= timeValue-Long.parseLong("31536001000") 
             && income.getDate().before(holder)) {
-                    return income.getAmountYearly();
+                    return income.getAmountYearly(timeValue - income.getDate().getTime());
                 }
         } else if (time.equalsIgnoreCase("Monthly")) {
            if (income.getDate().getTime() >= timeValue-Long.parseLong("2678401000") 
             && income.getDate().before(holder)) {
-                    return income.getAmountMonthly();
+                    return income.getAmountMonthly(timeValue - income.getDate().getTime());
                 }
         } else if (time.equalsIgnoreCase("Weekly")) {
             if (income.getDate().getTime() >= timeValue-Long.parseLong("604801000") 
