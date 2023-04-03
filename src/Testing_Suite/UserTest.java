@@ -23,7 +23,7 @@ public class UserTest {
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 0, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 0, user.getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
@@ -38,7 +38,7 @@ public class UserTest {
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
@@ -54,7 +54,7 @@ public class UserTest {
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
@@ -73,7 +73,7 @@ public class UserTest {
 		purchases.add(purchase);
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
@@ -95,7 +95,7 @@ public class UserTest {
 		purchases.add(purchase2);
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
@@ -111,7 +111,7 @@ public class UserTest {
 		ArrayList purchases = new ArrayList<>();
 		assertEquals(purchases, user.getPurchases());
 
-		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 1000, user.getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(user.getIncome().get(0).getDate()));
 		assertEquals("Avi0001", user.getIncome().get(0).getSource());
 
@@ -122,7 +122,7 @@ public class UserTest {
 
 		assertEquals(purchases, user2.getPurchases());
 
-		assertEquals(null, 2500, user2.getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 2500, user2.getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(user2.getIncome().get(0).getDate()));
 		assertEquals("Mark0002", user2.getIncome().get(0).getSource());
 

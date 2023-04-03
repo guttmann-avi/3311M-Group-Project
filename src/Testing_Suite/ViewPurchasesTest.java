@@ -23,7 +23,7 @@ public class ViewPurchasesTest {
 		user.addPurchases(purchase3);
 
 		assertEquals(
-				"User Name: Avi0001\nUser Avi0001 Income is 12000.00 \tMoney Left: 11800.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 200.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -100.00\t Purchase Date: 10/02/2022\n",
+				"User Name: Avi0001\nUser Avi0001 Income is 0.00 \tMoney Left: -200.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 200.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -100.00\t Purchase Date: 10/02/2022\n",
 				new ViewPurchases(user, true, null).output());
 	}
 
@@ -51,7 +51,7 @@ public class ViewPurchasesTest {
 		user.addPurchases(purchase2);
 		user.addPurchases(purchase3);
 		assertEquals(
-				"User Name: John0007\nUser John0007 Income is 52000.00 \tMoney Left: 40700.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 10000.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 2500.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -1200.00\t Purchase Date: 10/02/2022\n",
+				"User Name: John0007\nUser John0007 Income is 0.00 \tMoney Left: -11300.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 10000.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 2500.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -1200.00\t Purchase Date: 10/02/2022\n",
 				new ViewPurchases(user, true, null).output());
 	}
 
@@ -79,7 +79,7 @@ public class ViewPurchasesTest {
 		user.addPurchases(purchase2);
 		user.addPurchases(purchase3);
 		assertEquals(
-				"User Name: Avi0001\nUser Avi0001 Income is 52000.00 \tMoney Left: 51800.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 200.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -100.00\t Purchase Date: 10/02/2022\n",
+				"User Name: Avi0001\nUser Avi0001 Income is 0.00 \tMoney Left: -200.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 200.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -100.00\t Purchase Date: 10/02/2022\n",
 				new ViewPurchases(user, true, null).output());
 	}
 

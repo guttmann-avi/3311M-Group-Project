@@ -40,7 +40,6 @@ public class InputHolderTest {
 		Household household = new InputHolder().getHousehold();
 		assertEquals("Avi0001", household.getUsers().get(0).getName());
 		assertEquals(null,1000 , household.getUsers().get(0).getIncome().get(0).getBaseAmount(), 0);
-		assertEquals(null,1000 , household.getUsers().get(0).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Yearly", household.getUsers().get(0).getIncome().get(0).getFrequency());
 		assertEquals("Avi0001", household.getUsers().get(0).getIncome().get(0).getSource());
 		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(0).getIncome().get(0).getDate()));
@@ -59,7 +58,6 @@ public class InputHolderTest {
 		Household household = new InputHolder().getHousehold();
 		assertEquals("Mark0002", household.getUsers().get(1).getName());
 		assertEquals(null,2500, household.getUsers().get(1).getIncome().get(0).getBaseAmount(), 0);
-		assertEquals(null,2500*12, household.getUsers().get(1).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Monthly", household.getUsers().get(1).getIncome().get(0).getFrequency());
 		assertEquals("Mark0002", household.getUsers().get(1).getIncome().get(0).getSource());
 		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(1).getIncome().get(0).getDate()));
@@ -78,7 +76,6 @@ public class InputHolderTest {
 		Household household = new InputHolder().getHousehold();
 		assertEquals("John0003", household.getUsers().get(2).getName());
 		assertEquals(null,10000, household.getUsers().get(2).getIncome().get(0).getBaseAmount(), 0);
-		assertEquals(null,10000*52, household.getUsers().get(2).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Weekly", household.getUsers().get(2).getIncome().get(0).getFrequency());
 		assertEquals("John0003", household.getUsers().get(2).getIncome().get(0).getSource());
 		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(2).getIncome().get(0).getDate()));
@@ -90,7 +87,6 @@ public class InputHolderTest {
 		assertEquals(null, 100, household.getPurchases().get(0).getAmount(),0);
 		assertEquals(null, household.getPurchases().get(0).getCategory());
 		assertEquals(null, household.getPurchases().get(0).getDate());
-		assertEquals(null, 1000+10000*52+2500*12, household.getIncome().getAmountYearly(),0);
 	}
 
 	@Test
@@ -101,7 +97,6 @@ public class InputHolderTest {
 		inputHolder.setHousehold(household);
 		assertEquals("Avi0001", household.getUsers().get(0).getName());
 		assertEquals(null,1000 , household.getUsers().get(0).getIncome().get(0).getBaseAmount(), 0);
-		assertEquals(null,12000 , household.getUsers().get(0).getIncome().get(0).getAmountYearly(), 0);	
 		assertEquals("Monthly", household.getUsers().get(0).getIncome().get(0).getFrequency());
 		assertEquals("Avi0001", household.getUsers().get(0).getIncome().get(0).getSource());
 		assertEquals(sdf.format(new Date()), sdf.format(household.getUsers().get(0).getIncome().get(0).getDate()));

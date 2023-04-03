@@ -120,7 +120,7 @@ public class User {
 	
 	public double totalUserPurchaseAmountAllTime() {
 		double totalUserPurchaseAmount = 0.00;
-		for (Purchases purchases : purchases) {
+		for (Purchases purchases : this.purchases) {
 			totalUserPurchaseAmount += purchases.getAmount();
 		}
 		return totalUserPurchaseAmount;

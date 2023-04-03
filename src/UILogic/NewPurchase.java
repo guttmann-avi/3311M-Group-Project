@@ -22,10 +22,15 @@ public class NewPurchase implements Output {
     @Override
     public String output() {
         User user = household.findUser(inputValues.get(inputs[4]));
-        if (user.totalUserIncomeAllTime() < (user.totalUserPurchaseAmountAllTime() + Double.parseDouble(inputValues.get(inputs[2])))) {
-            return "All Incomes of the User is not enough to satisfy the purchase.";
-        }        
-        return "Purchase has been added successfully to " + inputValues.get(inputs[4]) + ".";
+        try {
+            if (user.totalUserIncomeAllTime() < (user.totalUserPurchaseAmountAllTime() + Double.parseDouble(inputValues.get(inputs[2])))) {
+                return "All Incomes of the User is not enough to satisfy the purchase.";
+            } 
+        } catch(Exception e) {
+            return "Please input a valid Integer in the 'Amount' area.";
+        }
+
+        return "Purchase has been added successfully to " + inputValues.get(inputs[4]) + ".";         
     }
     
     public Household setHousehold(Date returnDate) {

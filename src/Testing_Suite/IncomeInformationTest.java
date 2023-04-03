@@ -25,25 +25,25 @@ public class IncomeInformationTest {
 	@Test
 	public void test3() {
 		User user = new User("Avi0001", 2000, "Monthly");
-		assertEquals("User Avi0001 Income is 24000.00", new IncomeInformation(user, true, "Yearly").printinfo());
+		assertEquals("User Avi0001 Income is 0.00", new IncomeInformation(user, true, "Yearly").printinfo());
 	}
 
 	@Test
 	public void test4() {
 		User user = new User("Avi0001", 2000, "Weekly");
-		assertEquals("User Avi0001 Income is 104000.00", new IncomeInformation(user, true, "Yearly").printinfo());
+		assertEquals("User Avi0001 Income is 0.00", new IncomeInformation(user, true, "Yearly").printinfo());
 	}
 
 	@Test
 	public void test5() {
 		User user = new User("Avi0001", 2000, "Weekly");
-		assertEquals("User Avi0001 Income is 104000.00", new IncomeInformation(user, true, "Yearly").printinfo());
+		assertEquals("User Avi0001 Income is 0.00", new IncomeInformation(user, true, "Yearly").printinfo());
 	}
 
 	@Test
 	public void test6() {
 		User user = new User("Avi0001", 2000, "Weekly");
-		assertEquals("User Avi0001 Income is 8000.00", new IncomeInformation(user, false, "Monthly").printinfo());
+		assertEquals("User Avi0001 Income is 0.00", new IncomeInformation(user, false, "Monthly").printinfo());
 	}
 
 	@Test

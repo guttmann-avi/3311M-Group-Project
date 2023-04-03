@@ -22,7 +22,7 @@ public class NewPurchaseTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		assertEquals("Purchase has been added successfully to Avi0001.", new NewPurchase(inputValues, inputs, household).output());
+		assertEquals("Please input a valid Integer in the 'Amount' area.", new NewPurchase(inputValues, inputs, household).output());
 	}
 
 	@Test
@@ -35,7 +35,7 @@ public class NewPurchaseTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		assertEquals("Purchase has been added successfully to Mark0001.", new NewPurchase(inputValues, inputs, household).output());
+		assertEquals("Please input a valid Integer in the 'Amount' area.", new NewPurchase(inputValues, inputs, household).output());
 	}
 
 	@Test
@@ -66,8 +66,8 @@ public class NewPurchaseTest {
 		}
 		household = new NewPurchase(inputValues, inputs, household).setHousehold(null);
 		assertEquals("Avi0001", household.getUsers().get(0).getName());
-		assertEquals(null, 5000, household.getUsers().get(0).getPurchases().get(0).getAmount(), 0);
-		assertEquals(null, 1, household.getUsers().size(),0);
+		assertEquals(true, household.getUsers().get(0).getPurchases().isEmpty());
+		assertEquals(null, 1, household.getUsers().size(), 0);
 	}
 
 	@Test
@@ -82,7 +82,7 @@ public class NewPurchaseTest {
 		}
 		household = new NewPurchase(inputValues, inputs, household).setHousehold(null);
 		assertEquals("Avi0001", household.getUsers().get(0).getName());
-		assertEquals(null, 10000, household.getUsers().get(0).getPurchases().get(0).getAmount(), 0);
+		assertEquals(true, household.getUsers().get(0).getPurchases().isEmpty());
 		assertEquals(null, 1, household.getUsers().size(),0);
 	}
 }

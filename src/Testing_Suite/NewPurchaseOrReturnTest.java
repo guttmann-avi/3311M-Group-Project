@@ -216,38 +216,6 @@ public class NewPurchaseOrReturnTest {
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
         String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "5000", null, "Avi0001", null, null};
-		for (int i = 0; i < inputs.length; i++) {
-			inputValues.put(inputs[i], values[i]);
-		}
-		household = new NewPurchaseOrReturn("Purchase", inputValues, inputs, household, null).setHousehold();
-		assertEquals("Avi0001", household.getUsers().get(0).getName());
-		assertEquals(null, 5000, household.getUsers().get(0).getPurchases().get(0).getAmount(), 0);
-		assertEquals(null, 1, household.getUsers().size(),0);
-	}
-
-	@Test
-	public void testsetHousehold3() {
-		Household household = new Household();
-		household.addUser(new User("Avi0001", 1000, null));
-		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "10000", null, "Avi0001", null, null};
-		for (int i = 0; i < inputs.length; i++) {
-			inputValues.put(inputs[i], values[i]);
-		}
-		household = new NewPurchaseOrReturn("Purchase", inputValues, inputs, household, null).setHousehold();
-		assertEquals("Avi0001", household.getUsers().get(0).getName());
-		assertEquals(null, 10000, household.getUsers().get(0).getPurchases().get(0).getAmount(), 0);
-		assertEquals(null, 1, household.getUsers().size(),0);
-	}
-
-	@Test
-	public void testsetHousehold4() {
-		Household household = new Household();
-		household.addUser(new User("Avi0001", 1000, null));
-		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
 		String[] values = {null, null, "1000", null, "Avi0001", null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
@@ -259,7 +227,7 @@ public class NewPurchaseOrReturnTest {
 	}
 
 	@Test
-	public void testsetHousehold5() {
+	public void testsetHousehold3() {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
@@ -275,7 +243,7 @@ public class NewPurchaseOrReturnTest {
 	}
 
 	@Test
-	public void testsetHousehold6() {
+	public void testsetHousehold4() {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();

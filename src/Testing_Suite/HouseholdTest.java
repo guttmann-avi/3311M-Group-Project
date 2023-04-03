@@ -28,7 +28,7 @@ public class HouseholdTest {
 		Household household = new Household();
 		ArrayList arrayList = new ArrayList<>();
 		assertEquals(arrayList, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals(null, household.getIncome().getSource());
 		assertEquals(arrayList, household.getPurchases());
@@ -42,7 +42,7 @@ public class HouseholdTest {
 		ArrayList arrayListUsers = new ArrayList<>();
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -57,7 +57,7 @@ public class HouseholdTest {
 		ArrayList arrayListUsers = new ArrayList<>();
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -75,7 +75,7 @@ public class HouseholdTest {
 		ArrayList arrayListUsers = new ArrayList<>();
 		arrayListUsers.add(user1);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 0, household.getIncome().getAmountYearly(), 0);
+		assertEquals(null, 0, household.getIncome().getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -107,7 +107,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user1);
 		arrayListUsers.add(user2);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 1000, household.getIncome().getAmountYearly(), 0);
+		assertEquals(null, 1000, household.getIncome().getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -125,7 +125,7 @@ public class HouseholdTest {
 		arrayListUsers.add(user1);
 		arrayListUsers.add(user2);
 		assertEquals(arrayListUsers, household.getUsers());
-		assertEquals(null, 3500, household.getIncome().getAmountYearly(), 0);
+		assertEquals(null, 3500, household.getIncome().getAmountYearly(Long.parseLong("31536001000")), 0);
 		assertEquals(sdf.format(new Date()), sdf.format(household.getIncome().getDate()));
 		assertEquals("Avi0001", household.getIncome().getSource());
 		ArrayList arrayListPurchases = new ArrayList<>();
@@ -175,17 +175,17 @@ public class HouseholdTest {
 	@Test
 	public void testReplaceUser() {
 		Household household = new Household();
-		User user1 = new User("Avi0001", 0, null);
+		User user1 = new User("Avi0001", 0, "Yearly");
 		household.addUser(user1);
 		User user2 = new User("Mark0002", 1000, null);
 		household.addUser(user2);
 		assertEquals(user1, household.findUser("Avi0001"));
 		assertEquals(user2, household.findUser("Mark0002"));
-		assertEquals(null, 1000, household.findUser("Mark0002").getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 1000, household.findUser("Mark0002").getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 		user2 = new User("Mark0002", 2500, null);
 		household.replaceUser(user2);
 		assertEquals(user1, household.findUser("Avi0001"));
-		assertEquals(null, 2500, household.findUser("Mark0002").getIncome().get(0).getAmountYearly(), 0);
+		assertEquals(null, 2500, household.findUser("Mark0002").getIncome().get(0).getAmountYearly(Long.parseLong("31536001000")), 0);
 	}	
 
 	@Test
