@@ -1,7 +1,8 @@
 package src.UILogic;
 
 import java.util.HashMap;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import src.Database.CreateData;
 import src.Database.GetData;
 import src.Database.SetData;
@@ -141,7 +142,37 @@ public class InputHolder {
 			output = new ExtraIncome(inputValues, inputs).output();
 			setHousehold(new ExtraIncome(inputValues, inputs).setHousehold(household));
 			break;
-
+			case "Replace Purchase Info":
+			try {
+				boolean result = true;
+				for (Purchases purchases : household.getPurchases()) {
+					if (purchases.getPurchaseId() == Integer.parseInt(inputValues.get(inputs[5]))) {
+						household.replacePurchase(purchases, new Purchases());
+						result = false;
+						break;
+					}
+				}
+				for (User user : household.getUsers()) {
+					for (Purchases purchases : user.getPurchases()) {
+						if (purchases.getPurchaseId() == Integer.parseInt(inputValues.get(inputs[5]))) {
+							Date newDate = new SimpleDateFormat("dd/MM/yyyy").parse(inputValues.get(inputs[3]));
+							user.replacePurchase(purchases, new Purchases(Double.parseDouble(inputValues.get(inputs[2])), output, newDate));
+							result = false;
+							break;  
+						}
+					}
+					if (result == false) {
+						break;
+					}
+				}
+				if (result == false) {
+					output = "Purchase with ID: " + inputValues.get(inputs[5]) + " has been updated.";
+				} else {
+					output = "Purchase with ID: " + inputValues.get(inputs[5]) + " did not exist please try again.";
+				}
+		} catch (Exception e) {
+			output = "Please make sure to enter a vaild ID value in the Transaction ID Field.";
+		}
 		case "One-Time Bonus":
 			output = new OneTimeBonus(inputValues, inputs).output();
 			setHousehold(new OneTimeBonus(inputValues, inputs).setHousehold(household));

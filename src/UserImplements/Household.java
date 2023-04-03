@@ -93,6 +93,15 @@ public class Household implements UserManager {
 		}
 		return null;
 	}
+	public void replacePurchase(Purchases purchases, Purchases newPurchase){
+		int i=0; 
+		for(Purchases iterator : this.purchases){
+			if(iterator.equals(purchases)){
+				this.purchases.set(i, newPurchase);
+			}
+			i++;
+		}
+	}
 
 	public void replaceUser(User replacedUser) {
 		for (User user : users) {

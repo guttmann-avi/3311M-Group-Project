@@ -105,6 +105,15 @@ public class User {
 	public void removepurchase(Purchases purchases) {
 		this.purchases.remove(purchases);
 	}
+	public void replacePurchase(Purchases purchases, Purchases newPurchase){
+		int i=0; 
+		for(Purchases iterator : this.purchases){
+			if(iterator.equals(purchases)){
+				this.purchases.set(i, newPurchase);
+			}
+			i++;
+		}
+	}
 
 	public double totalUserIncomeAllTime() {
 		double totalUserIncome = 0.00;
