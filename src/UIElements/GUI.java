@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -26,7 +27,6 @@ import javax.swing.JCheckBox;
 
 import src.UILogic.InputHolder;
 import src.UILogic.Users;
-import src.BudgetingSystem.*;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 
@@ -39,7 +39,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JLabel categoryL;
     
 
-    private int userCounter = 0;
     JTextField nameT;
     JTextField incomeT;
     JTextField amountT;
@@ -79,6 +78,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     private void initialize() {
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(10,20,10,20);
 
         nameL = new JLabel("New User Name");
         nameL.setEnabled(true);
@@ -172,6 +172,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         categoryChoicePanel.add(categoryL);
         categoryChoicePanel.add(categoryList);
         categoryPanel1.add(categoryChoicePanel);
+        categoryPanel1.hide();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1;
         c.weighty = 0;
@@ -278,12 +279,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 
         // new code
         JPanel deletePanel = new JPanel(new GridLayout(0, 1));
-
         deleteL = new JLabel("Transaction Id");
         deleteL.setEnabled(true);
         deleteT = new JTextField();
         deleteT.setEnabled(true);
-
         JPanel deleteInformation = new JPanel(new GridLayout(0, 1));
         deleteInformation.add(deleteL);
         deleteInformation.add(deleteT);
@@ -307,7 +306,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
         
-     
         // Category panel here
         JPanel categoryPanel = new JPanel(new GridLayout(0,1));
         categoryL = new JLabel("Category");
@@ -319,6 +317,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         insertCategory.add(categoryL);
         insertCategory.add(categoryT);
         categoryPanel.add(insertCategory);
+        insertCategory.hide();
         c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
         c.weighty = 0;
@@ -326,10 +325,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(categoryPanel, c);
         
-        
-
         //new buttons below
-        
         bonusRadioButton = new JButton("One-Time Bonus");
         bonusRadioButton.addActionListener(this);
         JPanel bonusButtonPanel = new JPanel(new GridLayout(0, 1));
