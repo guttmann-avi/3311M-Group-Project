@@ -1,5 +1,6 @@
 package src.UIElements;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -94,6 +95,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         newInformation.add(incomeL);
         newInformation.add(incomeT);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 0;
         c.gridy = 0;
         this.add(newInformation, c);
@@ -102,6 +105,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel emptyPanel1 = new JPanel(new GridLayout(0, 1));
         emptyPanel1.add(emptyLabel1);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 1;
         c.gridy = 0;
         this.add(emptyPanel1, c);
@@ -122,6 +127,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         newPurchase.add(purchaseDateT);
         purchasePanel.add(newPurchase);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 2;
         c.gridy = 0;
         this.add(purchasePanel, c);
@@ -130,6 +137,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel emptyPanel2 = new JPanel(new GridLayout(0, 1));
         emptyPanel2.add(emptyLabel2);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 3;
         c.gridy = 1;
         this.add(emptyPanel2, c);
@@ -145,7 +154,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         userChoicePanel.add(usersL);
         userChoicePanel.add(userList);
         userPanel.add(userChoicePanel);
-        c.fill = GridBagConstraints.HORIZONTAL;
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 4;
         c.gridy = 0;
         this.add(userPanel, c);
@@ -162,8 +173,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         categoryChoicePanel.add(categoryList);
         categoryPanel1.add(categoryChoicePanel);
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 6;
-        c.gridy = 0;
+        c.weightx = 1;
+        c.weighty = 0;
+        c.gridx = 5;
+        c.gridy = 1;
         this.add(categoryPanel1,c);
         
         
@@ -172,6 +185,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel emptyPanel3 = new JPanel(new GridLayout(0, 1));
         emptyPanel3.add(emptyLabel3);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 1;
         c.gridy = 1;
         this.add(emptyPanel3, c);
@@ -179,6 +194,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         String[] frequencyOptions = { "Yearly", "Monthly", "Weekly" };
         frequencyDropdown = new JComboBox<String>(frequencyOptions);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 0;
         c.gridy = 1;
         this.add(frequencyDropdown, c);
@@ -189,6 +206,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         submitPanelNewUser.add(insertNewUser);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 0;
         c.gridy = 2;
         this.add(submitPanelNewUser, c);
@@ -199,6 +218,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         submitPanelPurchase.add(insertNewPurchase);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 2;
         c.gridy = 2;
         this.add(submitPanelPurchase, c);
@@ -212,6 +233,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         radioButtonsPanel.add(purchaseRadioButton);
         radioButtonsPanel.add(returnRadioButton);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 2;
         c.gridy = 1;
         this.add(radioButtonsPanel, c);
@@ -222,6 +245,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         viewPurchasesPanel.add(viewPurchases);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 4;
         c.gridy = 2;
         this.add(viewPurchasesPanel, c);
@@ -230,6 +255,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JPanel emptyPanel4 = new JPanel(new GridLayout(0, 1));
         emptyPanel4.add(emptyLabel4);
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 1;
         c.gridy = 3;
         this.add(emptyPanel4, c);
@@ -240,6 +267,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         JScrollPane outputPanel = new JScrollPane(purchaseOutputPanel);
         c.gridwidth = GridBagConstraints.REMAINDER;
         c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1;
+        c.weighty = 1;
         c.gridx = 0;
         c.gridy = 4;
         this.add(outputPanel, c);
@@ -260,7 +289,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         deleteInformation.add(deleteT);
         deletePanel.add(deleteInformation);
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 7;
+        c.weightx = 1;
+        c.weighty = 0;
+        c.gridx = 5;
         c.gridy = 0;
         this.add(deletePanel, c);
 
@@ -270,6 +301,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         deletePurchasesPanel.add(deletePurchases);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 7;
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
@@ -286,6 +319,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         insertCategory.add(categoryL);
         insertCategory.add(categoryT);
         categoryPanel.add(insertCategory);
+        c.fill = GridBagConstraints.NONE;
+        c.weightx = 1;
+        c.weighty = 0;
         c.gridx = 3;
         c.gridy = 2;
         this.add(categoryPanel, c);
@@ -300,6 +336,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         bonusButtonPanel.add(bonusRadioButton);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 1;
         c.gridx = 2;
         c.gridy = 3;
         this.add(bonusButtonPanel, c);
@@ -310,6 +348,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         incomeButtonPanel.add(newIncomeButton);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 1;
         c.gridx = 0;
         c.gridy = 3;
         this.add(incomeButtonPanel, c);
@@ -320,14 +360,26 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         purchaseButtonPanel.add(replacePurchasesButton);
         c.fill = GridBagConstraints.NONE;
         c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 1;
         c.gridx = 4;
         c.gridy = 3;
-        this.add(purchaseButtonPanel, c);
+        this.add(purchaseButtonPanel, c);   
         
         allTimeCheckbox = new JCheckBox("All Time");
         allTimeCheckbox.setAlignmentY((float) 10.0);
         allTimeCheckbox.setAlignmentX((float) 1.0);
-        this.add(allTimeCheckbox);
+        // this.add(allTimeCheckbox);
+        JPanel allTimeCheckboxPanel = new JPanel(new GridLayout(0, 1));
+        allTimeCheckboxPanel.add(allTimeCheckbox);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1;
+        c.weighty = 1;
+        c.gridx = 0; // Change the value of gridx and gridy according to the desired position in the grid
+        c.gridy = 5; // For example: c.gridx = 0 and c.gridy = 5 place the checkbox in the first column and the sixth row
+        this.add(allTimeCheckboxPanel, c);
+        this.setMinimumSize(new Dimension(400, 600));
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
 
