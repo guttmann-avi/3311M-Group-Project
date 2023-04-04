@@ -78,7 +78,6 @@ public class CreateData
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         if (date != null) {
             return sdf.format(date);
-            // return String.valueOf(date.getDate()) + "/" + date.getMonth() + "/" + date.getYear();
         }
         return "null";
     }
