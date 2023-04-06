@@ -18,6 +18,7 @@ public class PurchaseInformation implements TotalInformation {
 		for (Purchases purchase : user.getPurchases()) {
 			if(purchase.getCategory() != null && (purchase.getCategory().isBlank() || purchase.getCategory() == ""))
 				purchase.setCategory(category);
+				PurchaseOrganiser.categorizePurchases(purchase);
 			if (allTime) {
 				if (purchase.getDate() == null) {
 					info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + " Category: " + purchase.getCategory() +"\n"; 

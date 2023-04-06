@@ -9,22 +9,21 @@ public class PurchaseOrganiser{
 	private static final Map<String, List<String>> CategoryList = new HashMap<>(); 
 	static {
 		CategoryList.put("Groceries", Arrays.asList("food", "drinks", "toiletries", "grocery", "pharmacy", "shopping"));
-		CategoryList.put("Clothing", Arrays.asList("clothing", "shoes"));
+		CategoryList.put("Clothing", Arrays.asList("clothing", "shoes", "clothes", "boots"));
 		CategoryList.put("Entertainment", Arrays.asList("movie", "music", "game", "book", "sports"));
 		CategoryList.put("Appliance", Arrays.asList("phone","fridge", "machine", "dryer", "computer"));
 		CategoryList.put("Transportation", Arrays.asList("car", "bus", "plane","cab","train","subway","gas"));
 		CategoryList.put("Other", null);
 	}
 	public static void categorizePurchases(Purchases purchase) {
-		if(purchase.getCategory() != null) {
-			
+		if(purchase.getCategory() != null && purchase != null) {
 			for (Map.Entry<String, List<String>> category : CategoryList.entrySet()) {
-				for (String keyword : category.getValue()) {
+				List<String> keywords = category.getValue();
+				if(keywords != null){
+					for(String keyword : keywords)
 					if (purchase.getCategory().toLowerCase().contains(keyword.toLowerCase())) {
 						purchase.setCategory(category.getKey());
-					}
-					else {		
-						purchase.setCategory("Other");
+						return;
 					}
 				}
 			}
