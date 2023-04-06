@@ -16,7 +16,7 @@ public class PurchaseInformation implements TotalInformation {
 		
 		
 		for (Purchases purchase : user.getPurchases()) {
-			if(purchase.getCategory().isBlank() || purchase.getCategory() == "Other")
+			if(purchase.getCategory() != null && (purchase.getCategory().isBlank() || purchase.getCategory() == ""))
 				purchase.setCategory(category);
 			if (allTime) {
 				if (purchase.getDate() == null) {
@@ -31,7 +31,7 @@ public class PurchaseInformation implements TotalInformation {
 				if (purchase.getDate() != null && checkDate(purchase, time)) {
 					info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: "
 							+ String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
-							+ sdf.format(purchase.getDate()) + "\n";
+							+ sdf.format(purchase.getDate()) + " Category: " + purchase.getCategory() +"\n";
 				}
 			}
 		}

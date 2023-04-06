@@ -15,7 +15,7 @@ public class Purchases {
 			this.category = category;
 		}
 		else {
-			category = "Other";
+			category = "";
 		}
 		this.date = date;
 		this.purchaseid = idCount;

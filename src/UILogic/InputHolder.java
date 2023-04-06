@@ -107,7 +107,7 @@ public class InputHolder {
 			case "View Purchases":
 				output = new ViewPurchases(household.findUser(inputValues.get(inputs[4])), allTime, inputValues.get(inputs[6]),inputValues.get(inputs[7])).output();
 				break;
-			case "delete user":
+			case "Delete User":
 				output = new DeleteUser(household.findUser(inputValues.get(inputs[4]))).output();
 				household.removeUser(household.findUser(inputValues.get(inputs[4])));
 				break;

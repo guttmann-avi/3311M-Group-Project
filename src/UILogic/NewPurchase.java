@@ -22,7 +22,7 @@ public class NewPurchase implements Output {
         	this.category = category;
         }
         else
-        	this.category = "Other";
+        	this.category = "";
     }
 
     @Override

@@ -21,8 +21,8 @@ public class PurchaseInformationTest {
         user.addPurchases(purchase2);
         PurchaseInformation info = new PurchaseInformation(user, null, null, true);
         // the purchase id is gotten from the class due to static variable when all Junit is run at once the static variable mess up
-        String expected = "Purchase Id: "+ purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 27/02/2022\n"
-                + "Purchase Id: "+ purchase2.getPurchaseId()+"\t Purchase Amount: 50.00\t Purchase Date: 26/02/2022\n";
+        String expected = "Purchase Id: "+ purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 27/02/2022" + " Category: Food\n"
+                + "Purchase Id: "+ purchase2.getPurchaseId()+"\t Purchase Amount: 50.00\t Purchase Date: 26/02/2022" + " Category: Clothes\n";
         assertEquals(expected, info.printinfo());
     }
 }

@@ -21,7 +21,7 @@ public class ViewPurchases implements Output {
         	this.category = category;
         }
         else
-        	category = "Other";
+        	category = "";
     }
 
     @Override
