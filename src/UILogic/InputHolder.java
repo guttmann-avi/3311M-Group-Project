@@ -23,7 +23,8 @@ public class InputHolder {
 	private String categories;
 	private Boolean allTime;
 
-	// final String[] actionOptions = { "Insert New User", "Insert Purchase", "View Purchases" };
+	// final String[] actionOptions = { "Insert New User", "Insert Purchase", "View
+	// Purchases" };
 	// final String[] purchaseOrReturn = { "Purchase", "Return" };
 
 	public InputHolder() {
@@ -69,19 +70,18 @@ public class InputHolder {
 
 	public String[] getCategories() {
 
-		String[] categories = new String [10];
+		String[] categories = new String[10];
 
 		if (household.getPurchases().size() > 10) {
 			categories = new String[household.getPurchases().size()];
 		}
 
-		for(int i = 0; i < household.getPurchases().size();i++) {
+		for (int i = 0; i < household.getPurchases().size(); i++) {
 			categories[i] = household.getPurchases().get(i).getCategory();
 		}
 		return categories;
 
 	}
-
 
 	public void setCategories(String category) {
 		this.categories = category;
@@ -106,7 +106,13 @@ public class InputHolder {
 				break;
 
 			case "View Purchases":
-				output = new ViewPurchases(household.findUser(inputValues.get(inputs[4])), allTime, inputValues.get(inputs[6])).output();
+				output = new ViewPurchases(household.findUser(inputValues.get(inputs[4])), allTime,
+						inputValues.get(inputs[6])).output();
+				break;
+
+			case "delete user":
+				output = new DeleteUser(household.findUser(inputValues.get(inputs[4]))).output();
+				household.removeUser(household.findUser(inputValues.get(inputs[4])));
 				break;
 
 			case "Delete Transaction":
@@ -169,16 +175,19 @@ public class InputHolder {
 									break;
 								}
 								try {
-									if (user.totalUserIncomeAllTime() < (user.totalUserPurchaseAmountAllTime() + Double.parseDouble(inputValues.get(inputs[2])))) {
+									if (user.totalUserIncomeAllTime() < (user.totalUserPurchaseAmountAllTime()
+											+ Double.parseDouble(inputValues.get(inputs[2])))) {
 										return "All Incomes of the User is not enough to satisfy the purchase.";
 									} else {
-										user.replacePurchase(purchases, new Purchases(Double.parseDouble(inputValues.get(inputs[2])), inputValues.get(inputs[7]), newDate));
+										user.replacePurchase(purchases,
+												new Purchases(Double.parseDouble(inputValues.get(inputs[2])),
+														inputValues.get(inputs[7]), newDate));
 									}
 								} catch (Exception e) {
 									output = "Please fill in the field for 'Amount' with a valid integer if not filled in properly.";
 								}
 								result = false;
-								break;  
+								break;
 							}
 						}
 						if (result == false) {
@@ -190,10 +199,10 @@ public class InputHolder {
 					} else if (output.equalsIgnoreCase("")) {
 						output = "Purchase with ID: " + inputValues.get(inputs[5]) + " did not exist please try again.";
 					}
-			} catch (Exception e) {
-				output = "Please make sure to enter a vaild ID value in the Transaction ID Field.";
-			}
-			break;
+				} catch (Exception e) {
+					output = "Please make sure to enter a vaild ID value in the Transaction ID Field.";
+				}
+				break;
 
 			case "One-Time Bonus":
 				output = new OneTimeBonus(inputValues, inputs).output();

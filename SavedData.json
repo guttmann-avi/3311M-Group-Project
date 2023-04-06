@@ -1,6 +1,5 @@
-{{income:{amount:554000.0,Income_source:Avi0001,Income_tabulation_date:31/03/2023,frequency:Yearly},purchases:[{Amount:100.0,Date:null,Category:null}]},
+{{income:{amount:552000.0,Income_source:Avi0001,Income_tabulation_date:31/03/2023,frequency:Yearly},purchases:[{Amount:100.0,Date:null,Category:null}]},
  Users:{[name:Avi0001,transID:0,Date:31/03/2023,income:[{amount:1000.0,Income_source:Avi0001,Income_tabulation_date:31/03/2023,frequency:Yearly}],purchases:[{Amount:250.0,Date:null,Category:null},{Amount:450.0,Date:null,Category:null},{Amount:-100.0,Date:null,Category:null},{Amount:-250.0,Date:null,Category:null},{Amount:250.0,Date:null,Category:null},{Amount:250.0,Date:null,Category:null}]],
 [name:Mark0002,transID:1,Date:31/03/2023,income:[{amount:2500.0,Income_source:Mark0002,Income_tabulation_date:31/03/2023,frequency:Monthly}],purchases:[{Amount:350.0,Date:null,Category:null},{Amount:550.0,Date:null,Category:null}]],
 [name:John0003,transID:2,Date:31/03/2023,income:[{amount:10000.0,Income_source:John0003,Income_tabulation_date:31/03/2023,frequency:Weekly}],purchases:[]],
-[name:Avi0004,transID:3,Date:31/03/2023,income:[{amount:1000.0,Income_source:Avi,Income_tabulation_date:31/03/2023,frequency:Yearly}],purchases:[]],
-[name:Mark0005,transID:4,Date:31/03/2023,income:[{amount:2000.0,Income_source:Mark,Income_tabulation_date:31/03/2023,frequency:Yearly}],purchases:[]]}}
+[name:Avi0004,transID:3,Date:31/03/2023,income:[{amount:1000.0,Income_source:Avi,Income_tabulation_date:31/03/2023,frequency:Yearly}],purchases:[]]}}
