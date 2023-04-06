@@ -37,7 +37,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JLabel usersL;
     JLabel deleteL;
     JLabel categoryL;
-    
 
     JTextField nameT;
     JTextField incomeT;
@@ -49,7 +48,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JList<String> userList;
     JList<String> categoryList;
 
-    
+    JButton deleteuser;
     JButton insertNewUser;
     JButton insertNewPurchase;
     JButton viewPurchases;
@@ -63,10 +62,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JPanel radioButtonsPanel;
     JRadioButton purchaseRadioButton;
     JRadioButton returnRadioButton;
-    
 
     private JComboBox<String> frequencyDropdown;
-    
 
     private InputHolder inputHolder;
 
@@ -78,7 +75,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     private void initialize() {
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        c.insets = new Insets(10,20,10,20);
+        c.insets = new Insets(10, 20, 10, 20);
 
         nameL = new JLabel("New User Name");
         nameL.setEnabled(true);
@@ -160,15 +157,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 4;
         c.gridy = 0;
         this.add(userPanel, c);
-        
-        
-        JPanel categoryPanel1 = new JPanel(new GridLayout(0,1));
+
+        JPanel categoryPanel1 = new JPanel(new GridLayout(0, 1));
         categoryL = new JLabel("Category Choice");
         categoryL.setEnabled(true);
         categoryList = new JList<String>();
         categoryList.setListData(inputHolder.getCategories());
         categoryList.setEnabled(true);
-        JPanel categoryChoicePanel = new JPanel(new GridLayout(0,1));
+        JPanel categoryChoicePanel = new JPanel(new GridLayout(0, 1));
         categoryChoicePanel.add(categoryL);
         categoryChoicePanel.add(categoryList);
         categoryPanel1.add(categoryChoicePanel);
@@ -177,9 +173,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.weighty = 0;
         c.gridx = 5;
         c.gridy = 1;
-        this.add(categoryPanel1,c);
-        
-        
+        this.add(categoryPanel1, c);
 
         JLabel emptyLabel3 = new JLabel("                    \n          ");
         JPanel emptyPanel3 = new JPanel(new GridLayout(0, 1));
@@ -251,6 +245,18 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(viewPurchasesPanel, c);
 
+        deleteuser = new JButton("delete user");
+        deleteuser.addActionListener(this);
+        JPanel deleteuserPanel = new JPanel(new GridLayout(0, 1));
+        deleteuserPanel.add(deleteuser);
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 1;
+        c.weighty = 0.5;
+        c.gridx = 3;
+        c.gridy = 3;
+        this.add(deleteuserPanel, c);
+
         JLabel emptyLabel4 = new JLabel("                    \n          ");
         JPanel emptyPanel4 = new JPanel(new GridLayout(0, 1));
         emptyPanel4.add(emptyLabel4);
@@ -304,14 +310,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 7;
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
-        
+
         // Category panel here
-        JPanel categoryPanel = new JPanel(new GridLayout(0,1));
+        JPanel categoryPanel = new JPanel(new GridLayout(0, 1));
         categoryL = new JLabel("Category");
         categoryL.setEnabled(true);
         categoryT = new JTextField();
         categoryT.setEnabled(true);
-        
+
         JPanel insertCategory = new JPanel(new GridLayout(0, 1));
         insertCategory.add(categoryL);
         insertCategory.add(categoryT);
@@ -322,8 +328,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 3;
         c.gridy = 2;
         this.add(categoryPanel, c);
-        
-        //new buttons below
+
+        // new buttons below
         bonusRadioButton = new JButton("One-Time Bonus");
         bonusRadioButton.addActionListener(this);
         JPanel bonusButtonPanel = new JPanel(new GridLayout(0, 1));
@@ -335,7 +341,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 2;
         c.gridy = 3;
         this.add(bonusButtonPanel, c);
-        
+
         newIncomeButton = new JButton("Extra Income");
         newIncomeButton.addActionListener(this);
         JPanel incomeButtonPanel = new JPanel(new GridLayout(0, 1));
@@ -347,7 +353,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 0;
         c.gridy = 3;
         this.add(incomeButtonPanel, c);
-        
+
         replacePurchasesButton = new JButton("Replace Purchase Info");
         replacePurchasesButton.addActionListener(this);
         JPanel purchaseButtonPanel = new JPanel(new GridLayout(0, 1));
@@ -358,8 +364,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.weighty = 1;
         c.gridx = 4;
         c.gridy = 3;
-        this.add(purchaseButtonPanel, c);   
-        
+        this.add(purchaseButtonPanel, c);
+
         allTimeCheckbox = new JCheckBox("All Time");
         allTimeCheckbox.setAlignmentY((float) 10.0);
         allTimeCheckbox.setAlignmentX((float) 1.0);
@@ -369,15 +375,18 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1;
         c.weighty = 1;
-        c.gridx = 0; // Change the value of gridx and gridy according to the desired position in the grid
-        c.gridy = 5; // For example: c.gridx = 0 and c.gridy = 5 place the checkbox in the first column and the sixth row
+        c.gridx = 0; // Change the value of gridx and gridy according to the desired position in the
+                     // grid
+        c.gridy = 5; // For example: c.gridx = 0 and c.gridy = 5 place the checkbox in the first
+                     // column and the sixth row
         this.add(allTimeCheckboxPanel, c);
         this.setMinimumSize(new Dimension(400, 600));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
     }
 
-    public void itemStateChanged(ItemEvent e) {}
+    public void itemStateChanged(ItemEvent e) {
+    }
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getActionCommand();
@@ -390,17 +399,26 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
             }
         }
         HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency","Category"};
+        String[] inputs = { "User Name", "Income", "Amount", "Purchase/Return Date", "User Choice", "Transaction Id",
+                "Frequency", "Category" };
 
-        for (String input : inputs) inputValues.put(input, null);
-        if (!nameT.getText().isBlank()) inputValues.put(inputs[0], nameT.getText());
-        if (!incomeT.getText().isBlank()) inputValues.put(inputs[1], incomeT.getText());
-        if (!amountT.getText().isBlank()) inputValues.put(inputs[2], amountT.getText());
-        if (!purchaseDateT.getText().isBlank()) inputValues.put(inputs[3], purchaseDateT.getText());
-        if (userList.getSelectedValue() != null) inputValues.put(inputs[4], userList.getSelectedValue());
-        if (!deleteT.getText().isBlank()) inputValues.put(inputs[5], deleteT.getText());
+        for (String input : inputs)
+            inputValues.put(input, null);
+        if (!nameT.getText().isBlank())
+            inputValues.put(inputs[0], nameT.getText());
+        if (!incomeT.getText().isBlank())
+            inputValues.put(inputs[1], incomeT.getText());
+        if (!amountT.getText().isBlank())
+            inputValues.put(inputs[2], amountT.getText());
+        if (!purchaseDateT.getText().isBlank())
+            inputValues.put(inputs[3], purchaseDateT.getText());
+        if (userList.getSelectedValue() != null)
+            inputValues.put(inputs[4], userList.getSelectedValue());
+        if (!deleteT.getText().isBlank())
+            inputValues.put(inputs[5], deleteT.getText());
         inputValues.put(inputs[6], frequencyDropdown.getSelectedItem().toString());
-        if (!categoryT.getText().isBlank()) inputValues.put(inputs[7],categoryT.getText());
+        if (!categoryT.getText().isBlank())
+            inputValues.put(inputs[7], categoryT.getText());
         inputHolder.setAllTime(allTimeCheckbox.isSelected());
         inputHolder.setInput(inputValues, inputs);
         purchaseOutputPanel.setText(inputHolder.output());
