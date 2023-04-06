@@ -158,22 +158,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 0;
         this.add(userPanel, c);
 
-        JPanel categoryPanel1 = new JPanel(new GridLayout(0, 1));
-        categoryL = new JLabel("Category Choice");
-        categoryL.setEnabled(true);
-        categoryList = new JList<String>();
-        categoryList.setListData(inputHolder.getCategories());
-        categoryList.setEnabled(true);
-        JPanel categoryChoicePanel = new JPanel(new GridLayout(0, 1));
-        categoryChoicePanel.add(categoryL);
-        categoryChoicePanel.add(categoryList);
-        categoryPanel1.add(categoryChoicePanel);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 1;
-        c.weighty = 0;
-        c.gridx = 5;
-        c.gridy = 1;
-        this.add(categoryPanel1, c);
 
         JLabel emptyLabel3 = new JLabel("                    \n          ");
         JPanel emptyPanel3 = new JPanel(new GridLayout(0, 1));
@@ -245,7 +229,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(viewPurchasesPanel, c);
 
-        deleteuser = new JButton("delete user");
+        deleteuser = new JButton("Delete User");
         deleteuser.addActionListener(this);
         JPanel deleteuserPanel = new JPanel(new GridLayout(0, 1));
         deleteuserPanel.add(deleteuser);
@@ -311,7 +295,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(deletePurchasesPanel, c);
 
-        // Category panel here
         JPanel categoryPanel = new JPanel(new GridLayout(0, 1));
         categoryL = new JLabel("Category");
         categoryL.setEnabled(true);
@@ -329,7 +312,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridy = 2;
         this.add(categoryPanel, c);
 
-        // new buttons below
         bonusRadioButton = new JButton("One-Time Bonus");
         bonusRadioButton.addActionListener(this);
         JPanel bonusButtonPanel = new JPanel(new GridLayout(0, 1));
@@ -419,6 +401,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         inputValues.put(inputs[6], frequencyDropdown.getSelectedItem().toString());
         if (!categoryT.getText().isBlank())
             inputValues.put(inputs[7], categoryT.getText());
+        else {
+        	inputValues.put(inputs[7], "Other");
+        }
+       
         inputHolder.setAllTime(allTimeCheckbox.isSelected());
         inputHolder.setInput(inputValues, inputs);
         purchaseOutputPanel.setText(inputHolder.output());

@@ -17,8 +17,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "100", null, "Avi0001", null, null};
+        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "100", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -30,8 +30,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "250", null, "Avi0001", null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "250", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -43,8 +43,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "250", null, "Avi0001", null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "250", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -56,8 +56,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "250", null, "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "250", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -69,8 +69,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, null, null, "Avi0001", null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, null, null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -82,8 +82,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "250", null, null, null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "250", null, null, null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -95,8 +95,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "100", "209102", "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "100", "209102", "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -108,8 +108,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "250", "point", "Avi0001", null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "250", "point", "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -121,8 +121,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, null, "209102", "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, null, "209102", "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -134,8 +134,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "250", "point", null, null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "250", "point", null, null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -147,8 +147,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "100", null, "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "100", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -160,8 +160,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "250", null, "Avi0001", null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "250", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -173,8 +173,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "nak", null, "Avi0001", null, null};
+		 String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "nak", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -186,8 +186,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "abks", null, "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "abks", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -199,8 +199,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "1000", null, "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "1000", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -215,8 +215,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "1000", null, "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "1000", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -231,8 +231,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "5000", null, "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "5000", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
@@ -247,8 +247,8 @@ public class NewPurchaseOrReturnTest {
 		Household household = new Household();
 		household.addUser(new User("Avi0001", 1000, null));
 		HashMap<String, String> inputValues = new HashMap();
-        String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency"};
-		String[] values = {null, null, "10000", null, "Avi0001", null, null};
+		String[] inputs = {"User Name","Income","Amount","Purchase/Return Date","User Choice","Transaction Id","Frequency", "Category"};
+		String[] values = {null, null, "10000", null, "Avi0001", null, null, null};
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}

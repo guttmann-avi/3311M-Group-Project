@@ -13,15 +13,15 @@ public class NewPurchaseOrReturn implements Output {
     private HashMap<String, String> inputValues;
     private String[] inputs;
     private String radioButton;
-    private String categories;
+    private String category;
 
     public NewPurchaseOrReturn(String radioButton, HashMap<String, String> inputValues, String[] inputs,
-            Household household, String categories) {
+            Household household, String category) {
         this.inputValues = inputValues;
         this.inputs = inputs;
         this.household = household;
         this.radioButton = radioButton;
-        this.categories = categories;
+        this.category = category;
     }
 
     private Date purchaseOrReturnDateField() {
@@ -51,7 +51,7 @@ public class NewPurchaseOrReturn implements Output {
                 double amount = Double.parseDouble(inputValues.get(inputs[2]));
                 if (radioButton != null) {
                     if (radioButton.equalsIgnoreCase("Purchase")) {
-                        output = new NewPurchase(inputValues, inputs, household).output();
+                        output = new NewPurchase(inputValues, inputs, household,category).output();
                     } else if (radioButton.equalsIgnoreCase("Return")) {
                         output = new NewRefund(inputValues, inputs, household).output();
                     }
@@ -68,7 +68,7 @@ public class NewPurchaseOrReturn implements Output {
     public Household setHousehold() {
         if (!output().startsWith("Please")) {
             if (radioButton.equalsIgnoreCase("Purchase")) {
-                return new NewPurchase(inputValues, inputs, household).setHousehold(purchaseOrReturnDateField());
+                return new NewPurchase(inputValues, inputs, household,category).setHousehold(purchaseOrReturnDateField());
             } else if (radioButton.equalsIgnoreCase("Return")) {
                 return new NewRefund(inputValues, inputs, household).setHousehold(purchaseOrReturnDateField());
             }

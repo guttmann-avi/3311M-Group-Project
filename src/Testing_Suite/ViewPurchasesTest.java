@@ -24,7 +24,7 @@ public class ViewPurchasesTest {
 
 		assertEquals(
 				"User Name: Avi0001\nUser Avi0001 Income is 0.00 \tMoney Left: -200.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 200.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -100.00\t Purchase Date: 10/02/2022\n",
-				new ViewPurchases(user, true, null).output());
+				new ViewPurchases(user, true, null,null).output());
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class ViewPurchasesTest {
 		user.addPurchases(purchase3);
 		assertEquals(
 				"User Name: Mark0002\nUser Mark0002 Income is 5000.00 \tMoney Left: 5000.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 400.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 600.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -1000.00\t Purchase Date: 10/02/2022\n",
-				new ViewPurchases(user, true, null).output());
+				new ViewPurchases(user, true, null,null).output());
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class ViewPurchasesTest {
 		user.addPurchases(purchase3);
 		assertEquals(
 				"User Name: John0007\nUser John0007 Income is 0.00 \tMoney Left: -11300.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 10000.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 2500.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -1200.00\t Purchase Date: 10/02/2022\n",
-				new ViewPurchases(user, true, null).output());
+				new ViewPurchases(user, true, null,null).output());
 	}
 
 	@Test
@@ -66,7 +66,7 @@ public class ViewPurchasesTest {
 		user.addPurchases(purchase3);
 		assertEquals(
 				"User Name: Avi0001\nUser Avi0001 Income is 1000.00 \tMoney Left: 800.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 200.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -100.00\t Purchase Date: 10/02/2022\n",
-				new ViewPurchases(user, true, null).output());
+				new ViewPurchases(user, true, null,null).output());
 	}
 
 	@Test
@@ -80,12 +80,12 @@ public class ViewPurchasesTest {
 		user.addPurchases(purchase3);
 		assertEquals(
 				"User Name: Avi0001\nUser Avi0001 Income is 0.00 \tMoney Left: -200.00\nPurchase Id: "+purchase1.getPurchaseId()+"\t Purchase Amount: 100.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase2.getPurchaseId()+"\t Purchase Amount: 200.00\t Purchase Date: 02/02/2022\nPurchase Id: "+purchase3.getPurchaseId()+"\t Purchase Amount: -100.00\t Purchase Date: 10/02/2022\n",
-				new ViewPurchases(user, true, null).output());
+				new ViewPurchases(user, true, null,null).output());
 	}
 
 	@Test
 	public void testViewPurchasesOutput6() {
-		assertEquals("Please Choose a User from the User Choice list in order to see the Purchases of a User.", new ViewPurchases(null, true, null).output());
+		assertEquals("Please Choose a User from the User Choice list in order to see the Purchases of a User.", new ViewPurchases(null, true, null,null).output());
 	}
 
 }

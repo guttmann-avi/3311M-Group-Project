@@ -22,7 +22,7 @@ public class NewPurchaseTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		assertEquals("Please input a valid Integer in the 'Amount' area.", new NewPurchase(inputValues, inputs, household).output());
+		assertEquals("Please input a valid Integer in the 'Amount' area.", new NewPurchase(inputValues, inputs, household,"").output());
 	}
 
 	@Test
@@ -35,7 +35,7 @@ public class NewPurchaseTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		assertEquals("Please input a valid Integer in the 'Amount' area.", new NewPurchase(inputValues, inputs, household).output());
+		assertEquals("Please input a valid Integer in the 'Amount' area.", new NewPurchase(inputValues, inputs, household,"").output());
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class NewPurchaseTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		household = new NewPurchase(inputValues, inputs, household).setHousehold(null);
+		household = new NewPurchase(inputValues, inputs, household,"").setHousehold(null);
 		assertEquals("Avi0001", household.getUsers().get(0).getName());
 		assertEquals(null, 1000, household.getUsers().get(0).getPurchases().get(0).getAmount(), 0);
 		assertEquals(null, 1, household.getUsers().size(),0);
@@ -64,7 +64,7 @@ public class NewPurchaseTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		household = new NewPurchase(inputValues, inputs, household).setHousehold(null);
+		household = new NewPurchase(inputValues, inputs, household,"").setHousehold(null);
 		assertEquals("Avi0001", household.getUsers().get(0).getName());
 		assertEquals(true, household.getUsers().get(0).getPurchases().isEmpty());
 		assertEquals(null, 1, household.getUsers().size(), 0);
@@ -80,7 +80,7 @@ public class NewPurchaseTest {
 		for (int i = 0; i < inputs.length; i++) {
 			inputValues.put(inputs[i], values[i]);
 		}
-		household = new NewPurchase(inputValues, inputs, household).setHousehold(null);
+		household = new NewPurchase(inputValues, inputs, household,"").setHousehold(null);
 		assertEquals("Avi0001", household.getUsers().get(0).getName());
 		assertEquals(true, household.getUsers().get(0).getPurchases().isEmpty());
 		assertEquals(null, 1, household.getUsers().size(),0);

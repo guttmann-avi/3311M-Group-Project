@@ -11,7 +11,12 @@ public class Purchases {
 
 	public Purchases(double amount, String category, Date date) {
 		this.amount = amount;
-		this.category = category;
+		if(category != null) {
+			this.category = category;
+		}
+		else {
+			category = "Other";
+		}
 		this.date = date;
 		this.purchaseid = idCount;
 		idCount++;

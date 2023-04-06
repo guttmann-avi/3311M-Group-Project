@@ -12,11 +12,17 @@ public class NewPurchase implements Output {
     private Household household;
     private HashMap<String, String> inputValues;
     private String[] inputs;
+    private String category;
 
-    public NewPurchase(HashMap<String, String> inputValues, String[] inputs, Household household) {
+    public NewPurchase(HashMap<String, String> inputValues, String[] inputs, Household household, String category) {
         this.inputValues = inputValues;
         this.inputs = inputs;
         this.household = household;
+        if(category != null) {
+        	this.category = category;
+        }
+        else
+        	this.category = "Other";
     }
 
     @Override
@@ -36,7 +42,7 @@ public class NewPurchase implements Output {
     public Household setHousehold(Date returnDate) {
         if (output().contains("successfully")) {
             User user = household.findUser(inputValues.get(inputs[4]));
-            user.addPurchases(new Purchases(Double.parseDouble(inputValues.get(inputs[2])), returnDate));
+            user.addPurchases(new Purchases(Double.parseDouble(inputValues.get(inputs[2])), category, returnDate));
             household.replaceUser(user);
         }
         return household;
