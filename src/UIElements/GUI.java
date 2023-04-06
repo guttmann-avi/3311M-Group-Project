@@ -139,7 +139,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 3;
         c.gridy = 1;
         this.add(emptyPanel2, c);
-
+        //userchoice  qa fix
         JPanel userPanel = new JPanel(new GridLayout(0, 1));
 
         usersL = new JLabel("User Choice");
@@ -151,12 +151,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         userChoicePanel.add(usersL);
         userChoicePanel.add(userList);
         userPanel.add(userChoicePanel);
+        JScrollPane userPanelScroll = new JScrollPane(userPanel);
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
         c.weighty = 0;
         c.gridx = 4;
         c.gridy = 0;
-        this.add(userPanel, c);
+        this.add(userPanelScroll, c);
+
 
         JPanel categoryPanel1 = new JPanel(new GridLayout(0, 1));
         categoryL = new JLabel("Category Choice");
