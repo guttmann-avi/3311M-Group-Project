@@ -64,7 +64,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JRadioButton returnRadioButton;
 
     private JComboBox<String> frequencyDropdown;
-
+    private JComboBox<String> categoryCombo;
     private InputHolder inputHolder;
 
     public GUI() {
@@ -139,6 +139,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 3;
         c.gridy = 1;
         this.add(emptyPanel2, c);
+        //userchoice  qa fix
         JPanel userPanel = new JPanel(new GridLayout(0, 1));
 
         usersL = new JLabel("User Choice");
@@ -297,14 +298,15 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(deletePurchasesPanel, c);
 
         JPanel categoryPanel = new JPanel(new GridLayout(0, 1));
-        categoryL = new JLabel("Category");
-        categoryL.setEnabled(true);
-        categoryT = new JTextField();
-        categoryT.setEnabled(true);
-
+        String[] categories = { "Groceries",
+         "Entertainment", "Clothing"
+        , "Appliance", "Transportation", "Other"
+        };
+        categoryCombo = new JComboBox<String>(categories);
+        categoryCombo.setEditable(true);
+        categoryCombo.setSelectedItem("Category");
         JPanel insertCategory = new JPanel(new GridLayout(0, 1));
-        insertCategory.add(categoryL);
-        insertCategory.add(categoryT);
+        insertCategory.add(categoryCombo);
         categoryPanel.add(insertCategory);
         c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
@@ -400,8 +402,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         if (!deleteT.getText().isBlank())
             inputValues.put(inputs[5], deleteT.getText());
         inputValues.put(inputs[6], frequencyDropdown.getSelectedItem().toString());
-        if (!categoryT.getText().isBlank())
-            inputValues.put(inputs[7], categoryT.getText());
+        if (categoryCombo.getSelectedItem() != null && !categoryCombo.getSelectedItem().toString().isBlank())
+        inputValues.put(inputs[7], categoryCombo.getSelectedItem().toString());
         else {
         	inputValues.put(inputs[7], "Other");
         }
