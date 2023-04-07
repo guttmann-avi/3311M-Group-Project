@@ -99,3 +99,27 @@ Meeting #13 Mar 8:
 - figured out parts that need to be cleaned up in the code
 - split up some of the remaining tasks
 - discovered and discussed a bug that was found and how to fix it
+
+Meeting #14 Mar 16:
+-went over te user stories that we want to add for the iteration 3
+-assigned each person to a different user stories to work on
+-decided the type and number of testcases we need for our project
+
+
+Meeting #15 Mar 24:
+-everyone shows their progress with their userstories 
+-decided which user stories are included for the presentation
+-went over each persons responsibility for the presentation
+
+Meeting #16 Mar 28:
+-worked on the slides for the presentation 
+
+
+Meeting #17 Apr 1st:
+-practiced for the presentation
+-quickly went over everyones responsibilities for itr3
+
+
+Meeting #18 Apr 6th:
+-finalized all the user stories
+-fixed the gui
