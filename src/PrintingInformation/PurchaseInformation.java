@@ -21,18 +21,18 @@ public class PurchaseInformation implements TotalInformation {
 				PurchaseOrganiser.categorizePurchases(purchase);
 			if (allTime) {
 				if (purchase.getDate() == null) {
-					info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + "\t Category: " + purchase.getCategory() +"\n"; 
+					info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: " + String.format("%.2f", purchase.getAmount()) + "\t Purchase Date:  No Date"  + " Category: " + purchase.getCategory() +"\n"; 
 				} else {
 					info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: "
 							+ String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
 							+ sdf.format(purchase.getDate()) +
-							 "\t Category: " + purchase.getCategory() +"\n";
+							 " Category: " + purchase.getCategory() +"\n";
 				}
 			} else {
 				if (purchase.getDate() != null && checkDate(purchase, time)) {
 					info += "Purchase Id: " + purchase.getPurchaseId() + "\t Purchase Amount: "
 							+ String.format("%.2f", purchase.getAmount()) + "\t Purchase Date: "
-							+ sdf.format(purchase.getDate()) + "\t Category: " + purchase.getCategory() +"\n";
+							+ sdf.format(purchase.getDate()) + " Category: " + purchase.getCategory() +"\n";
 				}
 			}
 		}

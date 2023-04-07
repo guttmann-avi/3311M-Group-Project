@@ -64,7 +64,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
     JRadioButton returnRadioButton;
 
     private JComboBox<String> frequencyDropdown;
-    private JComboBox<String> categoryCombo;
+
     private InputHolder inputHolder;
 
     public GUI() {
@@ -298,15 +298,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         this.add(deletePurchasesPanel, c);
 
         JPanel categoryPanel = new JPanel(new GridLayout(0, 1));
-        String[] categories = { "Groceries",
-         "Entertainment", "Clothing"
-        , "Appliance", "Transportation", "Other"
-        };
-        categoryCombo = new JComboBox<String>(categories);
-        categoryCombo.setEditable(true);
-        categoryCombo.setSelectedItem("Category");
+        categoryL = new JLabel("Category");
+        categoryL.setEnabled(true);
+        categoryT = new JTextField();
+        categoryT.setEnabled(true);
+
         JPanel insertCategory = new JPanel(new GridLayout(0, 1));
-        insertCategory.add(categoryCombo);
+        insertCategory.add(categoryL);
+        insertCategory.add(categoryT);
         categoryPanel.add(insertCategory);
         c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
@@ -402,8 +401,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         if (!deleteT.getText().isBlank())
             inputValues.put(inputs[5], deleteT.getText());
         inputValues.put(inputs[6], frequencyDropdown.getSelectedItem().toString());
-        if (categoryCombo.getSelectedItem() != null && !categoryCombo.getSelectedItem().toString().isBlank())
-        inputValues.put(inputs[7], categoryCombo.getSelectedItem().toString());
+        if (!categoryT.getText().isBlank())
+            inputValues.put(inputs[7], categoryT.getText());
         else {
         	inputValues.put(inputs[7], "Other");
         }
