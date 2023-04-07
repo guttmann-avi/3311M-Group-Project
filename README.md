@@ -23,7 +23,6 @@ _We hope you enjoy using this app!_
 - Budgetting by category
 - Record grouping and search
 - Budget reworking
-- Payment notifications
 - Updating and deleting purchase information
 
 ## Installation and Running
