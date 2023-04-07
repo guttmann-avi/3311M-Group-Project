@@ -16,21 +16,19 @@ public class PurchaseOrganiser{
 		CategoryList.put("Other", null);
 	}
 	public static void categorizePurchases(Purchases purchase) {
-		if(purchase.getCategory() != null && purchase != null) {
+		String keywordHelper = purchase.getCategory();
+		if(purchase.getCategory() != null) {
 			for (Map.Entry<String, List<String>> category : CategoryList.entrySet()) {
-				List<String> keywords = category.getValue();
-				if(keywords != null){
-					for(String keyword : keywords)
-					if (purchase.getCategory().toLowerCase().contains(keyword.toLowerCase())) {
-						purchase.setCategory(category.getKey());
-						return;
-					}
+				if(category.getValue().contains(keywordHelper.toLowerCase())){
+					purchase.setCategory(category.getKey());
 				}
 			}
-		}
-
-		else {
-			purchase.setCategory("Other");
+			//		if(purchase.getCategory() != null && purchase.getCategory() == keywordHelper){
+			//			purchase.setCategory("Other");
+			//		}
+			//		else {
+			//			purchase.setCategory("Other");
+			//		}
 		}
 	}
 }

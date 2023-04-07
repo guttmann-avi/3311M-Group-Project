@@ -139,7 +139,6 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
         c.gridx = 3;
         c.gridy = 1;
         this.add(emptyPanel2, c);
-        //userchoice  qa fix
         JPanel userPanel = new JPanel(new GridLayout(0, 1));
 
         usersL = new JLabel("User Choice");
