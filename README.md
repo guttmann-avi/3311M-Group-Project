@@ -40,18 +40,24 @@ To install the application, follow these steps:
 Use the programme by doing the following:
 
 1. Open the application.
-2. Fill in the User Name field with the name of the user 
-you wish to add.
+2. Enter the desired user name in the "User Name" field.
 3. Assign an income to the new user.
-4. Press the Insert New User button.
-5. Once the user makes a purchase,
-select the user from the dropdown.
-6. Insert the purchase by filling in the Amount field.
-7. Enter the Purchase Date.
-8. Press the Insert Purchase button.
-9. To view a user's purchase history, 
-select user from dropdown.
-10. Press View Purchases.
+4. Choose the income frequency from the dropdown menu.
+5. Click the "Insert New User" button.
+6. After the user completes a transaction, select their name from the dropdown menu.
+7. Input the transaction amount in the "Amount" field.
+8. Enter the transaction date.
+9. Decide between the "Purchase" and "Return" options.
+10. Select the transaction category from the dropdown menu or simply type it in.
+11. Click the "Insert Purchase" button.
+12. To view a user's purchase history, select their name from the dropdown menu.
+13. Press the "View Purchases" button.
+14. If a transaction was logged incorrectly, locate the transaction ID.
+15. Complete the required fields for the corrected transaction.
+16. Click the "Replace Purchase Info" button.
+17. Alternatively, remove the transaction using the "Delete Transaction" button.
+18. If a user's income changes after the initial value was set, adjust it by entering the new amount in the "Income" field and pressing the "Extra Income" button.
+
 
 ## Contributors
 
