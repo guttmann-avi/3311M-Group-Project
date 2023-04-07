@@ -1,4 +1,4 @@
 {{income:{amount:551000.0,Income_source:Avi0001,Income_tabulation_date:02/03/2022,frequency:Yearly},purchases:[{Amount:100.0,Date:null,Category:null}]},
- Users:{[name:Avi0001,transID:175,Date:02/03/2022,income:[{amount:1000.0,Income_source:Avi0001,Income_tabulation_date:02/03/2022,frequency:Yearly}],purchases:[{Amount:250.0,Date:null,Category:null},{Amount:450.0,Date:null,Category:null}]],
-[name:Mark0002,transID:176,Date:02/03/2022,income:[{amount:2500.0,Income_source:Mark0002,Income_tabulation_date:02/03/2022,frequency:Monthly}],purchases:[{Amount:350.0,Date:null,Category:null},{Amount:550.0,Date:null,Category:null}]],
-[name:John0003,transID:177,Date:02/03/2022,income:[{amount:10000.0,Income_source:John0003,Income_tabulation_date:02/03/2022,frequency:Weekly}],purchases:[]]}}
+ Users:{[name:Avi0001,transID:0,Date:02/03/2022,income:[{amount:1000.0,Income_source:Avi0001,Income_tabulation_date:02/03/2022,frequency:Yearly}],purchases:[{Amount:250.0,Date:null,Category:Other},{Amount:450.0,Date:null,Category:Other},{Amount:20.0,Date:12/12/2222,Category:Clothing}]],
+[name:Mark0002,transID:1,Date:02/03/2022,income:[{amount:2500.0,Income_source:Mark0002,Income_tabulation_date:02/03/2022,frequency:Monthly}],purchases:[{Amount:350.0,Date:null,Category:null},{Amount:550.0,Date:null,Category:null}]],
+[name:John0003,transID:2,Date:02/03/2022,income:[{amount:10000.0,Income_source:John0003,Income_tabulation_date:02/03/2022,frequency:Weekly}],purchases:[]]}}
