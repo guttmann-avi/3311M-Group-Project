@@ -27,11 +27,12 @@ public class PurchaseOrganiser {
 				}
 
 			}
-			if (purchase.getCategory() != null && purchase.getCategory() == keywordHelper) {
+		}
+			else if (purchase.getCategory() != null && purchase.getCategory() == keywordHelper) {
 				purchase.setCategory("Other");
 			} else {
 				purchase.setCategory("Other");
 			}
 		}
 	}
-}
+
